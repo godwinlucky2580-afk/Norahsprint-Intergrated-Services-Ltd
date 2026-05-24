@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NorahsPrint integrated Services – Premium Furniture, Electrical & POP and Solutions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --gold: #3D8EFF;
+  --gold-light: #7CB9FF;
+  --gold-dark: #1A60D4;
+  --bg-dark: #050C1C;
+  --bg-card: rgba(61,142,255,0.06);
+  --bg-card-hover: rgba(61,142,255,0.12);
+  --border: rgba(61,142,255,0.28);
+  --border-light: rgba(61,142,255,0.12);
+  --text-primary: #F5F0E8,#EDF4FF;
+  --text-secondary: rgba(237,244,255,0.65);
+  --text-muted: rgba(237,244,255,0.38);
+  --shadow-gold: 0 8px 40px rgba(61,142,255,0.25);
+  --shadow-card: 0 4px 30px rgba(0,8,30,0.55);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --transition: all 0.4s cubic-bezier(0.25,0.8,0.25,1);
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+[data-theme="light"] {
+  --bg-dark: #EEF5FF;
+  --bg-card: rgba(61,142,255,0.07);
+  --bg-card-hover: rgba(61,142,255,0.13);
+  --border: rgba(61,142,255,0.35);
+  --border-light: rgba(61,142,255,0.15);
+  --text-primary: #0A1628;
+  --text-secondary: rgba(10,22,40,0.7);
+  --text-muted: rgba(10,22,40,0.45);
+  --shadow-card: 0 4px 30px rgba(10,40,100,0.12);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);background:var(--bg-dark);color:var(--text-primary);overflow-x:hidden;transition:background 0.4s ease,color 0.4s ease;line-height:1.7;font-weight: 700;}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:var(--font-body);border:none;outline:none}
+ul{list-style:none}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:3px}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:76px;background:rgba(10,10,15,0.6);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border-light);transition:var(--transition);}
+[data-theme="light"] nav{background:rgba(245,240,232,0.7)}
+nav.scrolled{background:rgba(10,10,15,0.92);box-shadow:0 2px 30px rgba(0,0,0,0.3)}
+[data-theme="light"] nav.scrolled{background:rgba(245,240,232,0.96)}
+.nav-logo{font-family:var(--font-display);font-size:1.4rem;font-weight:600;letter-spacing:0.03em;display:flex;align-items:center;gap:10px;color: #1A60D4;}
+.nav-logo span{color:#3D8EFF;}
+.logo-mark{width:50px;height:50px;border:2px solid white;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.logo-mark img{width:90%;height:90%;object-fit:cover;border-radius:50%;cursor: pointer;}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{font-size:0.85rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-secondary);transition:var(--transition);position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:#1A60D4;transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
+.nav-links a:hover{color:#1A60D4}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-actions{display:flex;align-items:center;gap:16px}
+.theme-toggle{width:40px;height:40px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border-light);display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:var(--transition);color:var(--text-secondary);}
+.theme-toggle:hover{border-color: rgb(53, 49, 49);color: rgb(53, 49, 49);transform:scale(1.05)}
+.btn-book-nav{padding:10px 22px;background:white;color:#0A0A0F;font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;border-radius:100px;transition:var(--transition);box-shadow:0 4px 20px rgba(201,168,76,0.3);}
+.btn-book-nav:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:var(--shadow-gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
+.hamburger span{width:24px;height:2px;background:#1A60D4;border-radius:2px;transition:var(--transition)}
+.mobile-nav{position:fixed;top:76px;left:0;right:0;z-index:999;background:rgba(10,10,15,0.98);backdrop-filter:blur(30px);padding:30px 5%;display:flex;flex-direction:column;gap:20px;transform:translateY(-110%);opacity:0;transition:all 0.4s cubic-bezier(0.25,0.8,0.25,1);border-bottom:1px solid var(--border);}
+[data-theme="light"] .mobile-nav{background:rgba(245,240,232,0.98)}
+.mobile-nav.open{transform:translateY(0);opacity:1}
+.mobile-nav a{font-size:1.1rem;color:var(--text-secondary);padding:8px 0;border-bottom:1px solid var(--border-light)}
+.mobile-nav a:hover{color: rgb(53, 49, 49)}
+section{position:relative;z-index:1}
+.container{max-width:1280px;margin:0 auto;padding:0 5%}
+.section-pad{padding:35px 0}
+.section-tag{display:inline-flex;align-items:center;gap:10px;font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color: rgb(53, 49, 49);margin-bottom:20px;}
+.section-tag::before{content:'';width:30px;height:1px;background:white}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;line-height:1.15;margin-bottom:20px;}
+.section-title em{font-style:italic;color: rgb(53, 49, 49)}
+.section-subtitle{font-size:1rem;color:var(--text-secondary);max-width:520px;line-height:1.75;}
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:76px;overflow:hidden;position:relative;}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 70% 40%,rgba(201,168,76,0.08) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 20% 80%,rgba(42,74,62,0.15) 0%,transparent 50%),var(--bg-dark);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 70% 70% at 70% 50%,black 20%,transparent 100%);}
+.hero-content{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 5%;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;width:100%;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;background:#7CB9FF;border:1px solid rgba(61,142,255,0.12);border-radius:100px;padding:8px 20px;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color: rgb(53, 49, 49);margin-bottom:32px;margin-top:10px;width:fit-content;}
+.hero-eyebrow span{width:6px;height:6px;background:white;border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(2)}}
+.hero-title{font-family:var(--font-display);font-size:clamp(3rem,6vw,5.2rem);font-weight:300;line-height:1.08;margin-bottom:28px;}
+.hero-title .line{display:block;color:#1A60D4;}
+.hero-title .gold{color: rgb(53, 49, 49)}
+.hero-title .italic{font-style:italic}
+.hero-sub{font-size:1.05rem;color:var(--text-secondary);line-height:1.8;margin-bottom:44px;max-width:480px;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;background:white;color:#0A0A0F;font-size:0.85rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;border-radius:100px;transition:var(--transition);box-shadow:var(--shadow-gold);}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-3px);box-shadow:rgba(61,142,255,0.12)}
+.btn-primary svg{transition:transform 0.3s ease}
+.btn-primary:hover svg{transform:translateX(4px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;background:transparent;color: rgb(53, 49, 49);font-size:0.85rem;font-weight:500;letter-spacing:0.08em;border:1px solid var(--border-light);border-radius:100px;transition:var(--transition);}
+.btn-secondary:hover{border-color: rgb(53, 49, 49);color: white;transform:translateY(-3px)}
+.hero-stats{display:flex;gap:36px;margin-top:52px;padding-top:36px;border-top:1px solid var(--border-light);}
+.stat-num{font-family:var(--font-display);font-size:2.4rem;font-weight:600;color: rgb(53, 49, 49);display:block;}
+.stat-label{font-size:0.78rem;color:var(--text-muted);letter-spacing:0.06em;text-transform:uppercase;}
+.hero-visual{position:relative;height:600px;display:flex;align-items:center;justify-content:center;}
+.hero-visual-card{width:100%;max-width:440px;height:520px;border-radius:var(--radius);background:#111827;border:1px solid var(--border);backdrop-filter:blur(20px);overflow:hidden;position:relative;box-shadow:var(--shadow-card);}
+.hero-visual-card img{width:100%;height:100%;object-fit:cover;opacity:0.85;transition:transform 0.5s ease;}
+.hero-visual-card:hover img{transform:scale(1.05)}
+.hero-card-badge{position:absolute;bottom:24px;left:24px;right:24px;background:rgba(10,10,15,0.8);backdrop-filter:blur(12px);border:1px solid rgba(201,168,76,0.2);border-radius:var(--radius-sm);padding:16px 20px;display:flex;align-items:center;gap:14px;}
+.badge-icon{width:44px;height:44px;min-width:44px;background:rgba(201,168,76,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.badge-text{font-size:0.8rem}
+.badge-text strong{display:block;color: #1A60D4;font-weight:600;margin-bottom:2px}
+.badge-text span{color: white;font-size:0.72rem}
+.hero-float-1,.hero-float-2{position:absolute;background:#111827;backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 18px;white-space:nowrap;}
+.hero-float-1{top:60px;right:-30px;animation:floatY 4s ease-in-out infinite}
+.hero-float-2{bottom:100px;left:-40px;animation:floatY 4s ease-in-out infinite 2s}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.float-label{font-size:0.72rem;color: white;text-transform:uppercase;letter-spacing:0.08em}
+.float-val{font-family:var(--font-display);font-size:1.3rem;font-weight:600;color: white}
+#about{background:linear-gradient(180deg,var(--bg-dark) 0%,rgba(42,74,62,0.08) 50%,var(--bg-dark) 100%)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-visual{position:relative}
+.about-img-wrap{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;border:1px solid var(--border);}
+.about-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease}
+.about-img-wrap:hover img{transform:scale(1.03)}
+.about-badge{position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:white;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0A0A0F;box-shadow:0 8px 40px rgba(201,168,76,0.5);animation:spin-slow 20s linear infinite;}
+@keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.about-badge-inner{text-align:center;animation:counter-spin 20s linear infinite}
+@keyframes counter-spin{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.about-badge-num{font-family:var(--font-display);font-size:2rem;font-weight:700;display:block;line-height:1}
+.about-badge-label{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase}
+.about-pillars{display:grid;grid-template-columns:162px 1fr 1fr;gap:16px;margin-top:36px;}
+.about-pillar{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:15px;transition:var(--transition);}
+.about-pillar:hover{border-color: rgb(53, 49, 49);background:var(--bg-card-hover);transform:translateY(-4px)}
+.pillar-icon{font-size:1.6rem;margin-bottom:8px}
+.pillar-name{font-size:0.9rem;font-weight:700;margin-bottom:4px}
+.pillar-desc{font-size:0.78rem;color:var(--text-muted);line-height:1.5}
+#services{background:var(--bg-dark)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:60px;}
+.service-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);padding:36px;display:flex;flex-direction:column;gap:20px;position:relative;overflow:hidden;transition:var(--transition);backdrop-filter:blur(10px);}
+.service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.06) 0%,transparent 60%);opacity:0;transition:opacity 0.4s ease;pointer-events:none;z-index:0;}
+.service-card:hover{border-color: rgb(53, 49, 49);transform:translateY(-8px);box-shadow:var(--shadow-gold);}
+.service-card:hover::before{opacity:1}
+.service-card .service-icon,
+.service-card .service-title,
+.service-card .service-desc,
+.service-card .service-features,
+.service-card .btn-book-service{position:relative;z-index:1;}
+.service-icon{width:60px;height:60px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.7rem;transition:var(--transition);}
+.service-card:hover .service-icon{background:rgba(201,168,76,0.2);transform:scale(1.1)}
+.service-title{font-family:var(--font-display);font-size:1.4rem;font-weight:400;color:var(--text-primary);}
+.service-desc{font-size:0.9rem;color:var(--text-secondary);line-height:1.75;flex:1;}
+.service-features{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.service-features li{display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--text-muted);}
+.service-features li::before{content:'';width:16px;height:1px;background:white;flex-shrink:0;}
+.btn-book-service{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;background:transparent;border:1px solid white;color: rgb(53, 49, 49);font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-radius:100px;transition:var(--transition);margin-top:auto;}
+.btn-book-service:hover{background:white;color:#0A0A0F;box-shadow:0 4px 20px rgba(201,168,76,0.4)}
+#products{background:linear-gradient(180deg,var(--bg-dark) 0%,rgba(26,42,74,0.08) 50%,var(--bg-dark) 100%)}
+.products-controls{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin:50px 0 40px;}
+.search-wrap{flex:1;min-width:240px;max-width:400px;position:relative;}
+.search-wrap input{width:100%;padding:13px 20px 13px 46px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:100px;color:var(--text-primary);font-family:var(--font-body);font-size:0.9rem;transition:var(--transition);}
+.search-wrap input::placeholder{color:var(--text-muted)}
+.search-wrap input:focus{border-color: rgb(53, 49, 49);outline:none;box-shadow:0 0 0 3px rgba(201,168,76,0.1)}
+.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:1rem;pointer-events:none;}
+.filter-btns{display:flex;flex-wrap:wrap;gap:8px}
+.filter-btn{padding:10px 20px;background:var(--bg-card);border:1px solid var(--border-light);color:var(--text-secondary);font-size:0.8rem;font-weight:500;letter-spacing:0.06em;border-radius:100px;transition:var(--transition);}
+.filter-btn:hover,.filter-btn.active{background:white;border-color: rgb(53, 49, 49);color:#0A0A0F;box-shadow:0 4px 16px rgba(201,168,76,0.3);}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;}
+.product-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;transition:var(--transition);backdrop-filter:blur(10px);}
+.product-card:hover{border-color:var(--border);transform:translateY(-6px);box-shadow:var(--shadow-card);}
+.product-img{height:220px;overflow:hidden;position:relative;background:linear-gradient(135deg,rgba(201,168,76,0.08),rgba(42,74,62,0.12));}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+.product-card:hover .product-img img{transform:scale(1.08)}
+.product-cat{position:absolute;top:14px;left:14px;background:rgba(10,10,15,0.8);backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,0.3);border-radius:100px;padding:5px 14px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color: rgb(53, 49, 49);}
+.product-info{padding:24px}
+.product-name{font-family:var(--font-display);font-size:1.15rem;font-weight:400;margin-bottom:8px;line-height:1.3;}
+.product-desc{font-size:0.82rem;color:var(--text-secondary);margin-bottom:16px;line-height:1.6;}
+.product-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.product-price{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color: rgb(53, 49, 49);}
+.product-price span{font-size:0.8rem;font-weight:400;color:var(--text-muted)}
+.btn-order{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:rgba(37,211,102,0.15);border:1px solid rgba(37,211,102,0.3);color:#25D366;font-size:0.76rem;font-weight:600;letter-spacing:0.06em;border-radius:100px;transition:var(--transition);white-space:nowrap;}
+.btn-order:hover{background:rgba(37,211,102,0.25);border-color:#25D366;transform:scale(1.03)}
+.no-results{text-align:center;padding:80px 20px;color:var(--text-muted);font-size:1rem;grid-column:1/-1;}
+#booking{background:var(--bg-dark);}
+.booking-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.booking-feature{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;}
+.booking-feature-icon{width:44px;height:44px;min-width:44px;background:rgba(201,168,76,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;border:1px solid rgba(201,168,76,0.2);}
+.booking-feature-text h4{font-size:0.95rem;font-weight:600;margin-bottom:4px}
+.booking-feature-text p{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
+.booking-form-wrap{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);padding:44px;backdrop-filter:blur(20px);position:relative;overflow:hidden;}
+.booking-form-wrap::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%);pointer-events:none;}
+.form-title{font-family:var(--font-display);font-size:1.6rem;font-weight:400;margin-bottom:30px;}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 18px;background:rgba(255,255,255,0.04);border:1px solid var(--border-light);border-radius:var(--radius-sm);color:var(--text-primary);font-family:var(--font-body);font-size:0.9rem;transition:var(--transition);}
+[data-theme="light"] .form-group input,[data-theme="light"] .form-group select,[data-theme="light"] .form-group textarea{background:rgba(0,0,0,0.03);}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-muted)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color: white;outline:none;box-shadow:1px 5px 5px 0.2px rgba(21, 75, 192, 0.2);}
+.form-group select option{background:#1a1a1a;color:var(--text-primary)}
+.form-group textarea{resize:vertical;min-height:100px}
+.btn-submit{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:15px;background:white;color:#0A0A0F;font-weight:700;font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;border-radius:var(--radius-sm);transition:var(--transition);box-shadow:0 4px 30px rgba(0,8,30,0.55);}
+.btn-submit:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 40px rgba(61,142,255,0.25)}
+.btn-submit:disabled{opacity:0.7;cursor:not-allowed;transform:none !important;}
+/* ===== FORM STATUS MESSAGES ===== */
+.form-status{
+  display:none;
+  align-items:center;
+  gap:12px;
+  padding:16px 20px;
+  border-radius:var(--radius-sm);
+  margin-top:16px;
+  font-size:0.88rem;
+  font-weight:500;
+  line-height:1.5;
+  opacity:0;
+  transform:translateY(-8px);
+  transition:opacity 0.3s ease, transform 0.3s ease;
+}
+.form-status.visible{
+  display:flex;
+  opacity:1;
+  transform:translateY(0);
+}
+.form-status.success{
+  background:rgba(37,211,102,0.1);
+  border:1px solid rgba(37,211,102,0.3);
+  color:#25D366;
+}
+.form-status.error{
+  background:rgba(255,80,80,0.1);
+  border:1px solid rgba(255,80,80,0.3);
+  color:#ff6b6b;
+}
+#testimonials{background:linear-gradient(180deg,var(--bg-dark) 0%,rgba(74,42,106,0.06) 50%,var(--bg-dark) 100%);}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;margin-top:60px;}
+.testimonial-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);padding:36px;transition:var(--transition);backdrop-filter:blur(10px);position:relative;overflow:hidden;}
+.testimonial-card::before{content:'\201C';position:absolute;top:-10px;right:24px;font-family:var(--font-display);font-size:8rem;font-weight:700;color:rgba(201,168,76,0.06);line-height:1;pointer-events:none;}
+.testimonial-card:hover{border-color:var(--border);transform:translateY(-6px);box-shadow:var(--shadow-card)}
+.stars{display:flex;gap:3px;margin-bottom:16px}
+.stars span{color: rgb(53, 49, 49);font-size:1rem}
+.testimonial-text{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;font-style:italic;margin-bottom:24px;}
+.testimonial-author{display:flex;align-items:center;gap:14px}
+.author-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dark),white);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:#0A0A0F;flex-shrink:0;}
+.author-info h4{font-size:0.9rem;font-weight:600;margin-bottom:2px}
+.author-info span{font-size:0.78rem;color:var(--text-muted)}
+#feedback{background:var(--bg-dark)}
+.feedback-wrap{max-width:640px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius);padding:50px;backdrop-filter:blur(20px);}
+.feedback-wrap .form-title{text-align:center;margin-bottom:10px}
+.feedback-subtitle{text-align:center;color:var(--text-secondary);font-size:0.9rem;margin-bottom:36px}
+.rating-input{display:flex;justify-content:center;gap:10px;margin-bottom:20px}
+.rating-input span{font-size:1.8rem;color:var(--text-muted);cursor:pointer;transition:var(--transition);}
+.rating-input span.active,.rating-input span:hover{color: rgb(53, 49, 49);transform:scale(1.2)}
+#contact{background:var(--bg-dark)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.contact-detail{display:flex;align-items:flex-start;gap:18px;margin-bottom:32px;}
+.contact-detail-icon{width:50px;height:50px;min-width:50px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.contact-detail-text h4{font-size:0.85rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
+.contact-detail-text p{font-size:1rem;color:var(--text-primary);line-height:1.5}
+.contact-detail-text a{color:var(--text-primary);transition:color 0.3s ease}
+.contact-detail-text a:hover{color: rgb(53, 49, 49)}
+.whatsapp-cta{display:flex;align-items:center;gap:14px;padding:20px 28px;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);border-radius:var(--radius-sm);margin-top:36px;cursor:pointer;transition:var(--transition);}
+.whatsapp-cta:hover{background:rgba(37,211,102,0.18);transform:translateY(-2px)}
+.whatsapp-cta .wa-icon{font-size:2rem}
+.whatsapp-cta-text h4{color:#25D366;font-weight:700;margin-bottom:2px}
+.whatsapp-cta-text p{font-size:0.82rem;color:var(--text-secondary)}
+footer{background:rgba(10,10,15,0.8);border-top:1px solid var(--border-light);padding:60px 0 30px;position:relative;z-index:1;}
+[data-theme="light"] footer{background:rgba(245,240,232,0.8)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:50px;}
+.footer-logo{font-family:var(--font-display);font-size:1.6rem;font-weight:600;margin-bottom:16px;color: #1A60D4;}
+.footer-logo span{color: rgb(53, 49, 49)}
+.footer-tagline{font-size:0.85rem;color:var(--text-secondary);line-height:1.7;margin-bottom:24px;max-width:280px;}
+.footer-social{display:flex;gap:12px}
+.social-btn{width:38px;height:38px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border-light);display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:var(--text-muted);transition:var(--transition);}
+.social-btn:hover{border-color: rgb(53, 49, 49);color: rgb(53, 49, 49);transform:translateY(-3px)}
+.footer-col h4{font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color: rgb(53, 49, 49);margin-bottom:20px;}
+.footer-col ul{display:flex;flex-direction:column;gap:12px}
+.footer-col ul li a{font-size:0.85rem;color:var(--text-secondary);transition:color 0.3s ease;}
+.footer-col ul li a:hover{color: rgb(53, 49, 49)}
+.footer-bottom{border-top:1px solid var(--border-light);padding-top:26px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:0.8rem;color:var(--text-muted)}
+.footer-copy span{color: rgb(53, 49, 49)}
+.wa-float{position:fixed;bottom:30px;right:30px;z-index:9000;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 6px 30px rgba(37,211,102,0.5);cursor:pointer;transition:var(--transition);animation:wa-pulse 3s ease-in-out infinite;color: white;}
+@keyframes wa-pulse{0%,100%{box-shadow:0 6px 30px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 50px rgba(37,211,102,0.8),0 0 0 12px rgba(37,211,102,0.1)}}
+.wa-float:hover{transform:scale(1.12);background:#20be5b}
+.wa-tooltip{position:absolute;right:70px;top:50%;transform:translateY(-50%);background:rgba(10,10,15,0.9);backdrop-filter:blur(10px);border-radius:var(--radius-sm);padding:10px 16px;font-size:0.82rem;font-weight:500;color:var(--text-primary);white-space:nowrap;border:1px solid var(--border-light);pointer-events:none;opacity:0;transition:opacity 0.3s ease;}
+.wa-float:hover .wa-tooltip{opacity:1}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s cubic-bezier(0.25,0.8,0.25,1),transform 0.7s cubic-bezier(0.25,0.8,0.25,1);}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.gold-sep{width:60px;height:2px;background:linear-gradient(90deg,white,transparent);margin:28px 0;}
+#loader{position:fixed;inset:0;z-index:9999;background:var(--bg-dark);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity 0.6s ease,visibility 0.6s ease;}
+#loader.hidden{opacity:0;visibility:hidden}
+.loader-logo{font-family:var(--font-display);font-size:2rem;font-weight:600;color: rgb(53, 49, 49);animation:fadeInUp 0.8s ease;}
+.loader-bar{width:200px;height:3.5px;background:rgba(201,168,76,0.2);border-radius:2px;overflow:hidden;}
+.loader-progress{width:0%;height:100%;background:linear-gradient(90deg,var(--gold-dark),rgba(10,22,40,0.45));border-radius:2px;animation:loading 1.5s ease forwards;}
+@keyframes loading{to{width:100%}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1024px){
+  .hero-content{grid-template-columns:1fr;text-align:center}
+  .hero-content .hero-sub{margin:0 auto 44px}
+  .hero-actions{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-visual{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .about-badge{display:none}
+  .booking-inner{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.btn-book-nav{display:none}
+  .hamburger{display:flex}
+  .hero-title{font-size:clamp(2.4rem,8vw,4rem)}
+  .section-pad{padding:80px 0}
+  .about-pillars{grid-template-columns:1fr}
+  .booking-form-wrap{padding:30px}
+  .feedback-wrap{padding:30px}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  .hero-stats{flex-direction:column;gap:20px}
+}
+
+@media(min-width:391) {
+.nav-logo span{
+  font-size: 0.5rem;
+}                                                                       
+}
+
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-logo">NorahsPrint Integrated Services</div>
+  <div class="loader-bar"><div class="loader-progress"></div></div>
+</div>
+
+<nav id="navbar">
+  <div class="nav-logo">
+    <div class="logo-mark"><img src="../images/me.jpg" alt=""></div>
+    NorahsPrint <span> Intergrated Services</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#booking">Book</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+    <a href="#booking" class="btn-book-nav">Book Now</a>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#services" onclick="closeMobileNav()">Services</a>
+  <a href="#products" onclick="closeMobileNav()">Products</a>
+  <a href="#booking" onclick="closeMobileNav()">Book Now</a>
+  <a href="#testimonials" onclick="closeMobileNav()">Reviews</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span></span>Premium Nigerian Craftsmanship</div>
+      <h1 class="hero-title">
+        <span class="line">Crafting Spaces</span>
+        <span class="line italic gold">That Endure</span>
+        <span class="line">Generations</span>
+      </h1>
+      <p class="hero-sub">From handcrafted African furniture to precision electrical systems and expert Pop — we build Nigeria's most distinguished interiors and infrastructure.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-primary">
+          View Products
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/2348012345678?text=Hello%20NorahsPrint%20%26%20Sons%2C%20I%20would%20like%20to%20make%20a%20booking." target="_blank" class="btn-secondary">📱 Book via WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-num" data-count="850">0</span><span class="stat-label">Projects Done</span></div>
+        <div class="stat-item"><span class="stat-num" data-count="12">0</span><span class="stat-label">Years Experience</span></div>
+        <div class="stat-item"><span class="stat-num" data-count="98">0</span><span class="stat-label">% Client Satisfaction</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-float-1"><div class="float-label">Average Rating</div><div class="float-val">4.9 ★</div></div>
+      <div class="hero-visual-card">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80" alt="Premium furniture" loading="eager"/>
+        <div class="hero-card-badge">
+          <div class="badge-icon">🛋️</div>
+          <div class="badge-text"><strong>Custom Furniture</strong><span>Handcrafted • African Hardwood</span></div>
+        </div>
+      </div>
+      <div class="hero-float-2"><div class="float-label">Trusted Clients</div><div class="float-val">850+</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-pad">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal-left">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80" alt="Expert craftsman at work" loading="lazy"/>
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-inner">
+            <span class="about-badge-num">12</span>
+            <span class="about-badge-label">Years<br/>Expert</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-right reveal-right">
+        <div class="section-tag">Who We Are</div>
+        <h2 class="section-title">Built on <em>Craft,</em><br/>Driven by Excellence</h2>
+        <div class="gold-sep"></div>
+        <p class="section-subtitle" style="max-width:100%;margin-bottom:20px">NorahsPrint Integrated Services is a Port Harcourt-based multi-service company with over a decade of excellence in premium furniture craftsmanship, certified electrical installations, and professional &amp; Pop solutions.</p>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.8;margin-bottom:36px">We source the finest African hardwoods and local materials to create statement pieces that reflect Nigeria's rich heritage. Our engineers are fully certified and bring international standards to every project — from luxury homes to large commercial builds across the Niger Delta region.</p>
+        <div class="about-pillars">
+          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-bed"></i></div><div class="pillar-name">Furniture</div><div class="pillar-desc">Custom African hardwood furniture built to last generations</div></div>
+          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-bolt-lightning"></i></div><div class="pillar-name">Electrical</div><div class="pillar-desc">Certified installations from residential to industrial scale</div></div>
+          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa fa-cubes"></i><i class="fa fa-square-o"></i></div><div class="pillar-name">POP</div><div class="pillar-desc">Precision Pop systems built for reliability and longevity</div></div>
+          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-layer-group"></i></div><div class="pillar-name">Concrete FLooring</div><div class="pillar-desc">Full-service general contracting for any project size</div></div>
+          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-tools"></i></div><div class="pillar-name">Interior</div><div class="pillar-desc">Full-service general contracting for any project size</div></div>
+          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fas fa-paint-roller"></i></div><div class="pillar-name">Painting </div><div class="pillar-desc">Full-service general contracting for any project size</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section-pad">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-tag" style="justify-content:center">What We Offer</div>
+      <h2 class="section-title">Our <em>Premium</em> Services</h2>
+      <p class="section-subtitle" style="margin:0 auto">Every service delivered with precision, professionalism, and pride in Nigerian craftsmanship.</p>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="section-pad">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Our Catalog</div>
+      <h2 class="section-title">Product <em>Collection</em></h2>
+      <p class="section-subtitle">Browse our curated range of furniture, electrical fittings, and Pop solutions.</p>
+    </div>
+    <div class="products-controls reveal">
+      <div class="search-wrap">
+        <span class="search-icon"><i class="fas fa-search"></i></span>
+        <input type="text" id="searchInput" placeholder="Search products…" aria-label="Search products"/>
+      </div>
+      <div class="filter-btns" id="filterBtns"></div>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="section-pad">
+  <div class="container">
+    <div class="booking-inner">
+      <div class="booking-info reveal-left">
+        <div class="section-tag">Book a Service</div>
+        <h2 class="section-title">Ready to <em>Start</em><br/>Your Project?</h2>
+        <div class="gold-sep"></div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.8;margin-bottom:36px">Fill in the form and we'll connect you directly on WhatsApp to confirm your booking. Fast response, no hassle.</p>
+        <div class="booking-feature">
+          <div class="booking-feature-icon"><i style="color: #1A60D4;" class="fa-solid fa-bolt-lightning"></i></div>
+          <div class="booking-feature-text"><h4>Instant WhatsApp Confirmation</h4><p>Booking form sends your details directly to our team via WhatsApp for immediate response.</p></div>
+        </div>
+        <div class="booking-feature">
+          <div class="booking-feature-icon"><i style="color: #1A60D4;" class="far fa-calendar-alt"></i></div>
+          <div class="booking-feature-text"><h4>Flexible Scheduling</h4><p>We work around your calendar. Choose any date and we'll confirm availability within hours.</p></div>
+        </div>
+        <div class="booking-feature">
+          <div class="booking-feature-icon"><i style="color: #1A60D4;" class="fas fa-award"></i></div>
+          <div class="booking-feature-text"><h4>Satisfaction Guaranteed</h4><p>Every project backed by our quality guarantee. Not satisfied? We fix it — free of charge.</p></div>
+        </div>
+      </div>
+      <div class="booking-form-wrap reveal-right">
+        <div class="form-title">Book a Consultation</div>
+        <form id="bookingForm">
+          <div class="form-group">
+            <label for="bookName">Full Name</label>
+            <input type="text" id="bookName" placeholder="e.g. Chidi Okonkwo" required/>
+          </div>
+          <div class="form-group">
+            <label for="bookService">Service Type</label>
+            <select id="bookService" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Custom African Furniture</option>
+              <option>Electrical Installation</option>
+              <option>Pop</option>
+              <option>General Contracting</option>
+              <option>Home Renovation</option>
+              <option>Office Fit-Out</option>
+              <option>Other / Consultation</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bookDate">Preferred Date</label>
+            <input type="date" id="bookDate" required/>
+          </div>
+          <div class="form-group">
+            <label for="bookDetails">Project Details (Optional)</label>
+            <textarea id="bookDetails" placeholder="Tell us a bit about your project…"></textarea>
+          </div>
+          <button type="submit" class="btn-submit"><i style="font-size: 1.5rem;" class="fab fa-whatsapp"></i>Send Booking via WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section-pad">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-tag" style="justify-content:center">Client Reviews</div>
+      <h2 class="section-title">What Our <em>Clients</em> Say</h2>
+      <p class="section-subtitle" style="margin:0 auto">Don't take our word for it — hear from those who've experienced our craft firsthand.</p>
+    </div>
+    <div class="testimonials-grid" id="testimonialsGrid"></div>
+  </div>
+</section>
+
+<!-- FEEDBACK -->
+<section id="feedback" class="section-pad">
+  <div class="container">
+    <div class="feedback-wrap reveal">
+      <div class="form-title">Share Your Experience</div>
+      <p class="feedback-subtitle">Had a great experience? We'd love to hear from you.</p>
+      <div class="rating-input" id="ratingInput">
+        <span data-val="1">★</span><span data-val="2">★</span><span data-val="3">★</span><span data-val="4">★</span><span data-val="5">★</span>
+      </div>
+      <form id="feedbackForm">
+        <div class="form-group"><label>Your Name</label><input type="text" id="fbName" placeholder="Your name" required/></div>
+        <div class="form-group"><label>Your Review</label><textarea id="fbReview" placeholder="Tell us about your experience…" style="min-height:120px" required></textarea></div>
+        <button type="submit" class="btn-submit" style="background:var(--bg-card);border:1px solid white;color: rgb(53, 49, 49)"><i style="color: #050C1C;" class="fas fas fa-pencil-alt"></i>Submit Review</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT — Web3Forms → norashprintintergratedservicesa@gmail.com -->
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-title">Let's <em>Create</em><br/>Something Great</h2>
+        <div class="gold-sep"></div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-phone"></i></div>
+          <div class="contact-detail-text">
+            <h4>Phone</h4>
+            <p><a href="tel:+2348012345678">+234 701 187 5583</a></p>
+            <p><a href="tel:+2348098765432">+234 701 187 5583</a></p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="far fa-envelope"></i></div>
+          <div class="contact-detail-text">
+            <h4>Email</h4>
+            <p><a href="mailto:info@NorahsPrintandsons.ng">info@NorahsPrintandsons.ng</a></p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-location-arrow"></i></div>
+          <div class="contact-detail-text">
+            <h4>Location</h4>
+            <p>14 Aba Road, GRA Phase 2<br/>Port Harcourt, Rivers State, Nigeria</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="far fa-clock"></i></div>
+          <div class="contact-detail-text">
+            <h4>Business Hours</h4>
+            <p>Mon – Sat: 8:00 AM – 6:00 PM<br/>Sunday: By Appointment Only</p>
+          </div>
+        </div>
+        <div class="whatsapp-cta" onclick="window.open('https://wa.me/2348012345678?text=Hello%20NorahsPrint%20%26%20Sons!','_blank')">
+          <div class="wa-icon"><i class="fab fa-whatsapp"></i></div>
+          <div class="whatsapp-cta-text"><h4>Chat on WhatsApp</h4><p>Usually responds within minutes</p></div>
+        </div>
+      </div>
+
+      <!-- Contact form powered by Web3Forms — delivers to godwinlucky2580@gmail.com -->
+      <div class="reveal-right">
+        <div class="booking-form-wrap">
+          <div class="form-title">Send a Message</div>
+          <form id="contactForm">
+            <!-- Web3Forms configuration -->
+            <input type="hidden" name="access_key" value="6365aff8-0a4b-48f4-97e5-38017885d33a"/>
+            <input type="hidden" name="subject" value="New Contact Message — NorahsPrint Integrated Service Limited Website"/>
+            <input type="hidden" name="from_name" value="NorahsPrint Integrated Service Limited Website"/>
+            <input type="hidden" name="redirect" value="false"/>
+            <!-- Honeypot spam filter -->
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off"/>
+
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" name="name" placeholder="Your name" required/>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="your@email.com" required/>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="+234 xxx xxx xxxx"/>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" placeholder="How can we help you?" style="min-height:130px" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit" id="contactSubmitBtn">Send Message <i class="fas fa-envelope"></i></button>
+
+            <div class="form-status success" id="contactSuccess">
+              ✅ Message sent successfully! We'll get back to you shortly.
+            </div>
+            <div class="form-status error" id="contactError">
+              ❌ Something went wrong. Please try again or reach us on WhatsApp.
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">NorahsPrint <span>Intergrated Services Limited</span></div>
+        <p class="footer-tagline">Premium furniture, electrical, and Pop solutions crafted with Nigerian excellence. Serving Port Harcourt and beyond.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/p/DAagEfsKnJw/?utm_source=ig_web_copy_link" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://web.facebook.com/watch/?v=927664216403013" class="social-btn" aria-label="Facebook"><i class="fab fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/2348012345678" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Custom Furniture</a></li>
+          <li><a href="#services">Electrical Works</a></li>
+          <li><a href="#services">Celling Pop</a></li>
+          <li><a href="#services">General Contracting</a></li>
+          <li><a href="#services">Home Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#booking">Book Now</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+2348012345678">+234 701 187 5583</a></li>
+          <li><a href="mailto:info@NorahsPrintandsons.ng">info@NorahsPrintandsons.ng</a></li>
+          <li><a href="#">39 Douglas Rd, Rumueme, Port Harcourt 500102, Rivers</a></li>
+          <li><a href="#">Port Harcourt, Nigeria</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 <span>NorahsPrint &amp; Sons</span>. All rights reserved. Built with pride by Dev. Lumogo 🇳🇬</p>
+      <p class="footer-copy" style="font-size:0.75rem">Premium Furniture • Electrical • POP • Contracting</p>
+    </div>
+  </div>
+</footer>
+
+<div class="wa-float" onclick="window.open('https://wa.me/2348012345678?text=Hello%20NorahsPrint%20%26%20Sons%2C%20I%20need%20your%20services!','_blank')" role="button" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <div class="wa-tooltip">Chat with us!</div>
+</div>
+
+<script>
+const PHONE = '2347011875583';
+
+const services = [
+  {icon:'<i style="color: #1A60D4;" class="fa-solid fa-bed"></i>',title:'Custom African Furniture',desc:'Handcrafted from premium African hardwoods — Iroko, Mahogany, and Sapele — each piece tells a story of heritage and modern design.',features:['Bespoke design consultation','Premium African hardwood','Hand-finished detailing','10-year craftsmanship warranty'],service:'Custom African Furniture'},
+  {icon:'<i style="color: #1A60D4;" class="fa-solid fa-bolt-lightning"></i>',title:'Electrical Installations',desc:'Fully certified residential and commercial electrical works — safe, reliable, and code-compliant.',features:['COREN-certified engineers','Smart home wiring','Home installation','Industrial electrical systems'],service:'Electrical Installation'},
+  {icon:'<i style="color: #1A60D4;" class="fa fa-cubes"></i><i class="fa fa-square-o"></i>',title:'Celling POP',desc:'Precision POP systems for homes, offices, and industrial sites. We install, repair, and maintain all Pop infrastructure.',features:['Full POP installations','Pop leak detection','Industrial Pop systems','Water treatment solutions'],service:'POP'},
+  {icon:'<i style="color: #1A60D4;" class="fa-solid fa-tools"></i>',title:'General Contracting',desc:'End-to-end project management for renovations, office fit-outs, and new builds. One team. One accountable partner.',features:['Full project management','Interior & exterior works','Commercial fit-outs','Renovation & restoration'],service:'General Contracting'}
+];
+
+const products = [
+  {id:1,name:'Royal Iroko Dining Set',price:'₦420,000',cat:'Furniture',desc:'8-seater dining set crafted from premium Iroko wood with hand-carved details.',img:'https://images.unsplash.com/photo-1604578762246-41134e37f9cc?w=600&q=75'},
+  {id:2,name:'Executive Mahogany Desk',price:'₦185,000',cat:'Furniture',desc:'Solid mahogany office desk with built-in cable management and drawers.',img:'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=75'},
+  {id:3,name:'Lagos Lounge Sofa Set',price:'₦310,000',cat:'Furniture',desc:'3+2 seater sofa in premium leather with Sapele wooden frame.',img:'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=75'},
+  {id:4,name:'Abuja King Bed Frame',price:'₦255,000',cat:'Furniture',desc:'King-size bed frame in solid Afromosia wood with carved headboard.',img:'https://images.unsplash.com/photo-1505693314120-0d443867891c?w=600&q=75'},
+  {id:5,name:'Smart LED Panel System',price:'₦65,000',cat:'Electrical',desc:'Complete smart LED lighting panel with dimmer control — set of 6.',img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75'},
+  {id:6,name:'Industrial Circuit Breaker Board',price:'₦88,000',cat:'Electrical',desc:'32-slot distribution board, IP65 rated, with surge protection.',img:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=75'},
+  {id:7,name:'Solar Inverter System 5KVA',price:'₦320,000',cat:'Electrical',desc:'5KVA hybrid solar inverter with 150Ah battery bank. Full installation included.',img:'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=75'},
+  {id:8,name:'CCTV Security Package',price:'₦120,000',cat:'Electrical',desc:'8-camera HD CCTV system with DVR and remote mobile access.',img:'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=75'},
+  {id:9,name:'PPR Pop Bundle (100m)',price:'₦45,000',cat:'Pop',desc:'Premium PPR Pop 20mm diameter, hot & cold water rated, 100m bundle.',img:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=75'},
+  {id:10,name:'Pedrollo Water Pump 1HP',price:'₦72,000',cat:'Pop',desc:'Italian Pedrollo 1HP centrifugal water pump for residential use.',img:'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=75'},
+  {id:11,name:'Overhead Water Tank 5000L',price:'₦110,000',cat:'Pop',desc:'Heavy-duty polyethylene 5000L overhead water storage tank.',img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75'},
+  {id:12,name:'Kitchen Mixer Tap Set',price:'₦28,000',cat:'Pop',desc:'Premium brass mixer tap with ceramic cartridge and chrome finish.',img:'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=75'}
+];
+
+const testimonials = [
+  {name:'Adaeze Nwachukwu',role:'Interior Designer, Lagos',stars:5,text:"NorahsPrint & Sons transformed my client's home beyond what we imagined. The Iroko dining set is absolutely stunning — guests always ask where it came from. Impeccable quality and they delivered ahead of schedule."},
+  {name:'Chief Emeka Eze',role:'Property Developer, Abuja',stars:5,text:"We've engaged them for 3 commercial projects now. Their electrical installations pass every inspection first time. Professional team, fair pricing, and they actually show up when they say they will."},
+  {name:'Bimbo Adeleke',role:'Homeowner, Port Harcourt',stars:5,text:"The solar inverter system they installed has saved me thousands monthly on generator fuel. Installation was clean, explained thoroughly, and their after-sales support is excellent."},
+  {name:'Dr. Seun Falade',role:'Clinic Owner, Rivers State',stars:4,text:"Contracted them for our medical facility POP — a critical job. They met every regulation, completed on time, and the lead engineer was incredibly knowledgeable. Highly recommend."},
+  {name:'Ngozi Obi',role:'Restaurant Owner, PH',stars:5,text:"My restaurant renovation was handled entirely by their contracting team. New furniture, rewiring, and full kitchen POP. The result is beautiful and I've had nothing but compliments since opening."},
+  {name:'Tunde Bakare',role:'CEO, TechBridge Nigeria',stars:5,text:"Fitted our entire office floor — custom desks, conference table, and complete electrical rewiring. Professional from start to finish. The mahogany boardroom table is a showpiece."}
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  renderServices();
+  renderProducts();
+  renderTestimonials();
+  initScrollAnimations();
+  initCounters();
+  initNav();
+  initBookingForm();
+  initContactForm();
+  initFeedbackRating();
+  setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1800);
+});
+
+/* THEME */
+function initTheme() {
+  const saved = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  updateThemeIcon(saved);
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateThemeIcon(next);
+  });
+}
+function updateThemeIcon(t){ document.getElementById('themeToggle').textContent = t==='dark'?'🌙':'☀️'; }
+
+/* NAV */
+function initNav() {
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileNav').classList.toggle('open'));
+}
+function closeMobileNav(){ document.getElementById('mobileNav').classList.remove('open'); }
+
+/* RENDER SERVICES */
+function renderServices() {
+  document.getElementById('servicesGrid').innerHTML = services.map((s,i) => `
+    <div class="service-card reveal" style="transition-delay:${i*0.1}s">
+      <div class="service-icon">${s.icon}</div>
+      <div class="service-title">${s.title}</div>
+      <p class="service-desc">${s.desc}</p>
+      <ul class="service-features">${s.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+      <button class="btn-book-service" data-service="${s.service.replace(/"/g,'&quot;')}">📱 Book Now</button>
+    </div>`).join('');
+
+  // Attach click listeners after rendering
+  document.querySelectorAll('.btn-book-service').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const service = btn.getAttribute('data-service');
+      const msg = encodeURIComponent(`Hello NorahsPrint & Sons, I am interested in your ${service} service. Please provide more information.`);
+      window.open(`https://wa.me/${PHONE}?text=${msg}`, '_blank');
+    });
+  });
+}
+
+/* RENDER PRODUCTS */
+let activeFilter='All', searchQuery='';
+function renderProducts() {
+  const cats = ['All',...new Set(products.map(p=>p.cat))];
+  document.getElementById('filterBtns').innerHTML = cats.map(c=>
+    `<button class="filter-btn ${c==='All'?'active':''}" onclick="setFilter('${c}',this)">${c}</button>`).join('');
+  document.getElementById('searchInput').addEventListener('input', e=>{ searchQuery=e.target.value.toLowerCase(); filterProducts(); });
+  filterProducts();
+}
+function setFilter(cat,btn){
+  activeFilter=cat;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  filterProducts();
+}
+function filterProducts(){
+  const grid=document.getElementById('productsGrid');
+  const filtered=products.filter(p=>(activeFilter==='All'||p.cat===activeFilter)&&(p.name.toLowerCase().includes(searchQuery)||p.desc.toLowerCase().includes(searchQuery)));
+  if(!filtered.length){ grid.innerHTML='<div class="no-results">🔍 No products found. Try a different search or filter.</div>'; return; }
+  grid.innerHTML=filtered.map((p,i)=>`
+    <div class="product-card reveal" style="transition-delay:${(i%4)*0.08}s">
+      <div class="product-img"><img src="${p.img}" alt="${p.name}" loading="lazy"/><div class="product-cat">${p.cat}</div></div>
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <p class="product-desc">${p.desc}</p>
+        <div class="product-footer">
+          <div class="product-price">${p.price}<span> NGN</span></div>
+          <button class="btn-order" onclick="orderProduct('${p.name}','${p.price}')"><i class="fab fa-whatsapp"></i> Order</button>
+        </div>
+      </div>
+    </div>`).join('');
+  initScrollAnimations();
+}
+function orderProduct(name,price){
+  const msg=encodeURIComponent(`Hello, I want to order ${name} for ${price}. Please confirm availability and delivery details.`);
+  window.open(`https://wa.me/${PHONE}?text=${msg}`,'_blank');
+}
+
+/* RENDER TESTIMONIALS */
+function renderTestimonials(){
+  document.getElementById('testimonialsGrid').innerHTML=testimonials.map((t,i)=>`
+    <div class="testimonial-card reveal" style="transition-delay:${i*0.1}s">
+      <div class="stars">${'<span>★</span>'.repeat(t.stars)}${'<span style="color:var(--text-muted)">★</span>'.repeat(5-t.stars)}</div>
+      <p class="testimonial-text">"${t.text}"</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">${t.name.charAt(0)}</div>
+        <div class="author-info"><h4>${t.name}</h4><span>${t.role}</span></div>
+      </div>
+    </div>`).join('');
+}
+
+/* BOOKING FORM — WhatsApp */
+function initBookingForm(){
+  document.getElementById('bookingForm').addEventListener('submit', e=>{
+    e.preventDefault();
+    const name=document.getElementById('bookName').value.trim();
+    const service=document.getElementById('bookService').value;
+    const date=document.getElementById('bookDate').value;
+    const details=document.getElementById('bookDetails').value.trim();
+    const msg=encodeURIComponent(`Hello NorahsPrint & Sons! I'd like to book a service.\n\n👤 Name: ${name}\n🔧 Service: ${service}\n📅 Date: ${date}\n`+(details?`📝 Details: ${details}\n`:'')+`\nPlease confirm availability. Thank you!`);
+    window.open(`https://wa.me/${PHONE}?text=${msg}`,'_blank');
+  });
+}
+
+/* =====================================================
+   CONTACT FORM — Web3Forms API
+   Delivers messages to: godwinlucky2580@gmail.com
+   ===================================================== */
+function initContactForm(){
+  const form       = document.getElementById('contactForm');
+  const btn        = document.getElementById('contactSubmitBtn');
+  const successMsg = document.getElementById('contactSuccess');
+  const errorMsg   = document.getElementById('contactError');
+
+  function showStatus(el) {
+    el.classList.add('visible');
+    // force reflow so transition fires
+    el.getBoundingClientRect();
+  }
+  function hideStatus(el) {
+    el.classList.remove('visible');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Hide any previous status
+    hideStatus(successMsg);
+    hideStatus(errorMsg);
+
+    // Loading state
+    btn.disabled    = true;
+    btn.textContent = '⏳ Sending…';
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method : 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body   : JSON.stringify({
+          access_key : 'cf0c4895-0bc8-414d-b0b2-180b2e911bcd',
+          subject    : 'New Contact Message — NorahsPrint & Sons Website',
+          from_name  : 'NorahsPrint & Sons Website',
+          name       : form.querySelector('[name="name"]').value,
+          email      : form.querySelector('[name="email"]').value,
+          phone      : form.querySelector('[name="phone"]').value || 'Not provided',
+          message    : form.querySelector('[name="message"]').value
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        showStatus(successMsg);
+        form.reset();
+        btn.textContent = '✅ Message Sent!';
+        setTimeout(() => {
+          btn.textContent = 'Send Message 📨';
+          btn.disabled    = false;
+          hideStatus(successMsg);
+        }, 5000);
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      showStatus(errorMsg);
+      btn.textContent = 'Send Message 📨';
+      btn.disabled    = false;
+      console.error('Contact form error:', err);
+    }
+  });
+}
+
+/* FEEDBACK RATING */
+let selectedRating=5;
+function initFeedbackRating(){
+  const stars=document.querySelectorAll('#ratingInput span');
+  stars.forEach(star=>{
+    star.addEventListener('click',()=>{ selectedRating=parseInt(star.dataset.val); stars.forEach((s,i)=>s.classList.toggle('active',i<selectedRating)); });
+    star.addEventListener('mouseenter',()=>{ const v=parseInt(star.dataset.val); stars.forEach((s,i)=>s.style.color=i<v?'white':'var(--text-muted)'); });
+  });
+  document.getElementById('ratingInput').addEventListener('mouseleave',()=>{ stars.forEach((s,i)=>s.style.color=i<selectedRating?'white':'var(--text-muted)'); });
+  stars.forEach((s,i)=>s.classList.toggle('active',i<5));
+  document.getElementById('feedbackForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const btn=e.target.querySelector('button[type="submit"]');
+    btn.textContent='✅ Review Submitted! Thank you';
+    setTimeout(()=>{ btn.textContent='✉️ Submit Review'; e.target.reset(); selectedRating=5; document.querySelectorAll('#ratingInput span').forEach((s,i)=>{ s.classList.toggle('active',i<5); s.style.color=''; }); },3000);
+  });
+}
+
+/* SCROLL ANIMATIONS */
+function initScrollAnimations(){
+  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }),{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>obs.observe(el));
+}
+
+/* COUNTERS */
+function initCounters(){
+  const obs=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const el=entry.target, target=parseInt(el.dataset.count); let current=0;
+      const step=target/60;
+      const timer=setInterval(()=>{ current=Math.min(current+step,target); el.textContent=Math.round(current);
+        if(current>=target){ el.textContent=target+(el.closest('.stat-item')?.querySelector('.stat-label')?.textContent.includes('%')?'':'+'); clearInterval(timer); }
+      },25);
+      obs.unobserve(el);
+    }
+  }),{threshold:0.5});
+  document.querySelectorAll('[data-count]').forEach(c=>obs.observe(c));
+}
+</script>
+</body>
+</html>
