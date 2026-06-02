@@ -75,6 +75,11 @@ body{
   font-weight:700;
 }
 
+.gif {
+    mix-blend-mode: multiply;
+    display: inline-block;
+}
+
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:var(--font-body);border:none;outline:none}
@@ -183,7 +188,7 @@ nav.scrolled{background:var(--nav-bg-scrolled);box-shadow:0 2px 30px rgba(0,0,0,
 .nav-links a:hover{color:var(--gold-dark)}
 .nav-links a:hover::after{transform:scaleX(1)}
 
-.nav-actions{display:flex;align-items:center;gap:16px}
+.nav-actions{display:inline-flex;align-items:center;justify-content: space-between;gap:10px}
 .theme-toggle{
   width:40px;height:40px;
   border-radius:50%;
@@ -199,27 +204,32 @@ nav.scrolled{background:var(--nav-bg-scrolled);box-shadow:0 2px 30px rgba(0,0,0,
   color:var(--gold-dark);
   transform:scale(1.05);
 }
-
-.btn-book-nav{
-  padding:10px 22px;
+.booking{
+  padding:7px 15px;
   background:var(--text-primary);
   color:var(--bg-dark);
   font-size:0.8rem;
   font-weight:600;
-  letter-spacing:0.1em;
   text-transform:uppercase;
-  border-radius:100px;
+  border-radius:40px;
   transition:var(--transition);
   box-shadow:0 4px 20px rgba(201,168,76,0.0);
   border:1px solid rgba(124,185,255,0.45);
 }
-.btn-book-nav:hover{
+.booking:hover{
   background:var(--gold-light);
   color:rgba(10,22,40,0.95);
   transform:translateY(-2px);
   box-shadow:var(--shadow-gold);
 }
-
+/* .booking a{
+  margin-bottom:14px;
+  color:inherit;
+  font-size:0.78rem;
+  font-weight:600;
+  text-transform:uppercase;
+} */
+.btn-book-nav{margin-bottom: 10px;vertical-align: top;}
 .hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
 .hamburger span{width:24px;height:2px;background:var(--gold-dark);border-radius:2px;transition:var(--transition)}
 
