@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NorahsPrint integrated Services – Premium Furniture, Electrical & POP and Solutions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-logo">NorahsPrint Integrated Services</div>
+  <div class="loader-bar"><div class="loader-progress"></div></div>
+</div>
+
+<nav id="navbar">
+  <div class="nav-logo">
+    <div class="logo-mark"><img src="../images/me.jpg" alt=""></div>
+    NorahsPrint <span> Intergrated Services</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#booking">Book</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+    <a href="#booking" class="btn-book-nav">Book Now</a>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#services" onclick="closeMobileNav()">Services</a>
+  <a href="#products" onclick="closeMobileNav()">Products</a>
+  <a href="#booking" onclick="closeMobileNav()">Book Now</a>
+  <a href="#testimonials" onclick="closeMobileNav()">Reviews</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span></span>Premium Nigerian Craftsmanship</div>
+      <h1 class="hero-title">
+        <span class="line">Crafting Spaces</span>
+        <span class="line italic gold">That Endure</span>
+        <span class="line">Generations</span>
+      </h1>
+      <p class="hero-sub">From handcrafted African furniture to precision electrical systems and expert Pop — we build Nigeria's most distinguished interiors and infrastructure.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-primary">
+          View Products
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/2348012345678?text=Hello%20NorahsPrint%20%26%20Sons%2C%20I%20would%20like%20to%20make%20a%20booking." target="_blank" class="btn-secondary">📱 Book via WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-num" data-count="850">0</span><span class="stat-label">Projects Done</span></div>
+        <div class="stat-item"><span class="stat-num" data-count="12">0</span><span class="stat-label">Years Experience</span></div>
+        <div class="stat-item"><span class="stat-num" data-count="98">0</span><span class="stat-label">% Client Satisfaction</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-float-1"><div class="float-label">Average Rating</div><div class="float-val">4.9 ★</div></div>
+      <div class="hero-visual-card">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80" alt="Premium furniture" loading="eager"/>
+        <div class="hero-card-badge">
+          <div class="badge-icon">🛋️</div>
+          <div class="badge-text"><strong>Custom Furniture</strong><span>Handcrafted • African Hardwood</span></div>
+        </div>
+      </div>
+      <div class="hero-float-2"><div class="float-label">Trusted Clients</div><div class="float-val">850+</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-pad">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal-left">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80" alt="Expert craftsman at work" loading="lazy"/>
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-inner">
+            <span class="about-badge-num">12</span>
+            <span class="about-badge-label">Years<br/>Expert</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-right reveal-right">
+        <div class="section-tag">Who We Are</div>
+        <h2 class="section-title"><em>Built on Craft,</em><br/><em>Driven by Excellence</em></h2>
+        <div class="gold-sep"></div>
+        <p class="section-subtitle" style="max-width:100%;margin-bottom:20px">NorahsPrint Integrated Services is a Port Harcourt-based multi-service company with over a decade of excellence in premium furniture craftsmanship, certified electrical installations, and professional &amp; Pop solutions.</p>
+        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.8;margin-bottom:36px">We source the finest African hardwoods and local materials to create statement pieces that reflect Nigeria's rich heritage. Our engineers are fully certified and bring international standards to every project — from luxury homes to large commercial builds across the Niger Delta region.</p>
+        <div class="about-pillars">
+          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-bed"></i></div><div class="pillar-name">Furniture</div><div class="pillar-desc">Custom African hardwood furniture built to last generations</div></div>
+          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-bolt-lightning"></i></div><div class="pillar-name">Electrical</div><div class="pillar-desc">Certified installations from residential to industrial scale</div></div>
+          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa fa-cubes"></i><i class="fa fa-square-o"></i></div><div class="pillar-name">POP</div><div class="pillar-desc">Precision Pop systems built for reliability and longevity</div></div>
+          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-layer-group"></i></div><div class="pillar-name">Concrete FLooring</div><div class="pillar-desc">Full-service general contracting for any project size</div></div>
+          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-tools"></i></div><div class="pillar-name">Interior</div><div class="pillar-desc">Full-service general contracting for any project size</div></div>
+          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fas fa-paint-roller"></i></div><div class="pillar-name">Painting </div><div class="pillar-desc">Full-service general contracting for any project size</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section-pad">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-tag" style="justify-content:center;">What We Offer</div>
+      <h2 class="section-title"> <em>Our Premium Services</em> </h2>
+      <p class="section-subtitle" style="margin:0 auto">Every service delivered with precision, professionalism, and pride in Nigerian craftsmanship.</p>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="section-pad">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Our Catalog</div>
+      <h2 class="section-title"> <em>Product Collection</em></h2>
+      <p class="section-subtitle">Browse our curated range of furniture, electrical fittings, and Pop solutions.</p>
+    </div>
+    <div class="products-controls reveal">
+      <div class="search-wrap">
+        <span class="search-icon"><i class="fas fa-search"></i></span>
+        <input type="text" id="searchInput" placeholder="Search products…" aria-label="Search products"/>
+      </div>
+      <div class="filter-btns" id="filterBtns"></div>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="section-pad">
+  <div class="container">
+    <div class="booking-inner">
+      <div class="booking-info reveal-left">
+        <div class="section-tag">Book a Service</div>
+        <h2 class="section-title"><em>Ready to Start <br/>Your Project?</em></h2>
+        <div class="gold-sep"></div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.8;margin-bottom:36px">Fill in the form and we'll connect you directly on WhatsApp to confirm your booking. Fast response, no hassle.</p>
+        <div class="booking-feature">
+          <div class="booking-feature-icon"><i style="color: #1A60D4;" class="fa-solid fa-bolt-lightning"></i></div>
+          <div class="booking-feature-text"><h4>Instant WhatsApp Confirmation</h4><p>Booking form sends your details directly to our team via WhatsApp for immediate response.</p></div>
+        </div>
+        <div class="booking-feature">
+          <div class="booking-feature-icon"><i style="color: #1A60D4;" class="far fa-calendar-alt"></i></div>
+          <div class="booking-feature-text"><h4>Flexible Scheduling</h4><p>We work around your calendar. Choose any date and we'll confirm availability within hours.</p></div>
+        </div>
+        <div class="booking-feature">
+          <div class="booking-feature-icon"><i style="color: #1A60D4;" class="fas fa-award"></i></div>
+          <div class="booking-feature-text"><h4>Satisfaction Guaranteed</h4><p>Every project backed by our quality guarantee. Not satisfied? We fix it — free of charge.</p></div>
+        </div>
+      </div>
+      <div class="booking-form-wrap reveal-right">
+        <div class="form-title">Book a Consultation</div>
+        <form id="bookingForm">
+          <div class="form-group">
+            <label for="bookName">Full Name</label>
+            <input type="text" id="bookName" placeholder="e.g. Chidi Okonkwo" required/>
+          </div>
+          <div class="form-group">
+            <label for="bookService">Service Type</label>
+            <select id="bookService" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Custom African Furniture</option>
+              <option>Electrical Installation</option>
+              <option>Pop</option>
+              <option>General Contracting</option>
+              <option>Home Renovation</option>
+              <option>Office Fit-Out</option>
+              <option>Other / Consultation</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bookDate">Preferred Date</label>
+            <input type="date" id="bookDate" required/>
+          </div>
+          <div class="form-group">
+            <label for="bookDetails">Project Details (Optional)</label>
+            <textarea id="bookDetails" placeholder="Tell us a bit about your project…"></textarea>
+          </div>
+          <button type="submit" class="btn-submit"><i style="font-size: 1.5rem;" class="fab fa-whatsapp"></i>Send Booking via WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section-pad">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-tag" style="justify-content:center">Client Reviews</div>
+      <h2 class="section-title"><em>What Our Clients Say</em></h2>
+      <p class="section-subtitle" style="margin:0 auto">Don't take our word for it — hear from those who've experienced our craft firsthand.</p>
+    </div>
+    <div class="testimonials-grid" id="testimonialsGrid"></div>
+  </div>
+</section>
+
+<!-- FEEDBACK -->
+<section id="feedback" class="section-pad">
+  <div class="container">
+    <div class="feedback-wrap reveal">
+      <div class="form-title">Share Your Experience</div>
+      <p class="feedback-subtitle">Had a great experience? We'd love to hear from you.</p>
+      <div class="rating-input" id="ratingInput">
+        <span data-val="1">★</span><span data-val="2">★</span><span data-val="3">★</span><span data-val="4">★</span><span data-val="5">★</span>
+      </div>
+      <form id="feedbackForm">
+        <div class="form-group"><label>Your Name</label><input type="text" id="fbName" placeholder="Your name" required/></div>
+        <div class="form-group"><label>Your Review</label><textarea id="fbReview" placeholder="Tell us about your experience…" style="min-height:120px" required></textarea></div>
+        <button type="submit" class="btn-submit" {style="background:var(--gold-dark);}><i {style="color: black;}" class="fas fas fa-pencil-alt"></i>Submit Review</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT — Web3Forms → norashprintintergratedservicesa@gmail.com -->
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-title"><em>Let's Create<br/>Something Great</em></h2>
+        <div class="gold-sep"></div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-phone"></i></div>
+          <div class="contact-detail-text">
+            <h4>Phone</h4>
+            <p><a href="tel:+2348012345678">+234 701 187 5583</a></p>
+            <p><a href="tel:+2348098765432">+234 701 187 5583</a></p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="far fa-envelope"></i></div>
+          <div class="contact-detail-text">
+            <h4>Email</h4>
+            <p><a href="mailto:info@NorahsPrintandsons.ng">info@NorahsPrintandsons.ng</a></p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-location-arrow"></i></div>
+          <div class="contact-detail-text">
+            <h4>Location</h4>
+            <p>14 Aba Road, GRA Phase 2<br/>Port Harcourt, Rivers State, Nigeria</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="far fa-clock"></i></div>
+          <div class="contact-detail-text">
+            <h4>Business Hours</h4>
+            <p>Mon – Sat: 8:00 AM – 6:00 PM<br/>Sunday: By Appointment Only</p>
+          </div>
+        </div>
+        <div class="whatsapp-cta" onclick="window.open('https://wa.me/2348012345678?text=Hello%20NorahsPrint%20%26%20Sons!','_blank')">
+          <div class="wa-icon"><i style="color: var(--gold-dark);" class="fab fa-whatsapp"></i></div>
+          <div class="whatsapp-cta-text"><h4>Chat on WhatsApp</h4><p>Usually responds within minutes</p></div>
+        </div>
+      </div>
+
+      <!-- Contact form powered by Web3Forms — delivers to godwinlucky2580@gmail.com -->
+      <div class="reveal-right">
+        <div class="booking-form-wrap">
+          <div class="form-title">Send a Message</div>
+          <form id="contactForm">
+            <!-- Web3Forms configuration -->
+            <input type="hidden" name="access_key" value="6365aff8-0a4b-48f4-97e5-38017885d33a"/>
+            <input type="hidden" name="subject" value="New Contact Message — NorahsPrint Integrated Service Limited Website"/>
+            <input type="hidden" name="from_name" value="NorahsPrint Integrated Service Limited Website"/>
+            <input type="hidden" name="redirect" value="false"/>
+            <!-- Honeypot spam filter -->
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off"/>
+
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" name="name" placeholder="Your name" required/>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="your@email.com" required/>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="+234 xxx xxx xxxx"/>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" placeholder="How can we help you?" style="min-height:130px" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit" id="contactSubmitBtn">Send Message <i class="fas fa-envelope"></i></button>
+
+            <div class="form-status success" id="contactSuccess">
+              ✅ Message sent successfully! We'll get back to you shortly.
+            </div>
+            <div class="form-status error" id="contactError">
+              ❌ Something went wrong. Please try again or reach us on WhatsApp.
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">NorahsPrint Intergrated Services Limited</div>
+        <p class="footer-tagline">Premium furniture, electrical, and Pop solutions crafted with Nigerian excellence. Serving Port Harcourt and beyond.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/p/DAagEfsKnJw/?utm_source=ig_web_copy_link" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://web.facebook.com/watch/?v=927664216403013" class="social-btn" aria-label="Facebook"><i class="fab fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/2348012345678" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Custom Furniture</a></li>
+          <li><a href="#services">Electrical Works</a></li>
+          <li><a href="#services">Celling Pop</a></li>
+          <li><a href="#services">General Contracting</a></li>
+          <li><a href="#services">Home Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#booking">Book Now</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+2348012345678">+234 701 187 5583</a></li>
+          <li><a href="mailto:info@NorahsPrintandsons.ng">info@NorahsPrintandsons.ng</a></li>
+          <li><a href="#">39 Douglas Rd, Rumueme, Port Harcourt 500102, Rivers</a></li>
+          <li><a href="#">Port Harcourt, Nigeria</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 <span>NorahsPrint intergrated services Ltd</span>. All rights reserved. Built with pride by Dev. Lumogo 🇳🇬</p>
+      <p class="footer-copy" style="font-size:0.75rem">Premium Furniture • Electrical • POP • Contracting</p>
+    </div>
+  </div>
+</footer>
+
+<div class="wa-float" onclick="window.open('https://wa.me/2348012345678?text=Hello%20NorahsPrint%20%26%20Sons%2C%20I%20need%20your%20services!','_blank')" role="button" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <div class="wa-tooltip">Chat with us!</div>
+</div>
+</body>
+</html>
