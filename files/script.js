@@ -46,6 +46,23 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1800);
 });
 
+/* FOR INFINIT IMAGE LOOP */
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".hero-visual-card .hero-img");
+  let currentIndex = 0;
+
+  function nextImage() {
+    images[currentIndex].classList.remove("active");
+
+    currentIndex = (currentIndex + 1) % images.length;
+
+    images[currentIndex].classList.add("active");
+  }
+
+  setInterval(nextImage, 4000);
+});
+
+
 /* THEME */
 function initTheme() {
   const saved = localStorage.getItem('theme') || 'dark';
@@ -76,7 +93,19 @@ function renderServices() {
       <div class="service-title">${s.title}</div>
       <p class="service-desc">${s.desc}</p>
       <ul class="service-features">${s.features.map(f=>`<li>${f}</li>`).join('')}</ul>
-      <button class="btn-book-service" data-service="${s.service.replace(/"/g,'&quot;')}">📱 Book Now</button>
+      <button class="btn-book-service" data-service="${s.service.replace(/"/g,'&quot;')}"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="25px" height="25px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+viewBox="0 0 6652.7 6652.87"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2534975432304">
+   <path fill="#FEFEFE" d="M2086.53 785.73c721.28,-400.41 1769.93,-367.33 2506.32,2.87l445.92 263.7c378.2,260.78 740.91,742.83 908.94,1160.79 425.28,1057.79 235.17,2270.61 -573.74,3072.34 -139.22,137.98 -217.98,220.16 -377.13,332.49 -1623.29,1145.79 -3017.4,118.35 -3193.22,118.35 -351.94,0 -812.68,259.18 -1123.56,266.11 2.32,-104.38 178.54,-603.29 232.17,-743.56 235.95,-617.1 -409.58,-688.59 -409.58,-1947.09 0,-404.38 121.81,-847.84 255.81,-1133.87 308.26,-658.01 683.85,-1034.52 1328.07,-1392.13zm-2000.93 1842.84c-35.43,179.12 -85.6,503.54 -85.6,712.72 0,270 81.02,677.16 147.47,916.96 254.26,917.53 430.86,424.02 158.98,1222.68l-289.99 865.29c-32.67,148.31 83.56,306.63 220.07,306.63 178.54,0 566.94,-141.83 751.99,-194.17 457.67,-129.47 634.85,-269.15 929.32,-127.03l512.85 196.76c1381.24,389.72 2873.55,-176.08 3595.54,-1241.21 549.85,-811.2 626.46,-1198.56 626.46,-2182.46 0,-874.28 -455.09,-1621.26 -1012.68,-2180.62 -995.08,-998.25 -2419.44,-1166.46 -3726.91,-607.52 -716.68,306.39 -1288.5,984.97 -1627.8,1683.78 -81.22,167.28 -160.02,427.46 -199.72,628.17z"/>
+   <path fill="#1A60D4" d="M4583.88 786.14c-736.39,-370.2 -1785.04,-403.28 -2506.32,-2.87 -644.22,357.61 -1019.8,734.12 -1328.07,1392.13 -134,286.02 -255.81,729.49 -255.81,1133.87 0,1258.5 645.53,1329.99 409.58,1947.09 -53.63,140.27 -229.85,639.18 -232.17,743.56 310.88,-6.93 771.62,-266.11 1123.56,-266.11 175.83,0 1569.93,1027.44 3193.22,-118.35 159.15,-112.33 237.91,-194.51 377.13,-332.49 808.91,-801.73 999.02,-2014.55 573.74,-3072.34 -168.04,-417.96 -530.74,-900.01 -908.94,-1160.79l-445.92 -263.7zm-2099.07 1241.61c163.02,269.36 395.57,498.6 298.7,670.52 -53.88,95.61 -220.11,246.67 -220.11,344.88 0,196.09 986.3,1003.88 1171.04,964.29 186.21,-39.91 206.94,-313.8 425.61,-313.8 84.07,0 374.61,142.98 469,181.5 325.74,132.92 358.9,150.17 358.9,439.42 0,75.25 -182.22,284.42 -235.21,326.58 -675.58,537.45 -1763.59,-263.94 -2167.53,-673.63l-442.97 -444.06 -357.79 -529.23c-56.47,-112.59 -137.64,-301.81 -137.64,-453.72 0,-361.55 480.47,-1103.52 838,-512.76z"/>
+   <path fill="#FEFEFE" d="M2792.49 2710.87c96.87,-171.92 -135.69,-401.16 -298.7,-670.52 -357.53,-590.76 -838,151.21 -838,512.76 0,151.91 81.17,341.13 137.64,453.72l357.79 529.23 442.97 444.06c403.94,409.68 1491.95,1211.08 2167.53,673.63 52.99,-42.16 235.21,-251.33 235.21,-326.58 0,-289.25 -33.16,-306.5 -358.9,-439.42 -94.39,-38.52 -384.92,-181.5 -469,-181.5 -218.67,0 -239.41,273.89 -425.61,313.8 -184.74,39.59 -1171.04,-768.2 -1171.04,-964.29 0,-98.21 166.24,-249.28 220.11,-344.88z"/>
+  </g>
+ </g>
+</svg> Book Now</button>
     </div>`).join('');
 
   // Attach click listeners after rendering
@@ -116,7 +145,19 @@ function filterProducts(){
         <p class="product-desc">${p.desc}</p>
         <div class="product-footer">
           <div class="product-price">${p.price}<span> NGN</span></div>
-          <button class="btn-order" onclick="orderProduct('${p.name}','${p.price}')"><i class="fab fa-whatsapp"></i> Order</button>
+          <button class="btn-order" onclick="orderProduct('${p.name}','${p.price}')"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="20px" height="20px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+viewBox="0 0 6652.7 6652.87"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2534975432304">
+   <path fill="#FEFEFE" d="M2086.53 785.73c721.28,-400.41 1769.93,-367.33 2506.32,2.87l445.92 263.7c378.2,260.78 740.91,742.83 908.94,1160.79 425.28,1057.79 235.17,2270.61 -573.74,3072.34 -139.22,137.98 -217.98,220.16 -377.13,332.49 -1623.29,1145.79 -3017.4,118.35 -3193.22,118.35 -351.94,0 -812.68,259.18 -1123.56,266.11 2.32,-104.38 178.54,-603.29 232.17,-743.56 235.95,-617.1 -409.58,-688.59 -409.58,-1947.09 0,-404.38 121.81,-847.84 255.81,-1133.87 308.26,-658.01 683.85,-1034.52 1328.07,-1392.13zm-2000.93 1842.84c-35.43,179.12 -85.6,503.54 -85.6,712.72 0,270 81.02,677.16 147.47,916.96 254.26,917.53 430.86,424.02 158.98,1222.68l-289.99 865.29c-32.67,148.31 83.56,306.63 220.07,306.63 178.54,0 566.94,-141.83 751.99,-194.17 457.67,-129.47 634.85,-269.15 929.32,-127.03l512.85 196.76c1381.24,389.72 2873.55,-176.08 3595.54,-1241.21 549.85,-811.2 626.46,-1198.56 626.46,-2182.46 0,-874.28 -455.09,-1621.26 -1012.68,-2180.62 -995.08,-998.25 -2419.44,-1166.46 -3726.91,-607.52 -716.68,306.39 -1288.5,984.97 -1627.8,1683.78 -81.22,167.28 -160.02,427.46 -199.72,628.17z"/>
+   <path fill="#1A60D4" d="M4583.88 786.14c-736.39,-370.2 -1785.04,-403.28 -2506.32,-2.87 -644.22,357.61 -1019.8,734.12 -1328.07,1392.13 -134,286.02 -255.81,729.49 -255.81,1133.87 0,1258.5 645.53,1329.99 409.58,1947.09 -53.63,140.27 -229.85,639.18 -232.17,743.56 310.88,-6.93 771.62,-266.11 1123.56,-266.11 175.83,0 1569.93,1027.44 3193.22,-118.35 159.15,-112.33 237.91,-194.51 377.13,-332.49 808.91,-801.73 999.02,-2014.55 573.74,-3072.34 -168.04,-417.96 -530.74,-900.01 -908.94,-1160.79l-445.92 -263.7zm-2099.07 1241.61c163.02,269.36 395.57,498.6 298.7,670.52 -53.88,95.61 -220.11,246.67 -220.11,344.88 0,196.09 986.3,1003.88 1171.04,964.29 186.21,-39.91 206.94,-313.8 425.61,-313.8 84.07,0 374.61,142.98 469,181.5 325.74,132.92 358.9,150.17 358.9,439.42 0,75.25 -182.22,284.42 -235.21,326.58 -675.58,537.45 -1763.59,-263.94 -2167.53,-673.63l-442.97 -444.06 -357.79 -529.23c-56.47,-112.59 -137.64,-301.81 -137.64,-453.72 0,-361.55 480.47,-1103.52 838,-512.76z"/>
+   <path fill="#FEFEFE" d="M2792.49 2710.87c96.87,-171.92 -135.69,-401.16 -298.7,-670.52 -357.53,-590.76 -838,151.21 -838,512.76 0,151.91 81.17,341.13 137.64,453.72l357.79 529.23 442.97 444.06c403.94,409.68 1491.95,1211.08 2167.53,673.63 52.99,-42.16 235.21,-251.33 235.21,-326.58 0,-289.25 -33.16,-306.5 -358.9,-439.42 -94.39,-38.52 -384.92,-181.5 -469,-181.5 -218.67,0 -239.41,273.89 -425.61,313.8 -184.74,39.59 -1171.04,-768.2 -1171.04,-964.29 0,-98.21 166.24,-249.28 220.11,-344.88z"/>
+  </g>
+ </g>
+</svg> Order</button>
         </div>
       </div>
     </div>`).join('');
@@ -148,7 +189,7 @@ function initBookingForm(){
     const service=document.getElementById('bookService').value;
     const date=document.getElementById('bookDate').value;
     const details=document.getElementById('bookDetails').value.trim();
-    const msg=encodeURIComponent(`Hello NorahsPrint & Sons! I'd like to book a service.\n\n👤 Name: ${name}\n🔧 Service: ${service}\n📅 Date: ${date}\n`+(details?`📝 Details: ${details}\n`:'')+`\nPlease confirm availability. Thank you!`);
+    const msg=encodeURIComponent(`Hello NorahsPrint Intergrated Services Ltd! I'd like to book a service.\n\n👤 Name: ${name}\n🔧 Service: ${service}\n📅 Date: ${date}\n`+(details?`📝 Details: ${details}\n`:'')+`\nPlease confirm availability. Thank you!`);
     window.open(`https://wa.me/${PHONE}?text=${msg}`,'_blank');
   });
 }
@@ -189,8 +230,8 @@ function initContactForm(){
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body   : JSON.stringify({
           access_key : 'cf0c4895-0bc8-414d-b0b2-180b2e911bcd',
-          subject    : 'New Contact Message — NorahsPrint & Sons Website',
-          from_name  : 'NorahsPrint & Sons Website',
+          subject    : 'New Contact Message — NorahsPrint Intergrated Services Ltd Website',
+          from_name  : 'NorahsPrint Intergrated Services Ltd',
           name       : form.querySelector('[name="name"]').value,
           email      : form.querySelector('[name="email"]').value,
           phone      : form.querySelector('[name="phone"]').value || 'Not provided',
@@ -231,13 +272,131 @@ function initFeedbackRating(){
   });
   document.getElementById('ratingInput').addEventListener('mouseleave',()=>{ stars.forEach((s,i)=>s.style.color=i<selectedRating?' #1A60D4':'var(--text-muted)'); });
   stars.forEach((s,i)=>s.classList.toggle('active',i<5));
-  document.getElementById('feedbackForm').addEventListener('submit',e=>{
+  document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn=e.target.querySelector('button[type="submit"]');
+
+    const btn = e.target.querySelector('button[type="submit"]');
+    const name = document.getElementById('fbName').value.trim();
+    const review = document.getElementById('fbReview').value.trim();
+    const rating = selectedRating;
+
+    // Keep UI behavior exactly the same
     btn.textContent='✅ Review Submitted! Thank you';
-    setTimeout(()=>{ btn.textContent='✉️ Submit Review'; e.target.reset(); selectedRating=5; document.querySelectorAll('#ratingInput span').forEach((s,i)=>{ s.classList.toggle('active',i<5); s.style.color=''; }); },3000);
+
+    try {
+      const SUPABASE_URL = "https://qlsamwfphiusocbddzdp.supabase.co";
+      const SUPABASE_ANON_KEY = "sb_publishable_CtwYB9-3gNMDG6dK6FcPuQ_2zKPW1Y4";
+
+      const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      const { data, error } = await supabaseClient
+        .from('reviews')
+        .insert({
+          name,
+          rating,
+          review
+        });
+
+      if (error) {
+        console.error('Supabase insert reviews error:', error);
+        alert(`Failed to submit review to Supabase:\n${error.message || error}`);
+      } else {
+        console.log('Supabase insert reviews success:', data);
+      }
+    } catch (err) {
+      console.error('Supabase insert feedback_reviews exception:', err);
+      alert(`Failed to submit review to Supabase:\n${err.message || err}`);
+    } finally {
+      setTimeout(() => {
+        btn.textContent='Submit Review';
+        e.target.reset();
+        selectedRating=5;
+        document.querySelectorAll('#ratingInput span').forEach((s,i)=>{ s.classList.toggle('active',i<5); s.style.color=''; });
+      }, 3000);
+    }
   });
 }
+
+// // NEW RATING SYSTEM USING SUPABASE
+// // Rating System
+// const stars = document.querySelectorAll("#ratingInput span");
+// let selectedRating = 0;
+
+// stars.forEach((star) => {
+//   star.addEventListener("click", () => {
+//     selectedRating = parseInt(star.dataset.val);
+
+//     stars.forEach((s) => {
+//       const value = parseInt(s.dataset.val);
+
+//       if (value <= selectedRating) {
+//         s.classList.add("active");
+//       } else {
+//         s.classList.remove("active");
+//       }
+//     });
+//   });
+// });
+
+// // Form Submission
+// const feedbackForm = document.getElementById("feedbackForm");
+
+// feedbackForm.addEventListener("submit", async (e) => {
+//   e.preventDefault();
+
+//   const name = document.getElementById("fbName").value.trim();
+//   const review = document.getElementById("fbReview").value.trim();
+
+//   // Validate rating
+//   if (selectedRating === 0) {
+//     alert("Please select a star rating.");
+//     return;
+//   }
+
+//   try {
+//     const submitBtn = feedbackForm.querySelector("button");
+//     submitBtn.disabled = true;
+//     submitBtn.innerHTML = "Submitting...";
+
+//     const { data, error } = await supabase
+//       .from("reviews")
+//       .insert([
+//         {
+//           name: name,
+//           rating: selectedRating,
+//           review: review
+//         }
+//       ]);
+
+//     if (error) {
+//       console.error(error);
+//       alert("Failed to submit review.");
+//       return;
+//     }
+
+//     alert("Thank you! Your review has been submitted.");
+
+//     // Reset Form
+//     feedbackForm.reset();
+//     selectedRating = 0;
+
+//     stars.forEach((star) => {
+//       star.classList.remove("active");
+//     });
+
+//   } catch (err) {
+//     console.error(err);
+//     alert("Something went wrong.");
+//   } finally {
+//     const submitBtn = feedbackForm.querySelector("button");
+//     submitBtn.disabled = false;
+//     submitBtn.innerHTML =
+//       '<i style="color:black;" class="fas fa-pencil-alt"></i> Submit Review';
+//   }
+// });
+
+// // STTOED HERE FOR FUTURE REFERENCE
+
 
 /* SCROLL ANIMATIONS */
 function initScrollAnimations(){
