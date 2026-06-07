@@ -2038,9 +2038,15 @@ footer {
   }
 }
 
+@media (max-width: 390px) {
+  .nav-logo span {
+    font-size: 0.6rem;
+  }
+}
+
 /* Fix invalid media query from original */
 @media (min-width: 391px) and (max-width: 480px) {
   .nav-logo span {
-    font-size: 0.5rem;
+    font-size: 1rem;
   }
 }
