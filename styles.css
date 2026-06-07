@@ -2049,4 +2049,7 @@ footer {
   .nav-logo span {
     font-size: 1rem;
   }
+  .nav-bar{
+    padding: 12px 20px;
+  }
 }
