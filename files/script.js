@@ -9,18 +9,18 @@ const services = [
 ];
 
 const products = [
-  {id:1,name:'Royal Iroko Dining Set',price:'₦420,000',cat:'Furniture',desc:'8-seater dining set crafted from premium Iroko wood with hand-carved details.',img:'https://images.unsplash.com/photo-1604578762246-41134e37f9cc?w=600&q=75'},
-  {id:2,name:'Executive Mahogany Desk',price:'₦185,000',cat:'Furniture',desc:'Solid mahogany office desk with built-in cable management and drawers.',img:'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600&q=75'},
-  {id:3,name:'Lagos Lounge Sofa Set',price:'₦310,000',cat:'Furniture',desc:'3+2 seater sofa in premium leather with Sapele wooden frame.',img:'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=75'},
-  {id:4,name:'Abuja King Bed Frame',price:'₦255,000',cat:'Furniture',desc:'King-size bed frame in solid Afromosia wood with carved headboard.',img:'https://images.unsplash.com/photo-1505693314120-0d443867891c?w=600&q=75'},
-  {id:5,name:'Smart LED Panel System',price:'₦65,000',cat:'Electrical',desc:'Complete smart LED lighting panel with dimmer control — set of 6.',img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75'},
-  {id:6,name:'Industrial Circuit Breaker Board',price:'₦88,000',cat:'Electrical',desc:'32-slot distribution board, IP65 rated, with surge protection.',img:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=75'},
-  {id:7,name:'Solar Inverter System 5KVA',price:'₦320,000',cat:'Electrical',desc:'5KVA hybrid solar inverter with 150Ah battery bank. Full installation included.',img:'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=75'},
-  {id:8,name:'CCTV Security Package',price:'₦120,000',cat:'Electrical',desc:'8-camera HD CCTV system with DVR and remote mobile access.',img:'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&q=75'},
-  {id:9,name:'PPR Pop Bundle (100m)',price:'₦45,000',cat:'Pop',desc:'Premium PPR Pop 20mm diameter, hot & cold water rated, 100m bundle.',img:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=75'},
-  {id:10,name:'Pedrollo Water Pump 1HP',price:'₦72,000',cat:'Pop',desc:'Italian Pedrollo 1HP centrifugal water pump for residential use.',img:'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=75'},
-  {id:11,name:'Overhead Water Tank 5000L',price:'₦110,000',cat:'Pop',desc:'Heavy-duty polyethylene 5000L overhead water storage tank.',img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75'},
-  {id:12,name:'Kitchen Mixer Tap Set',price:'₦28,000',cat:'Pop',desc:'Premium brass mixer tap with ceramic cartridge and chrome finish.',img:'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=75'}
+  {id:1,name:'Royal Dining Set',price:'₦420,000',cat:'Furniture',desc:'6-seater dining set crafted from premium Iroko wood with hand-carved details.',img:'../whatsapp img/FURNITURE-6.jpg'},
+  {id:2,name:'Executive Mahogany Desk',price:'₦185,000',cat:'Furniture',desc:'Solid mahogany office desk with built-in cable management and drawers.',img:'../whatsapp img/FURNITURE-1.jpg'},
+  {id:3,name:'Lagos Lounge Sofa Set',price:'₦310,000',cat:'Furniture',desc:'3+2 seater sofa in premium leather with Sapele wooden frame.',img:"../whatsapp img/FURNITURE-4.jpg"},
+  {id:4,name:'Abuja King Bed Frame',price:'₦255,000',cat:'Furniture',desc:'King-size bed frame in solid Afromosia wood with carved headboard.',img:"../whatsapp img/INTERIOR-9.jpg"},
+  {id:5,name:'Smart LED Panel System',price:'₦65,000',cat:'Furniture',desc:'Complete smart LED lighting panel with dimmer control — set of 6.',img:'../whatsapp img/GLASS-WARDROPE.jpg'},
+  {id:6,name:'Industrial Circuit Breaker Board',price:'₦88,000',cat:'Furniture',desc:'32-slot distribution board, IP65 rated, with surge protection.',img:'../whatsapp img/INTERIOR-4.jpg'},
+  {id:7,name:'Solar Inverter System 5KVA',price:'₦320,000',cat:'Electrical',desc:'5KVA hybrid solar inverter with 150Ah battery bank. Full installation included.',img:'../whatsapp img/LIGHT-2.jpg'},
+  {id:8,name:'CCTV Security Package',price:'₦120,000',cat:'Furniture',desc:'8-camera HD CCTV system with DVR and remote mobile access.',img:'../whatsapp img/INTERIOR-7.jpg'},
+  {id:9,name:'PPR Pop Bundle (100m)',price:'₦45,000',cat:'Furniture',desc:'Premium PPR Pop 20mm diameter, hot & cold water rated, 100m bundle.',img:'../whatsapp img/FURNITURE-7.jpg'},
+  {id:10,name:'Pedrollo Water Pump 1HP',price:'₦72,000',cat:'Pop',desc:'Italian Pedrollo 1HP centrifugal water pump for residential use.',img:'../whatsapp img/POP-11.jpg'},
+  {id:11,name:'Overhead Water Tank 5000L',price:'₦110,000',cat:'Pop',desc:'Heavy-duty polyethylene 5000L overhead water storage tank.',img:'../whatsapp img/POP-10.jpg'},
+  {id:12,name:'Kitchen Mixer Tap Set',price:'₦28,000',cat:'Furniture',desc:'Premium brass mixer tap with ceramic cartridge and chrome finish.',img:'../whatsapp img/FURNITURE-5.jpg'}
 ];
 
 const testimonials = [
