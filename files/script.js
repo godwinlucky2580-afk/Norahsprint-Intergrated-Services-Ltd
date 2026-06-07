@@ -9,18 +9,18 @@ const services = [
 ];
 
 const products = [
-  {id:1,name:'Royal Dining Set',price:'₦420,000',cat:'Furniture',desc:'6-seater dining set crafted from premium Iroko wood with hand-carved details.',img:'../whatsapp img/FURNITURE-6.jpg'},
-  {id:2,name:'Executive Mahogany Desk',price:'₦185,000',cat:'Furniture',desc:'Solid mahogany office desk with built-in cable management and drawers.',img:'../whatsapp img/FURNITURE-1.jpg'},
-  {id:3,name:'Lagos Lounge Sofa Set',price:'₦310,000',cat:'Furniture',desc:'3+2 seater sofa in premium leather with Sapele wooden frame.',img:"../whatsapp img/FURNITURE-4.jpg"},
-  {id:4,name:'Abuja King Bed Frame',price:'₦255,000',cat:'Furniture',desc:'King-size bed frame in solid Afromosia wood with carved headboard.',img:"../whatsapp img/INTERIOR-9.jpg"},
-  {id:5,name:'Smart LED Panel System',price:'₦65,000',cat:'Furniture',desc:'Complete smart LED lighting panel with dimmer control — set of 6.',img:'../whatsapp img/GLASS-WARDROPE.jpg'},
-  {id:6,name:'Industrial Circuit Breaker Board',price:'₦88,000',cat:'Furniture',desc:'32-slot distribution board, IP65 rated, with surge protection.',img:'../whatsapp img/INTERIOR-4.jpg'},
-  {id:7,name:'Solar Inverter System 5KVA',price:'₦320,000',cat:'Electrical',desc:'5KVA hybrid solar inverter with 150Ah battery bank. Full installation included.',img:'../whatsapp img/LIGHT-2.jpg'},
-  {id:8,name:'CCTV Security Package',price:'₦120,000',cat:'Furniture',desc:'8-camera HD CCTV system with DVR and remote mobile access.',img:'../whatsapp img/INTERIOR-7.jpg'},
-  {id:9,name:'PPR Pop Bundle (100m)',price:'₦45,000',cat:'Furniture',desc:'Premium PPR Pop 20mm diameter, hot & cold water rated, 100m bundle.',img:'../whatsapp img/FURNITURE-7.jpg'},
-  {id:10,name:'Pedrollo Water Pump 1HP',price:'₦72,000',cat:'Pop',desc:'Italian Pedrollo 1HP centrifugal water pump for residential use.',img:'../whatsapp img/POP-11.jpg'},
-  {id:11,name:'Overhead Water Tank 5000L',price:'₦110,000',cat:'Pop',desc:'Heavy-duty polyethylene 5000L overhead water storage tank.',img:'../whatsapp img/POP-10.jpg'},
-  {id:12,name:'Kitchen Mixer Tap Set',price:'₦28,000',cat:'Furniture',desc:'Premium brass mixer tap with ceramic cartridge and chrome finish.',img:'../whatsapp img/FURNITURE-5.jpg'}
+  {id:1,name:'Royal Dining Set',price:'₦900,000',cat:'Furniture',desc:'6-seater dining set crafted from premium Iroko wood with hand-carved details.',img:'../whatsapp_img/FURNITURE-6.jpg'},
+  {id:2,name:'Wardrope',price:'₦800,000',cat:'Furniture',desc:'Solid mahogany wardrope with built-in cable management and drawers.',img:'../whatsapp_img/FURNITURE-1.jpg'},
+  {id:3,name:'Lagos Lounge Sofa Set',price:'₦1,000,000',cat:'Furniture',desc:'3+2 seater sofa in premium leather with Sapele wooden frame.',img:"../whatsapp_img/FURNITURE-4.jpg"},
+  {id:4,name:'Abuja King Bed Frame',price:'₦600,000',cat:'Furniture',desc:'King-size bed frame in solid Afromosia wood with carved headboard.',img:"../whatsapp_img/INTERIOR-9.jpg"},
+  {id:5,name:'Glass Wardrope',price:'₦1,700,000',cat:'Furniture',desc:'A glass made wardrope — set of 6.',img:'../whatsapp_img/GLASS-WARDROPE.jpg'},
+  {id:6,name:'Wine bar Board',price:'₦2,000,000',cat:'Furniture',desc:'Solid thick glass, with surge protection.',img:'../whatsapp_img/INTERIOR-4.jpg'},
+  {id:7,name:'chandelier',price:'₦500,000',cat:'Electrical',desc:'led modern minimalist. Full installation included.',img:'../whatsapp_img/LIGHT-2.jpg'},
+  {id:8,name:'Bed Frame',price:'₦1,000,000',cat:'Furniture',desc:'Fully thick bed frame, color golden.',img:'../whatsapp_img/INTERIOR-7.jpg'},
+  {id:9,name:'Ofostrie chair',price:'₦900,000',cat:'Furniture',desc:'Premium Parlor chair, with comforting foam.',img:'../whatsapp_img/FURNITURE-7.jpg'},
+  {id:10,name:'Premium POP',price:'₦1,000,000',cat:'Pop',desc:'Italian pop with Golden lights mixed.',img:'../whatsapp_img/POP-11.jpg'},
+  {id:11,name:'Modern White POP ',price:'₦2,000,000',cat:'Pop',desc:'Standard white POP',img:'../whatsapp_img/POP-10.jpg'},
+  {id:12,name:'Wooden center Table',price:'₦800,000',cat:'Furniture',desc:'Premium wooden table and chrome finish.',img:'../whatsapp_img/FURNITURE-5.jpg'}
 ];
 
 const testimonials = [
