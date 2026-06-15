@@ -19,8 +19,8 @@ const products = [
   {id:8,name:'Bed Frame',price:'₦1,000,000',cat:'Furniture',desc:'Fully thick bed frame, color golden.',img:'../whatsapp_img/INTERIOR-7.jpg'},
   {id:9,name:'Ofostrie chair',price:'₦900,000',cat:'Furniture',desc:'Premium Parlor chair, with comforting foam.',img:'../whatsapp_img/FURNITURE-7.jpg'},
   {id:10,name:'Premium POP',price:'₦1,000,000',cat:'Pop',desc:'Italian pop with Golden lights mixed.',img:'../whatsapp_img/POP-11.jpg'},
-  {id:11,name:'Modern White POP ',price:'₦2,000,000',cat:'Pop',desc:'Standard white POP',img:'../whatsapp_img/POP-10.jpg'},
-  {id:12,name:'Wooden center Table',price:'₦800,000',cat:'Furniture',desc:'Premium wooden table and chrome finish.',img:'../whatsapp_img/FURNITURE-5.jpg'}
+  {id:11,name:'Modern White POP',price:'₦2,000,000',cat:'Pop',desc:'Standard white POP',img:'../whatsapp_img/POP-10.jpg'},
+  {id:12,name:'Wooden center Table',price:'₦800,000',cat:'Furniture',desc:'Premium wooden table and chrome finish.',img:'../whatsapp_img/FURNITURE-5.jpg'},
 ];
 
 const testimonials = [
@@ -32,10 +32,11 @@ const testimonials = [
   {name:'Tunde Bakare',role:'CEO, TechBridge Nigeria',stars:5,text:"Fitted our entire office floor — custom desks, conference table, and complete electrical rewiring. Professional from start to finish. The mahogany boardroom table is a showpiece."}
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   initTheme();
   renderServices();
-  renderProducts();
+  // Products are now Supabase-driven (see productsState module).
+  // Keep existing renderProducts() function intact for now, but do not call it.
   renderTestimonials();
   initScrollAnimations();
   initCounters();
@@ -44,6 +45,21 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initFeedbackRating();
   setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1800);
+
+  try {
+    const { initProductsModule } = await import('./src/productsState.js');
+    await initProductsModule({
+      orderProductHandler: (name, price) => orderProduct(name, price)
+    });
+  } catch (e) {
+    console.error('Products module failed:', e);
+    // Fallback to old UI if Supabase modules fail.
+    try {
+      renderProducts();
+    } catch (fallbackErr) {
+      console.error('Fallback renderProducts failed:', fallbackErr);
+    }
+  }
 });
 
 /* FOR INFINIT IMAGE LOOP */

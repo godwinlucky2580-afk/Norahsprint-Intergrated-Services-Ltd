@@ -12,6 +12,17 @@
 <link rel="icon"  type="image/jpeg" href="/whatsapp_img/icon.jpg" sizes="any">
 <!-- Supabase JS SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+
+<!-- Supabase config (edit values before production) -->
+<script>
+  // IMPORTANT: set these for your Supabase project.
+  // You can also replace this file for production.
+  window.__SUPABASE_URL = "https://qlsamwfphiusocbddzdp.supabase.co";
+  window.__SUPABASE_ANON_KEY = "sb_publishable_CtwYB9-3gNMDG6dK6FcPuQ_2zKPW1Y4";
+
+</script>
+
+<!-- productsState is imported by script.js as a module to avoid breaking existing globals -->
 <script src="script.js" defer></script>
 </head>
 <body>
@@ -171,8 +182,27 @@
         <input type="text" id="searchInput" placeholder="Search products…" aria-label="Search products"/>
       </div>
       <div class="filter-btns" id="filterBtns"></div>
+      <div class="products-sort-wrap" aria-label="Product sorting">
+        <label class="sr-only" for="sortSelect">Sort products</label>
+        <select id="sortSelect" class="products-sort-select" aria-label="Sort products">
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+          <option value="az">A-Z</option>
+          <option value="za">Z-A</option>
+          <option value="price_low">Price Low → High</option>
+          <option value="price_high">Price High → Low</option>
+        </select>
+      </div>
+    </div>
+    <div class="products-page-indicator" id="productsPageIndicator" aria-live="polite"></div>
+    <div class="products-loading" id="productsLoading" style="display:none;">
+      <div class="no-results">⏳ Loading products…</div>
     </div>
     <div class="products-grid" id="productsGrid"></div>
+    <div class="products-pagination" id="productsPagination" aria-label="Product pagination" style="display:none;">
+      <button class="pagination-btn" id="productsPrevBtn" type="button">Previous</button>
+      <button class="pagination-btn" id="productsNextBtn" type="button">Next</button>
+    </div>
   </div>
 </section>
 

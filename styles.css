@@ -1254,6 +1254,79 @@ active {
   grid-column: 1/-1;
 }
 
+/* ===================== PRODUCTS EXTRA CONTROLS ===================== */
+.products-sort-wrap {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.products-sort-select {
+  padding: 10px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 100px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  transition: var(--transition);
+  outline: none;
+  cursor: pointer;
+}
+
+.products-sort-select:focus {
+  border-color: rgba(26, 96, 212, 0.75);
+  box-shadow: 0 0 0 4px rgba(61, 142, 255, 0.18);
+}
+
+.products-page-indicator {
+  margin: 18px 0 8px;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.products-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 20px 0 10px;
+}
+
+.pagination-btn {
+  padding: 10px 22px;
+  border-radius: 100px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transition: var(--transition);
+}
+
+.pagination-btn:hover {
+  background: rgba(61, 142, 255, 0.14);
+  border-color: rgba(26, 96, 212, 0.75);
+  color: var(--gold-dark);
+  box-shadow: 0 4px 16px rgba(61, 142, 255, 0.2);
+}
+
+/* Visually-hidden helper for labels */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
 /* ===================== BOOKING ===================== */
 #booking {
   background: var(--bg-dark);
