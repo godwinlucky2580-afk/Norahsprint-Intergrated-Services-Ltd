@@ -9,18 +9,6 @@ const services = [
 ];
 
 const products = [
-  {id:1,name:'Royal Dining Set',price:'₦900,000',cat:'Furniture',desc:'6-seater dining set crafted from premium Iroko wood with hand-carved details.',img:'../whatsapp_img/FURNITURE-6.jpg'},
-  {id:2,name:'Wardrope',price:'₦800,000',cat:'Furniture',desc:'Solid mahogany wardrope with built-in cable management and drawers.',img:'../whatsapp_img/FURNITURE-1.jpg'},
-  {id:3,name:'Lagos Lounge Sofa Set',price:'₦1,000,000',cat:'Furniture',desc:'3+2 seater sofa in premium leather with Sapele wooden frame.',img:"../whatsapp_img/FURNITURE-4.jpg"},
-  {id:4,name:'Abuja King Bed Frame',price:'₦600,000',cat:'Furniture',desc:'King-size bed frame in solid Afromosia wood with carved headboard.',img:"../whatsapp_img/INTERIOR-9.jpg"},
-  {id:5,name:'Glass Wardrope',price:'₦1,700,000',cat:'Furniture',desc:'A glass made wardrope — set of 6.',img:'../whatsapp_img/GLASS-WARDROPE.jpg'},
-  {id:6,name:'Wine bar Board',price:'₦2,000,000',cat:'Furniture',desc:'Solid thick glass, with surge protection.',img:'../whatsapp_img/INTERIOR-4.jpg'},
-  {id:7,name:'chandelier',price:'₦500,000',cat:'Electrical',desc:'led modern minimalist. Full installation included.',img:'../whatsapp_img/LIGHT-2.jpg'},
-  {id:8,name:'Bed Frame',price:'₦1,000,000',cat:'Furniture',desc:'Fully thick bed frame, color golden.',img:'../whatsapp_img/INTERIOR-7.jpg'},
-  {id:9,name:'Ofostrie chair',price:'₦900,000',cat:'Furniture',desc:'Premium Parlor chair, with comforting foam.',img:'../whatsapp_img/FURNITURE-7.jpg'},
-  {id:10,name:'Premium POP',price:'₦1,000,000',cat:'Pop',desc:'Italian pop with Golden lights mixed.',img:'../whatsapp_img/POP-11.jpg'},
-  {id:11,name:'Modern White POP',price:'₦2,000,000',cat:'Pop',desc:'Standard white POP',img:'../whatsapp_img/POP-10.jpg'},
-  {id:12,name:'Wooden center Table',price:'₦800,000',cat:'Furniture',desc:'Premium wooden table and chrome finish.',img:'../whatsapp_img/FURNITURE-5.jpg'},
 ];
 
 const testimonials = [
