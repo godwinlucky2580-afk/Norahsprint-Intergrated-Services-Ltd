@@ -1,463 +1,583 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>NorahsPrint integrated Services – Premium Furniture, Electrical & POP and Solutions</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<meta name="description" content="NorahsPrint Integrated Services is Nigeria's premier provider of handcrafted furniture, expert electrical solutions, and precision POP installations. With over a decade of experience, we transform spaces into enduring works of art, blending traditional craftsmanship with modern innovation. Our commitment to quality and client satisfaction has made us a trusted name in interior design and infrastructure across Nigeria."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="styles.css"/>
-<link rel="icon"  type="image/jpeg" href="/whatsapp_img/icon.jpg" sizes="any">
-<!-- Supabase JS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NorahsPrint integrated Services – Premium Furniture, Electrical & POP and Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta name="description"
+    content="NorahsPrint Integrated Services is Nigeria's premier provider of handcrafted furniture, expert electrical solutions, and precision POP installations. With over a decade of experience, we transform spaces into enduring works of art, blending traditional craftsmanship with modern innovation. Our commitment to quality and client satisfaction has made us a trusted name in interior design and infrastructure across Nigeria." />
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="NorahSprint">
+  <meta property="og:description" content="Premium furniture, painting, electrical Services">
+  <meta property="og:image" content="https://norahsprint.com/images/logo.png">
+  <meta property="og:url" content="https://norahsprint.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/jpeg" href="/whatsapp_img/icon.jpg" sizes="any">
+  <!-- Supabase JS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
 
-<!-- Supabase config (edit values before production) -->
-<script>
-  // IMPORTANT: set these for your Supabase project.
-  // You can also replace this file for production.
-  window.__SUPABASE_URL = "https://qlsamwfphiusocbddzdp.supabase.co";
-  window.__SUPABASE_ANON_KEY = "sb_publishable_CtwYB9-3gNMDG6dK6FcPuQ_2zKPW1Y4";
+  <!-- Supabase config (edit values before production) -->
+  <script>
+    // IMPORTANT: set these for your Supabase project.
+    // You can also replace this file for production.
+    window.__SUPABASE_URL = "https://qlsamwfphiusocbddzdp.supabase.co";
+    window.__SUPABASE_ANON_KEY = "sb_publishable_CtwYB9-3gNMDG6dK6FcPuQ_2zKPW1Y4";
 
-</script>
+  </script>
 
-<!-- productsState is imported by script.js as a module to avoid breaking existing globals -->
-<script src="script.js" defer></script>
+  <!-- productsState is imported by script.js as a module to avoid breaking existing globals -->
+  <script src="script.js" defer></script>
 </head>
+
 <body>
 
-<div id="loader">
-  <div class="loader-logo">NorahsPrint Integrated Services</div>
-  <div class="loader-bar"><div class="loader-progress"></div></div>
-</div>
-
-<nav id="navbar">
-  <div class="nav-logo">
-    <div class="logo-mark"><img src="../images/me.jpg" alt=""></div>
-    NorahsPrint <span> Intergrated Services</span>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#booking">Book</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-actions">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
-    <div class="booking">
-      <div class="book">
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 400 400"><g transform="translate(200, 200) translate(-128, -128) scale(0.5) translate(-144, -144)" fill="#000"><g xmlns="http://www.w3.org/2000/svg" fill="none" paint-order="fill stroke" stroke="#000000" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"><path d="m616.79 276.25c0-47.258-38.707-86.465-85.961-86.465s-86.465 39.207-86.465 86.465c0 15.582 4.2461 30.539 11.285 43.105l-186.73-11.441-7.5586-25.191c-1.0078-4.0312-7.0547-17.129-38.793-18.641-12.41-.76953-13.039 5.2891-13.039 5.2891-2.6016 9.1289 5.4805 8.8164 5.4805 8.8164 22.168.0 30.23 5.543 31.234 7.5586l60.457 201.02-26.199 41.312c-1.0078 1.5117-6.0469 8.5664-2.0156 16.121 3.0234 5.543 9.0703 7.0547 17.633 7.0547h220.16c3.5273.0 6.0469 4.0312 6.0469 7.0547.0 4.0312 3.5273 8.0625 7.5586 8.0625s7.5586-4.5352 7.5586-8.5664c0-11.586-9.5742-21.664-21.16-21.664h-222.18l25.695-40.809 205.05-9.5742c10.578.0 18.641-8.0625 20.656-19.648l22.023-111.98c50.801-25.258 49.254-77.883 49.254-77.883zm-85.883 187.34c-.50391 1.5117-1.5117 7.0547-6.5508 7.0547l-203.54 10.078-47.359-158.2 192.91 11.324c14.625 17.91 38.824 28.863 63.957 28.863.0.0 5.9141.38281 20.605-2.7266zm55.719-180.8c0 3.0195-4.0195 4.5234-6.5352 4.5234h-34.184c-3.0195.0-4.5234 3.0195-4.5234 5.5312v36.195c0 2.5156-3.0195 3.0195-5.5312 3.0195h-10.555c-3.0117.0-4.0195.0-4.0195-3.0195v-36.195c0-2.5156-3.0117-5.5312-6.0312-5.5312h-34.184c-3.0195.0-5.0273-2.0117-5.0273-4.5234v-9.5547c0-3.0117 2.0117-6.0312 5.0273-6.0312h34.184c2.5156.0 6.0312-1.5078 6.0312-4.0195v-36.195c0-2.5156 1.5078-5.0273 4.0195-5.0273h10.555c2.5156.0 5.5312 2.5156 5.5312 5.0273v36.195c0 2.5156 2.0117 4.0195 4.5234 4.0195h34.184c2.5156.0 6.5352 3.5156 6.5352 6.0312v9.5547z" id="svg-el-0"/><path d="m520.59 592.07c0 11.203-9.082 20.281-20.281 20.281-11.203.0-20.285-9.0781-20.285-20.281s9.082-20.285 20.285-20.285c11.199.0 20.281 9.082 20.281 20.285" id="svg-el-1"/><path d="m307.22 592.07c0 11.203-9.082 20.281-20.285 20.281s-20.285-9.0781-20.285-20.281 9.082-20.285 20.285-20.285 20.285 9.082 20.285 20.285" id="svg-el-2"/></g><g xmlns="http://www.w3.org/2000/svg" fill="#000000" paint-order="fill stroke" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="m616.79 276.25c0-47.258-38.707-86.465-85.961-86.465s-86.465 39.207-86.465 86.465c0 15.582 4.2461 30.539 11.285 43.105l-186.73-11.441-7.5586-25.191c-1.0078-4.0312-7.0547-17.129-38.793-18.641-12.41-.76953-13.039 5.2891-13.039 5.2891-2.6016 9.1289 5.4805 8.8164 5.4805 8.8164 22.168.0 30.23 5.543 31.234 7.5586l60.457 201.02-26.199 41.312c-1.0078 1.5117-6.0469 8.5664-2.0156 16.121 3.0234 5.543 9.0703 7.0547 17.633 7.0547h220.16c3.5273.0 6.0469 4.0312 6.0469 7.0547.0 4.0312 3.5273 8.0625 7.5586 8.0625s7.5586-4.5352 7.5586-8.5664c0-11.586-9.5742-21.664-21.16-21.664h-222.18l25.695-40.809 205.05-9.5742c10.578.0 18.641-8.0625 20.656-19.648l22.023-111.98c50.801-25.258 49.254-77.883 49.254-77.883zm-85.883 187.34c-.50391 1.5117-1.5117 7.0547-6.5508 7.0547l-203.54 10.078-47.359-158.2 192.91 11.324c14.625 17.91 38.824 28.863 63.957 28.863.0.0 5.9141.38281 20.605-2.7266zm55.719-180.8c0 3.0195-4.0195 4.5234-6.5352 4.5234h-34.184c-3.0195.0-4.5234 3.0195-4.5234 5.5312v36.195c0 2.5156-3.0195 3.0195-5.5312 3.0195h-10.555c-3.0117.0-4.0195.0-4.0195-3.0195v-36.195c0-2.5156-3.0117-5.5312-6.0312-5.5312h-34.184c-3.0195.0-5.0273-2.0117-5.0273-4.5234v-9.5547c0-3.0117 2.0117-6.0312 5.0273-6.0312h34.184c2.5156.0 6.0312-1.5078 6.0312-4.0195v-36.195c0-2.5156 1.5078-5.0273 4.0195-5.0273h10.555c2.5156.0 5.5312 2.5156 5.5312 5.0273v36.195c0 2.5156 2.0117 4.0195 4.5234 4.0195h34.184c2.5156.0 6.5352 3.5156 6.5352 6.0312v9.5547z" id="svg-el-3"/><path d="m520.59 592.07c0 11.203-9.082 20.281-20.281 20.281-11.203.0-20.285-9.0781-20.285-20.281s9.082-20.285 20.285-20.285c11.199.0 20.281 9.082 20.281 20.285" id="svg-el-4"/><path d="m307.22 592.07c0 11.203-9.082 20.281-20.285 20.281s-20.285-9.0781-20.285-20.281 9.082-20.285 20.285-20.285 20.285 9.082 20.285 20.285" id="svg-el-5"/></g><g xmlns="http://www.w3.org/2000/svg" fill="#000000" paint-order="fill stroke" display="none"><path d="m616.79 276.25c0-47.258-38.707-86.465-85.961-86.465s-86.465 39.207-86.465 86.465c0 15.582 4.2461 30.539 11.285 43.105l-186.73-11.441-7.5586-25.191c-1.0078-4.0312-7.0547-17.129-38.793-18.641-12.41-.76953-13.039 5.2891-13.039 5.2891-2.6016 9.1289 5.4805 8.8164 5.4805 8.8164 22.168.0 30.23 5.543 31.234 7.5586l60.457 201.02-26.199 41.312c-1.0078 1.5117-6.0469 8.5664-2.0156 16.121 3.0234 5.543 9.0703 7.0547 17.633 7.0547h220.16c3.5273.0 6.0469 4.0312 6.0469 7.0547.0 4.0312 3.5273 8.0625 7.5586 8.0625s7.5586-4.5352 7.5586-8.5664c0-11.586-9.5742-21.664-21.16-21.664h-222.18l25.695-40.809 205.05-9.5742c10.578.0 18.641-8.0625 20.656-19.648l22.023-111.98c50.801-25.258 49.254-77.883 49.254-77.883zm-85.883 187.34c-.50391 1.5117-1.5117 7.0547-6.5508 7.0547l-203.54 10.078-47.359-158.2 192.91 11.324c14.625 17.91 38.824 28.863 63.957 28.863.0.0 5.9141.38281 20.605-2.7266zm55.719-180.8c0 3.0195-4.0195 4.5234-6.5352 4.5234h-34.184c-3.0195.0-4.5234 3.0195-4.5234 5.5312v36.195c0 2.5156-3.0195 3.0195-5.5312 3.0195h-10.555c-3.0117.0-4.0195.0-4.0195-3.0195v-36.195c0-2.5156-3.0117-5.5312-6.0312-5.5312h-34.184c-3.0195.0-5.0273-2.0117-5.0273-4.5234v-9.5547c0-3.0117 2.0117-6.0312 5.0273-6.0312h34.184c2.5156.0 6.0312-1.5078 6.0312-4.0195v-36.195c0-2.5156 1.5078-5.0273 4.0195-5.0273h10.555c2.5156.0 5.5312 2.5156 5.5312 5.0273v36.195c0 2.5156 2.0117 4.0195 4.5234 4.0195h34.184c2.5156.0 6.5352 3.5156 6.5352 6.0312v9.5547z" fill="none" paint-order="fill stroke" stroke="#000000" stroke-width="13" stroke-linejoin="round" stroke-linecap="round" id="svg-el-6"/><path d="m616.79 276.25c0-47.258-38.707-86.465-85.961-86.465s-86.465 39.207-86.465 86.465c0 15.582 4.2461 30.539 11.285 43.105l-186.73-11.441-7.5586-25.191c-1.0078-4.0312-7.0547-17.129-38.793-18.641-12.41-.76953-13.039 5.2891-13.039 5.2891-2.6016 9.1289 5.4805 8.8164 5.4805 8.8164 22.168.0 30.23 5.543 31.234 7.5586l60.457 201.02-26.199 41.312c-1.0078 1.5117-6.0469 8.5664-2.0156 16.121 3.0234 5.543 9.0703 7.0547 17.633 7.0547h220.16c3.5273.0 6.0469 4.0312 6.0469 7.0547.0 4.0312 3.5273 8.0625 7.5586 8.0625s7.5586-4.5352 7.5586-8.5664c0-11.586-9.5742-21.664-21.16-21.664h-222.18l25.695-40.809 205.05-9.5742c10.578.0 18.641-8.0625 20.656-19.648l22.023-111.98c50.801-25.258 49.254-77.883 49.254-77.883zm-85.883 187.34c-.50391 1.5117-1.5117 7.0547-6.5508 7.0547l-203.54 10.078-47.359-158.2 192.91 11.324c14.625 17.91 38.824 28.863 63.957 28.863.0.0 5.9141.38281 20.605-2.7266zm55.719-180.8c0 3.0195-4.0195 4.5234-6.5352 4.5234h-34.184c-3.0195.0-4.5234 3.0195-4.5234 5.5312v36.195c0 2.5156-3.0195 3.0195-5.5312 3.0195h-10.555c-3.0117.0-4.0195.0-4.0195-3.0195v-36.195c0-2.5156-3.0117-5.5312-6.0312-5.5312h-34.184c-3.0195.0-5.0273-2.0117-5.0273-4.5234v-9.5547c0-3.0117 2.0117-6.0312 5.0273-6.0312h34.184c2.5156.0 6.0312-1.5078 6.0312-4.0195v-36.195c0-2.5156 1.5078-5.0273 4.0195-5.0273h10.555c2.5156.0 5.5312 2.5156 5.5312 5.0273v36.195c0 2.5156 2.0117 4.0195 4.5234 4.0195h34.184c2.5156.0 6.5352 3.5156 6.5352 6.0312v9.5547z" fill="#000000" paint-order="fill stroke" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" id="svg-el-7"/><path d="m616.79 276.25c0-47.258-38.707-86.465-85.961-86.465s-86.465 39.207-86.465 86.465c0 15.582 4.2461 30.539 11.285 43.105l-186.73-11.441-7.5586-25.191c-1.0078-4.0312-7.0547-17.129-38.793-18.641-12.41-.76953-13.039 5.2891-13.039 5.2891-2.6016 9.1289 5.4805 8.8164 5.4805 8.8164 22.168.0 30.23 5.543 31.234 7.5586l60.457 201.02-26.199 41.312c-1.0078 1.5117-6.0469 8.5664-2.0156 16.121 3.0234 5.543 9.0703 7.0547 17.633 7.0547h220.16c3.5273.0 6.0469 4.0312 6.0469 7.0547.0 4.0312 3.5273 8.0625 7.5586 8.0625s7.5586-4.5352 7.5586-8.5664c0-11.586-9.5742-21.664-21.16-21.664h-222.18l25.695-40.809 205.05-9.5742c10.578.0 18.641-8.0625 20.656-19.648l22.023-111.98c50.801-25.258 49.254-77.883 49.254-77.883zm-85.883 187.34c-.50391 1.5117-1.5117 7.0547-6.5508 7.0547l-203.54 10.078-47.359-158.2 192.91 11.324c14.625 17.91 38.824 28.863 63.957 28.863.0.0 5.9141.38281 20.605-2.7266zm55.719-180.8c0 3.0195-4.0195 4.5234-6.5352 4.5234h-34.184c-3.0195.0-4.5234 3.0195-4.5234 5.5312v36.195c0 2.5156-3.0195 3.0195-5.5312 3.0195h-10.555c-3.0117.0-4.0195.0-4.0195-3.0195v-36.195c0-2.5156-3.0117-5.5312-6.0312-5.5312h-34.184c-3.0195.0-5.0273-2.0117-5.0273-4.5234v-9.5547c0-3.0117 2.0117-6.0312 5.0273-6.0312h34.184c2.5156.0 6.0312-1.5078 6.0312-4.0195v-36.195c0-2.5156 1.5078-5.0273 4.0195-5.0273h10.555c2.5156.0 5.5312 2.5156 5.5312 5.0273v36.195c0 2.5156 2.0117 4.0195 4.5234 4.0195h34.184c2.5156.0 6.5352 3.5156 6.5352 6.0312v9.5547z" fill="#000000" paint-order="fill stroke" display="none" id="svg-el-8"/><path d="m520.59 592.07c0 11.203-9.082 20.281-20.281 20.281-11.203.0-20.285-9.0781-20.285-20.281s9.082-20.285 20.285-20.285c11.199.0 20.281 9.082 20.281 20.285" fill="none" paint-order="fill stroke" stroke="#000000" stroke-width="13" stroke-linejoin="round" stroke-linecap="round" id="svg-el-9"/><path d="m520.59 592.07c0 11.203-9.082 20.281-20.281 20.281-11.203.0-20.285-9.0781-20.285-20.281s9.082-20.285 20.285-20.285c11.199.0 20.281 9.082 20.281 20.285" fill="#000000" paint-order="fill stroke" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" id="svg-el-10"/><path d="m520.59 592.07c0 11.203-9.082 20.281-20.281 20.281-11.203.0-20.285-9.0781-20.285-20.281s9.082-20.285 20.285-20.285c11.199.0 20.281 9.082 20.281 20.285" fill="#000000" paint-order="fill stroke" display="none" id="svg-el-11"/><path d="m307.22 592.07c0 11.203-9.082 20.281-20.285 20.281s-20.285-9.0781-20.285-20.281 9.082-20.285 20.285-20.285 20.285 9.082 20.285 20.285" fill="none" paint-order="fill stroke" stroke="#000000" stroke-width="13" stroke-linejoin="round" stroke-linecap="round" id="svg-el-12"/><path d="m307.22 592.07c0 11.203-9.082 20.281-20.285 20.281s-20.285-9.0781-20.285-20.281 9.082-20.285 20.285-20.285 20.285 9.082 20.285 20.285" fill="#000000" paint-order="fill stroke" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" id="svg-el-13"/><path d="m307.22 592.07c0 11.203-9.082 20.281-20.285 20.281s-20.285-9.0781-20.285-20.281 9.082-20.285 20.285-20.285 20.285 9.082 20.285 20.285" fill="#000000" paint-order="fill stroke" display="none" id="svg-el-14"/></g></g></svg> -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart-icon lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
-        <a href="#booking" class="btn-book-nav"> Book Now</a>
-      </div>
-    </div>
-    <div class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
+  <div id="loader">
+    <div class="loader-logo">NorahsPrint Integrated Services</div>
+    <div class="loader-bar">
+      <div class="loader-progress"></div>
     </div>
   </div>
-</nav>
 
-<div class="mobile-nav" id="mobileNav">
-  <a href="#about" onclick="closeMobileNav()">About</a>
-  <a href="#services" onclick="closeMobileNav()">Services</a>
-  <a href="#products" onclick="closeMobileNav()">Products</a>
-  <a href="#booking" onclick="closeMobileNav()">Book Now</a>
-  <a href="#testimonials" onclick="closeMobileNav()">Reviews</a>
-  <a href="#contact" onclick="closeMobileNav()">Contact</a>
-</div>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="hero-eyebrow"><span></span>Premium Nigerian Craftsmanship</div>
-      <h1 class="hero-title">
-        <span class="line">Crafting Spaces</span>
-        <span class="line italic gold">That Endure</span>
-        <span class="line">Generations</span>
-      </h1>
-      <p class="hero-sub">From handcrafted African furniture to precision electrical systems and expert Pop — we build Nigeria's most distinguished interiors and infrastructure.</p>
-      <div class="hero-actions">
-        <a href="#products" class="btn-primary">
-          View Products
-          <img class="gif" width="30px" src="../images/import.gif" alt="">
-          <!-- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg> -->
-        </a>
-        <a href="https://wa.me/2348012345678?text=Hello%20NorahsPrint%20%26%20Sons%2C%20I%20would%20like%20to%20make%20a%20booking." target="_blank" class="btn-secondary"> Book via WhatsApp</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item"><span class="stat-num" data-count="850">0</span><span class="stat-label">Projects Done</span></div>
-        <div class="stat-item"><span class="stat-num" data-count="12">0</span><span class="stat-label">Years Experience</span></div>
-        <div class="stat-item"><span class="stat-num" data-count="98">0</span><span class="stat-label">% Client Satisfaction</span></div>
-      </div>
+  <nav id="navbar">
+    <div class="nav-logo">
+      <div class="logo-mark"><img src="../images/me.jpg" alt=""></div>
+      NorahsPrint <span> Intergrated Services</span>
     </div>
-    <div class="hero-visual">
-      <div class="hero-float-1"><div class="float-label">Average Rating</div><div class="float-val">4.9 ★</div></div>
-      <div class="hero-visual-card">
-        <img src="../whatsapp_img/POP-7.jpg" loading="lazy" alt="Premium furniture 1" loading="eager" class="hero-img active">
-        <img src="../whatsapp_img/POP-13.jpg" loading="lazy" alt="Premium furniture 2" class="hero-img"/>
-        <img src="../whatsapp_img/LIGHT-2.jpg" loading="lazy" alt="Premium furniture 3" class="hero-img"/>
-        <img src="../whatsapp_img/PAINT-2.jpg" loading="lazy" alt="Premium furniture 4" class="hero-img"/>
-        <img src="../whatsapp_img/INTERIOR-2.jpg" loading="lazy" alt="Premium furniture 5" class="hero-img"/>
-        <img src="../whatsapp_img/INTERIOR-7.jpg" loading="lazy" alt="Premium furniture 6" class="hero-img"/>
-        <img src="../whatsapp_img/FURNITURE-2.jpg" loading="lazy" alt="Premium furniture 7" class="hero-img"/>
-        <img src="../whatsapp_img/FURNITURE-3.jpg" loading="lazy" alt="Premium furniture 5" class="hero-img"/>
-        <img src="../whatsapp_img/FURNITURE-4.jpg" loading="lazy" alt="Premium furniture 5" class="hero-img"/>
-        <img src="../whatsapp_img/FURNITURE-5.jpg" loading="lazy" alt="Premium furniture 5" class="hero-img"/>
-        <img src="../whatsapp_img/FURNITURE-6.jpg" loading="lazy" alt="Premium furniture 5" class="hero-img"/>
-        <img src="../whatsapp_img/FURNITURE-7.jpg" loading="lazy" alt="Premium furniture 5" class="hero-img"/>
-        <img src="../whatsapp_img/ELECTRICAL-2.jpg" loading="lazy" alt="Premium furniture 6" class="hero-img"/>
-        <div class="hero-card-badge">
-          <div class="badge-icon">🛋️</div>
-          <div class="badge-text"><strong>Custom Furniture</strong><span>Handcrafted • African Hardwood</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#booking">Book</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <div class="booking">
+        <div class="book">
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 400 400"><g transform="translate(200, 200) translate(-128, -128) scale(0.5) translate(-144, -144)" fill="#000"><g xmlns="http://www.w3.org/2000/svg" fill="none" paint-order="fill stroke" stroke="#000000" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"><path d="m616.79 276.25c0-47.258-38.707-86.465-85.961-86.465s-86.465 39.207-86.465 86.465c0 15.582 4.2461 30.539 11.285 43.105l-186.73-11.441-7.5586-25.191c-1.0078-4.0312-7.0547-17.129-38.793-18.641-12.41-.76953-13.039 5.2891-13.039 5.2891-2.6016 9.1289 5.4805 8.8164 5.4805 8.8164 22.168.0 30.23 5.543 31.234 7.5586l60.457 201.02-26.199 41.312c-1.0078 1.5117-6.0469 8.5664-2.0156 16.121 3.0234 5.543 9.0703 7.0547 17.633 7.0547h220.16c3.5273.0 6.0469 4.0312 6.0469 7.0547.0 4.0312 3.5273 8.0625 7.5586 8.0625s7.5586-4.5352 7.5586-8.5664c0-11.586-9.5742-21.664-21.16-21.664h-222.18l25.695-40.809 205.05-9.5742c10.578.0 18.641-8.0625 20.656-19.648l22.023-111.98c50.801-25.258 49.254-77.883 49.254-77.883zm-85.883 187.34c-.50391 1.5117-1.5117 7.0547-6.5508 7.0547l-203.54 10.078-47.359-158.2 192.91 11.324c14.625 17.91 38.824 28.863 63.957 28.863.0.0 5.9141.38281 20.605-2.7266zm55.719-180.8c0 3.0195-4.0195 4.5234-6.5352 4.5234h-34.184c-3.0195.0-4.5234 3.0195-4.5234 5.5312v36.195c0 2.5156-3.0195 3.0195-5.5312 3.0195h-10.555c-3.0117.0-4.0195.0-4.0195-3.0195v-36.195c0-2.5156-3.0117-5.5312-6.0312-5.5312h-34.184c-3.0195.0-5.0273-2.0117-5.0273-4.5234v-9.5547c0-3.0117 2.0117-6.0312 5.0273-6.0312h34.184c2.5156.0 6.0312-1.5078 6.0312-4.0195v-36.195c0-2.5156 1.5078-5.0273 4.0195-5.0273h10.555c2.5156.0 5.5312 2.5156 5.5312 5.0273v36.195c0 2.5156 2.0117 4.0195 4.5234 4.0195h34.184c2.5156.0 6.5352 3.5156 6.5352 6.0312v9.5547z" id="svg-el-0"/><path d="m520.59 592.07c0 11.203-9.082 20.281-20.281 20.281-11.203.0-20.285-9.0781-20.285-20.281s9.082-20.285 20.285-20.285c11.199.0 20.281 9.082 20.281 20.285" id="svg-el-1"/><path d="m307.22 592.07c0 11.203-9.082 20.281-20.285 20.281s-20.285-9.0781-20.285-20.281 9.082-20.285 20.285-20.285 20.285 9.082 20.285 20.285" id="svg-el-2"/></g><g xmlns="http://www.w3.org/2000/svg" fill="#000000" paint-order="fill stroke" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="m616.79 276.25c0-47.258-38.707-86.465-85.961-86.465s-86.465 39.207-86.465 86.465c0 15.582 4.2461 30.539 11.285 43.105l-186.73-11.441-7.5586-25.191c-1.0078-4.0312-7.0547-17.129-38.793-18.641-12.41-.76953-13.039 5.2891-13.039 5.2891-2.6016 9.1289 5.4805 8.8164 5.4805 8.8164 22.168.0 30.23 5.543 31.234 7.5586l60.457 201.02-26.199 41.312c-1.0078 1.5117-6.0469 8.5664-2.0156 16.121 3.0234 5.543 9.0703 7.0547 17.633 7.0547h220.16c3.5273.0 6.0469 4.0312 6.0469 7.0547.0 4.0312 3.5273 8.0625 7.5586 8.0625s7.5586-4.5352 7.5586-8.5664c0-11.586-9.5742-21.664-21.16-21.664h-222.18l25.695-40.809 205.05-9.5742c10.578.0 18.641-8.0625 20.656-19.648l22.023-111.98c50.801-25.258 49.254-77.883 49.254-77.883zm-85.883 187.34c-.50391 1.5117-1.5117 7.0547-6.5508 7.0547l-203.54 10.078-47.359-158.2 192.91 11.324c14.625 17.91 38.824 28.863 63.957 28.863.0.0 5.9141.38281 20.605-2.7266zm55.719-180.8c0 3.0195-4.0195 4.5234-6.5352 4.5234h-34.184c-3.0195.0-4.5234 3.0195-4.5234 5.5312v36.195c0 2.5156-3.0195 3.0195-5.5312 3.0195h-10.555c-3.0117.0-4.0195.0-4.0195-3.0195v-36.195c0-2.5156-3.0117-5.5312-6.0312-5.5312h-34.184c-3.0195.0-5.0273-2.0117-5.0273-4.5234v-9.5547c0-3.0117 2.0117-6.0312 5.0273-6.0312h34.184c2.5156.0 6.0312-1.5078 6.0312-4.0195v-36.195c0-2.5156 1.5078-5.0273 4.0195-5.0273h10.555c2.5156.0 5.5312 2.5156 5.5312 5.0273v36.195c0 2.5156 2.0117 4.0195 4.5234 4.0195h34.184c2.5156.0 6.5352 3.5156 6.5352 6.0312v9.5547z" id="svg-el-3"/><path d="m520.59 592.07c0 11.203-9.082 20.281-20.281 20.281-11.203.0-20.285-9.0781-20.285-20.281s9.082-20.285 20.285-20.285c11.199.0 20.281 9.082 20.281 20.285" id="svg-el-4"/><path d="m307.22 592.07c0 11.203-9.082 20.281-20.285 20.281s-20.285-9.0781-20.285-20.281 9.082-20.285 20.285-20.285 20.285 9.082 20.285 20.285" id="svg-el-5"/></g><g xmlns="http://www.w3.org/2000/svg" fill="#000000" paint-order="fill stroke" display="none"><path d="m616.79 276.25c0-47.258-38.707-86.465-85.961-86.465s-86.465 39.207-86.465 86.465c0 15.582 4.2461 30.539 11.285 43.105l-186.73-11.441-7.5586-25.191c-1.0078-4.0312-7.0547-17.129-38.793-18.641-12.41-.76953-13.039 5.2891-13.039 5.2891-2.6016 9.1289 5.4805 8.8164 5.4805 8.8164 22.168.0 30.23 5.543 31.234 7.5586l60.457 201.02-26.199 41.312c-1.0078 1.5117-6.0469 8.5664-2.0156 16.121 3.0234 5.543 9.0703 7.0547 17.633 7.0547h220.16c3.5273.0 6.0469 4.0312 6.0469 7.0547.0 4.0312 3.5273 8.0625 7.5586 8.0625s7.5586-4.5352 7.5586-8.5664c0-11.586-9.5742-21.664-21.16-21.664h-222.18l25.695-40.809 205.05-9.5742c10.578.0 18.641-8.0625 20.656-19.648l22.023-111.98c50.801-25.258 49.254-77.883 49.254-77.883zm-85.883 187.34c-.50391 1.5117-1.5117 7.0547-6.5508 7.0547l-203.54 10.078-47.359-158.2 192.91 11.324c14.625 17.91 38.824 28.863 63.957 28.863.0.0 5.9141.38281 20.605-2.7266zm55.719-180.8c0 3.0195-4.0195 4.5234-6.5352 4.5234h-34.184c-3.0195.0-4.5234 3.0195-4.5234 5.5312v36.195c0 2.5156-3.0195 3.0195-5.5312 3.0195h-10.555c-3.0117.0-4.0195.0-4.0195-3.0195v-36.195c0-2.5156-3.0117-5.5312-6.0312-5.5312h-34.184c-3.0195.0-5.0273-2.0117-5.0273-4.5234v-9.5547c0-3.0117 2.0117-6.0312 5.0273-6.0312h34.184c2.5156.0 6.0312-1.5078 6.0312-4.0195v-36.195c0-2.5156 1.5078-5.0273 4.0195-5.0273h10.555c2.5156.0 5.5312 2.5156 5.5312 5.0273v36.195c0 2.5156 2.0117 4.0195 4.5234 4.0195h34.184c2.5156.0 6.5352 3.5156 6.5352 6.0312v9.5547z" fill="none" paint-order="fill stroke" stroke="#000000" stroke-width="13" stroke-linejoin="round" stroke-linecap="round" id="svg-el-6"/><path d="m616.79 276.25c0-47.258-38.707-86.465-85.961-86.465s-86.465 39.207-86.465 86.465c0 15.582 4.2461 30.539 11.285 43.105l-186.73-11.441-7.5586-25.191c-1.0078-4.0312-7.0547-17.129-38.793-18.641-12.41-.76953-13.039 5.2891-13.039 5.2891-2.6016 9.1289 5.4805 8.8164 5.4805 8.8164 22.168.0 30.23 5.543 31.234 7.5586l60.457 201.02-26.199 41.312c-1.0078 1.5117-6.0469 8.5664-2.0156 16.121 3.0234 5.543 9.0703 7.0547 17.633 7.0547h220.16c3.5273.0 6.0469 4.0312 6.0469 7.0547.0 4.0312 3.5273 8.0625 7.5586 8.0625s7.5586-4.5352 7.5586-8.5664c0-11.586-9.5742-21.664-21.16-21.664h-222.18l25.695-40.809 205.05-9.5742c10.578.0 18.641-8.0625 20.656-19.648l22.023-111.98c50.801-25.258 49.254-77.883 49.254-77.883zm-85.883 187.34c-.50391 1.5117-1.5117 7.0547-6.5508 7.0547l-203.54 10.078-47.359-158.2 192.91 11.324c14.625 17.91 38.824 28.863 63.957 28.863.0.0 5.9141.38281 20.605-2.7266zm55.719-180.8c0 3.0195-4.0195 4.5234-6.5352 4.5234h-34.184c-3.0195.0-4.5234 3.0195-4.5234 5.5312v36.195c0 2.5156-3.0195 3.0195-5.5312 3.0195h-10.555c-3.0117.0-4.0195.0-4.0195-3.0195v-36.195c0-2.5156-3.0117-5.5312-6.0312-5.5312h-34.184c-3.0195.0-5.0273-2.0117-5.0273-4.5234v-9.5547c0-3.0117 2.0117-6.0312 5.0273-6.0312h34.184c2.5156.0 6.0312-1.5078 6.0312-4.0195v-36.195c0-2.5156 1.5078-5.0273 4.0195-5.0273h10.555c2.5156.0 5.5312 2.5156 5.5312 5.0273v36.195c0 2.5156 2.0117 4.0195 4.5234 4.0195h34.184c2.5156.0 6.5352 3.5156 6.5352 6.0312v9.5547z" fill="#000000" paint-order="fill stroke" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" id="svg-el-7"/><path d="m616.79 276.25c0-47.258-38.707-86.465-85.961-86.465s-86.465 39.207-86.465 86.465c0 15.582 4.2461 30.539 11.285 43.105l-186.73-11.441-7.5586-25.191c-1.0078-4.0312-7.0547-17.129-38.793-18.641-12.41-.76953-13.039 5.2891-13.039 5.2891-2.6016 9.1289 5.4805 8.8164 5.4805 8.8164 22.168.0 30.23 5.543 31.234 7.5586l60.457 201.02-26.199 41.312c-1.0078 1.5117-6.0469 8.5664-2.0156 16.121 3.0234 5.543 9.0703 7.0547 17.633 7.0547h220.16c3.5273.0 6.0469 4.0312 6.0469 7.0547.0 4.0312 3.5273 8.0625 7.5586 8.0625s7.5586-4.5352 7.5586-8.5664c0-11.586-9.5742-21.664-21.16-21.664h-222.18l25.695-40.809 205.05-9.5742c10.578.0 18.641-8.0625 20.656-19.648l22.023-111.98c50.801-25.258 49.254-77.883 49.254-77.883zm-85.883 187.34c-.50391 1.5117-1.5117 7.0547-6.5508 7.0547l-203.54 10.078-47.359-158.2 192.91 11.324c14.625 17.91 38.824 28.863 63.957 28.863.0.0 5.9141.38281 20.605-2.7266zm55.719-180.8c0 3.0195-4.0195 4.5234-6.5352 4.5234h-34.184c-3.0195.0-4.5234 3.0195-4.5234 5.5312v36.195c0 2.5156-3.0195 3.0195-5.5312 3.0195h-10.555c-3.0117.0-4.0195.0-4.0195-3.0195v-36.195c0-2.5156-3.0117-5.5312-6.0312-5.5312h-34.184c-3.0195.0-5.0273-2.0117-5.0273-4.5234v-9.5547c0-3.0117 2.0117-6.0312 5.0273-6.0312h34.184c2.5156.0 6.0312-1.5078 6.0312-4.0195v-36.195c0-2.5156 1.5078-5.0273 4.0195-5.0273h10.555c2.5156.0 5.5312 2.5156 5.5312 5.0273v36.195c0 2.5156 2.0117 4.0195 4.5234 4.0195h34.184c2.5156.0 6.5352 3.5156 6.5352 6.0312v9.5547z" fill="#000000" paint-order="fill stroke" display="none" id="svg-el-8"/><path d="m520.59 592.07c0 11.203-9.082 20.281-20.281 20.281-11.203.0-20.285-9.0781-20.285-20.281s9.082-20.285 20.285-20.285c11.199.0 20.281 9.082 20.281 20.285" fill="none" paint-order="fill stroke" stroke="#000000" stroke-width="13" stroke-linejoin="round" stroke-linecap="round" id="svg-el-9"/><path d="m520.59 592.07c0 11.203-9.082 20.281-20.281 20.281-11.203.0-20.285-9.0781-20.285-20.281s9.082-20.285 20.285-20.285c11.199.0 20.281 9.082 20.281 20.285" fill="#000000" paint-order="fill stroke" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" id="svg-el-10"/><path d="m520.59 592.07c0 11.203-9.082 20.281-20.281 20.281-11.203.0-20.285-9.0781-20.285-20.281s9.082-20.285 20.285-20.285c11.199.0 20.281 9.082 20.281 20.285" fill="#000000" paint-order="fill stroke" display="none" id="svg-el-11"/><path d="m307.22 592.07c0 11.203-9.082 20.281-20.285 20.281s-20.285-9.0781-20.285-20.281 9.082-20.285 20.285-20.285 20.285 9.082 20.285 20.285" fill="none" paint-order="fill stroke" stroke="#000000" stroke-width="13" stroke-linejoin="round" stroke-linecap="round" id="svg-el-12"/><path d="m307.22 592.07c0 11.203-9.082 20.281-20.285 20.281s-20.285-9.0781-20.285-20.281 9.082-20.285 20.285-20.285 20.285 9.082 20.285 20.285" fill="#000000" paint-order="fill stroke" stroke="#000000" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" id="svg-el-13"/><path d="m307.22 592.07c0 11.203-9.082 20.281-20.285 20.281s-20.285-9.0781-20.285-20.281 9.082-20.285 20.285-20.285 20.285 9.082 20.285 20.285" fill="#000000" paint-order="fill stroke" display="none" id="svg-el-14"/></g></g></svg> -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none"
+            stroke="#ffffff" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+            <circle cx="8" cy="21" r="1" />
+            <circle cx="19" cy="21" r="1" />
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+          </svg>
+          <a href="#booking" class="btn-book-nav"> Book Now</a>
         </div>
       </div>
-      <div class="hero-float-2"><div class="float-label">Trusted Clients</div><div class="float-val">850+</div></div>
+      <div class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- ABOUT -->
-<section id="about" class="section-pad">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-visual reveal-left">
-        <div class="about-img-wrap">
-          <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80" alt="Expert craftsman at work" loading="lazy"/>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about" onclick="closeMobileNav()">About</a>
+    <a href="#services" onclick="closeMobileNav()">Services</a>
+    <a href="#products" onclick="closeMobileNav()">Products</a>
+    <a href="#booking" onclick="closeMobileNav()">Book Now</a>
+    <a href="#testimonials" onclick="closeMobileNav()">Reviews</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-eyebrow"><span></span>Premium Nigerian Craftsmanship</div>
+        <h1 class="hero-title">
+          <span class="line">Crafting Spaces</span>
+          <span class="line italic gold">That Endure</span>
+          <span class="line">Generations</span>
+        </h1>
+        <p class="hero-sub">From handcrafted African furniture to precision electrical systems and expert Pop — we build
+          Nigeria's most distinguished interiors and infrastructure.</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn-primary">
+            View Products
+            <img class="gif" width="30px" src="../images/import.gif" alt="">
+            <!-- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg> -->
+          </a>
+          <a href="https://wa.me/2348012345678?text=Hello%20NorahsPrint%20%26%20Sons%2C%20I%20would%20like%20to%20make%20a%20booking."
+            target="_blank" class="btn-secondary"> Book via WhatsApp</a>
         </div>
-        <div class="about-badge">
-          <div class="about-badge-inner">
-            <span class="about-badge-num">12</span>
-            <span class="about-badge-label">Years<br/>Expert</span>
+        <div class="hero-stats">
+          <div class="stat-item"><span class="stat-num" data-count="850">0</span><span class="stat-label">Projects
+              Done</span></div>
+          <div class="stat-item"><span class="stat-num" data-count="12">0</span><span class="stat-label">Years
+              Experience</span></div>
+          <div class="stat-item"><span class="stat-num" data-count="98">0</span><span class="stat-label">% Client
+              Satisfaction</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-float-1">
+          <div class="float-label">Average Rating</div>
+          <div class="float-val">4.9 ★</div>
+        </div>
+        <div class="hero-visual-card">
+          <img src="../whatsapp_img/POP-7.jpg" loading="lazy" alt="Premium furniture 1" loading="eager"
+            class="hero-img active">
+          <img src="../whatsapp_img/POP-13.jpg" loading="lazy" alt="Premium furniture 2" class="hero-img" />
+          <img src="../whatsapp_img/LIGHT-2.jpg" loading="lazy" alt="Premium furniture 3" class="hero-img" />
+          <img src="../whatsapp_img/PAINT-2.jpg" loading="lazy" alt="Premium furniture 4" class="hero-img" />
+          <img src="../whatsapp_img/INTERIOR-2.jpg" loading="lazy" alt="Premium furniture 5" class="hero-img" />
+          <img src="../whatsapp_img/INTERIOR-7.jpg" loading="lazy" alt="Premium furniture 6" class="hero-img" />
+          <img src="../whatsapp_img/FURNITURE-2.jpg" loading="lazy" alt="Premium furniture 7" class="hero-img" />
+          <img src="../whatsapp_img/FURNITURE-3.jpg" loading="lazy" alt="Premium furniture 5" class="hero-img" />
+          <img src="../whatsapp_img/FURNITURE-4.jpg" loading="lazy" alt="Premium furniture 5" class="hero-img" />
+          <img src="../whatsapp_img/FURNITURE-5.jpg" loading="lazy" alt="Premium furniture 5" class="hero-img" />
+          <img src="../whatsapp_img/FURNITURE-6.jpg" loading="lazy" alt="Premium furniture 5" class="hero-img" />
+          <img src="../whatsapp_img/FURNITURE-7.jpg" loading="lazy" alt="Premium furniture 5" class="hero-img" />
+          <img src="../whatsapp_img/ELECTRICAL-2.jpg" loading="lazy" alt="Premium furniture 6" class="hero-img" />
+          <div class="hero-card-badge">
+            <div class="badge-icon">🛋️</div>
+            <div class="badge-text"><strong>Custom Furniture</strong><span>Handcrafted • African Hardwood</span></div>
+          </div>
+        </div>
+        <div class="hero-float-2">
+          <div class="float-label">Trusted Clients</div>
+          <div class="float-val">850+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section-pad">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal-left">
+          <div class="about-img-wrap">
+            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80"
+              alt="Expert craftsman at work" loading="lazy" />
+          </div>
+          <div class="about-badge">
+            <div class="about-badge-inner">
+              <span class="about-badge-num">12</span>
+              <span class="about-badge-label">Years<br />Expert</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-right reveal-right">
+          <div class="section-tag">Who We Are</div>
+          <h2 class="section-title"><em>Built on Craft,</em><br /><em>Driven by Excellence</em></h2>
+          <div class="gold-sep"></div>
+          <p class="section-subtitle" style="max-width:100%;margin-bottom:20px">NorahsPrint Integrated Services is a
+            Port Harcourt-based multi-service company with over a decade of excellence in premium furniture
+            craftsmanship, certified electrical installations, and professional &amp; Pop solutions.</p>
+          <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.8;margin-bottom:36px">We source the
+            finest African hardwoods and local materials to create statement pieces that reflect Nigeria's rich
+            heritage. Our engineers are fully certified and bring international standards to every project — from luxury
+            homes to large commercial builds across the Niger Delta region.</p>
+          <div class="about-pillars">
+            <div class="about-pillar">
+              <div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-bed"></i></div>
+              <div class="pillar-name">Furniture</div>
+              <div class="pillar-desc">Custom African hardwood furniture built to last generations</div>
+            </div>
+            <div class="about-pillar">
+              <div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-bolt-lightning"></i></div>
+              <div class="pillar-name">Electrical</div>
+              <div class="pillar-desc">Certified installations from residential to industrial scale</div>
+            </div>
+            <div class="about-pillar">
+              <div class="pillar-icon"><i style="color: #1A60D4;" class="fa fa-cubes"></i><i class="fa fa-square-o"></i>
+              </div>
+              <div class="pillar-name">POP</div>
+              <div class="pillar-desc">Precision Pop systems built for reliability and longevity</div>
+            </div>
+            <div class="about-pillar">
+              <div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-layer-group"></i></div>
+              <div class="pillar-name">Concrete FLooring</div>
+              <div class="pillar-desc">Full-service general contracting for any project size</div>
+            </div>
+            <div class="about-pillar">
+              <div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-tools"></i></div>
+              <div class="pillar-name">Interior</div>
+              <div class="pillar-desc">Full-service general contracting for any project size</div>
+            </div>
+            <div class="about-pillar">
+              <div class="pillar-icon"><i style="color: #1A60D4;" class="fas fa-paint-roller"></i></div>
+              <div class="pillar-name">Painting </div>
+              <div class="pillar-desc">Full-service general contracting for any project size</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="about-right reveal-right">
-        <div class="section-tag">Who We Are</div>
-        <h2 class="section-title"><em>Built on Craft,</em><br/><em>Driven by Excellence</em></h2>
-        <div class="gold-sep"></div>
-        <p class="section-subtitle" style="max-width:100%;margin-bottom:20px">NorahsPrint Integrated Services is a Port Harcourt-based multi-service company with over a decade of excellence in premium furniture craftsmanship, certified electrical installations, and professional &amp; Pop solutions.</p>
-        <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.8;margin-bottom:36px">We source the finest African hardwoods and local materials to create statement pieces that reflect Nigeria's rich heritage. Our engineers are fully certified and bring international standards to every project — from luxury homes to large commercial builds across the Niger Delta region.</p>
-        <div class="about-pillars">
-          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-bed"></i></div><div class="pillar-name">Furniture</div><div class="pillar-desc">Custom African hardwood furniture built to last generations</div></div>
-          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-bolt-lightning"></i></div><div class="pillar-name">Electrical</div><div class="pillar-desc">Certified installations from residential to industrial scale</div></div>
-          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa fa-cubes"></i><i class="fa fa-square-o"></i></div><div class="pillar-name">POP</div><div class="pillar-desc">Precision Pop systems built for reliability and longevity</div></div>
-          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-layer-group"></i></div><div class="pillar-name">Concrete FLooring</div><div class="pillar-desc">Full-service general contracting for any project size</div></div>
-          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fa-solid fa-tools"></i></div><div class="pillar-name">Interior</div><div class="pillar-desc">Full-service general contracting for any project size</div></div>
-          <div class="about-pillar"><div class="pillar-icon"><i style="color: #1A60D4;" class="fas fa-paint-roller"></i></div><div class="pillar-name">Painting </div><div class="pillar-desc">Full-service general contracting for any project size</div></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section-pad">
+    <div class="container">
+      <div class="reveal" style="text-align:center">
+        <div class="section-tag" style="justify-content:center;">What We Offer</div>
+        <h2 class="section-title"> <em>Our Premium Services</em> </h2>
+        <p class="section-subtitle" style="margin:0 auto">Every service delivered with precision, professionalism, and
+          pride in Nigerian craftsmanship.</p>
+      </div>
+      <div class="services-grid" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="section-pad">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-tag">Our Catalog</div>
+        <h2 class="section-title"> <em>Product Collection</em></h2>
+        <p class="section-subtitle">Browse our curated range of furniture, electrical fittings, and Pop solutions.</p>
+      </div>
+      <div class="products-controls reveal">
+        <div class="search-wrap">
+          <img class="search-icon" width="25px" src="../images/system-regular-42-search-hover-pinch.gif" alt="">
+          <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><style>@keyframes flipping{0%{transform:rotate3d(1,1,0,0deg)}to{transform:rotate3d(1,1,0,180deg)}}</style><g style="animation:flipping 1.5s cubic-bezier(.96,-.2,0,1.29) both infinite alternate-reverse"><path fill="#0A0A30" fill-rule="evenodd" d="M5.71 11.025a5.25 5.25 0 1010.5 0 5.25 5.25 0 00-10.5 0zm5.25-7a7 7 0 100 14 7 7 0 000-14z" clip-rule="evenodd"/><rect width="1.839" height="3.677" x="16.139" y="17.375" fill="#265BFF" rx=".2" transform="rotate(-45 16.14 17.375)"/></g></svg> -->
+          <input type="text" id="searchInput" placeholder="Search products…" aria-label="Search products" />
+        </div>
+        <div class="filter-btns" id="filterBtns"></div>
+        <div class="products-sort-wrap" aria-label="Product sorting">
+          <label class="sr-only" for="sortSelect">Sort products</label>
+          <select id="sortSelect" class="products-sort-select" aria-label="Sort products">
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="az">A-Z</option>
+            <option value="za">Z-A</option>
+            <option value="price_low">Price Low → High</option>
+            <option value="price_high">Price High → Low</option>
+          </select>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="section-pad">
-  <div class="container">
-    <div class="reveal" style="text-align:center">
-      <div class="section-tag" style="justify-content:center;">What We Offer</div>
-      <h2 class="section-title"> <em>Our Premium Services</em> </h2>
-      <p class="section-subtitle" style="margin:0 auto">Every service delivered with precision, professionalism, and pride in Nigerian craftsmanship.</p>
-    </div>
-    <div class="services-grid" id="servicesGrid"></div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section id="products" class="section-pad">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-tag">Our Catalog</div>
-      <h2 class="section-title"> <em>Product Collection</em></h2>
-      <p class="section-subtitle">Browse our curated range of furniture, electrical fittings, and Pop solutions.</p>
-    </div>
-    <div class="products-controls reveal">
-      <div class="search-wrap">
-        <img class="search-icon" width="25px" src="../images/system-regular-42-search-hover-pinch.gif" alt="">
-        <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><style>@keyframes flipping{0%{transform:rotate3d(1,1,0,0deg)}to{transform:rotate3d(1,1,0,180deg)}}</style><g style="animation:flipping 1.5s cubic-bezier(.96,-.2,0,1.29) both infinite alternate-reverse"><path fill="#0A0A30" fill-rule="evenodd" d="M5.71 11.025a5.25 5.25 0 1010.5 0 5.25 5.25 0 00-10.5 0zm5.25-7a7 7 0 100 14 7 7 0 000-14z" clip-rule="evenodd"/><rect width="1.839" height="3.677" x="16.139" y="17.375" fill="#265BFF" rx=".2" transform="rotate(-45 16.14 17.375)"/></g></svg> -->
-        <input type="text" id="searchInput" placeholder="Search products…" aria-label="Search products"/>
+      <div class="products-page-indicator" id="productsPageIndicator" aria-live="polite"></div>
+      <div class="products-loading" id="productsLoading" style="display:none;">
+        <div class="no-results">⏳ Loading products…</div>
       </div>
-      <div class="filter-btns" id="filterBtns"></div>
-      <div class="products-sort-wrap" aria-label="Product sorting">
-        <label class="sr-only" for="sortSelect">Sort products</label>
-        <select id="sortSelect" class="products-sort-select" aria-label="Sort products">
-          <option value="newest">Newest</option>
-          <option value="oldest">Oldest</option>
-          <option value="az">A-Z</option>
-          <option value="za">Z-A</option>
-          <option value="price_low">Price Low → High</option>
-          <option value="price_high">Price High → Low</option>
-        </select>
+      <div class="products-grid" id="productsGrid"></div>
+      <div class="products-pagination" id="productsPagination" aria-label="Product pagination" style="display:none;">
+        <button class="pagination-btn" id="productsPrevBtn" type="button">Previous</button>
+        <button class="pagination-btn" id="productsNextBtn" type="button">Next</button>
       </div>
     </div>
-    <div class="products-page-indicator" id="productsPageIndicator" aria-live="polite"></div>
-    <div class="products-loading" id="productsLoading" style="display:none;">
-      <div class="no-results">⏳ Loading products…</div>
-    </div>
-    <div class="products-grid" id="productsGrid"></div>
-    <div class="products-pagination" id="productsPagination" aria-label="Product pagination" style="display:none;">
-      <button class="pagination-btn" id="productsPrevBtn" type="button">Previous</button>
-      <button class="pagination-btn" id="productsNextBtn" type="button">Next</button>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- BOOKING -->
-<section id="booking" class="section-pad">
-  <div class="container">
-    <div class="booking-inner">
-      <div class="booking-info reveal-left">
-        <div class="section-tag">Book a Service</div>
-        <h2 class="section-title"><em>Ready to Start <br/>Your Project?</em></h2>
-        <div class="gold-sep"></div>
-        <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.8;margin-bottom:36px">Fill in the form and we'll connect you directly on WhatsApp to confirm your booking. Fast response, no hassle.</p>
-        <div class="booking-feature">
-          <div class="booking-feature-icon"><i style="color: #1A60D4;" class="fa-solid fa-bolt-lightning"></i></div>
-          <div class="booking-feature-text"><h4>Instant WhatsApp Confirmation</h4><p>Booking form sends your details directly to our team via WhatsApp for immediate response.</p></div>
-        </div>
-        <div class="booking-feature">
-          <div class="booking-feature-icon"><i style="color: #1A60D4;" class="far fa-calendar-alt"></i></div>
-          <div class="booking-feature-text"><h4>Flexible Scheduling</h4><p>We work around your calendar. Choose any date and we'll confirm availability within hours.</p></div>
-        </div>
-        <div class="booking-feature">
-          <div class="booking-feature-icon"><i style="color: #1A60D4;" class="fas fa-award"></i></div>
-          <div class="booking-feature-text"><h4>Satisfaction Guaranteed</h4><p>Every project backed by our quality guarantee. Not satisfied? We fix it — free of charge.</p></div>
-        </div>
-      </div>
-      <div class="booking-form-wrap reveal-right">
-        <div class="form-title">Book a Consultation</div>
-        <form id="bookingForm">
-          <div class="form-group">
-            <label for="bookName">Full Name</label>
-            <input type="text" id="bookName" placeholder="e.g. Chidi Okonkwo" required/>
+  <!-- BOOKING -->
+  <section id="booking" class="section-pad">
+    <div class="container">
+      <div class="booking-inner">
+        <div class="booking-info reveal-left">
+          <div class="section-tag">Book a Service</div>
+          <h2 class="section-title"><em>Ready to Start <br />Your Project?</em></h2>
+          <div class="gold-sep"></div>
+          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.8;margin-bottom:36px">Fill in the form
+            and we'll connect you directly on WhatsApp to confirm your booking. Fast response, no hassle.</p>
+          <div class="booking-feature">
+            <div class="booking-feature-icon"><i style="color: #1A60D4;" class="fa-solid fa-bolt-lightning"></i></div>
+            <div class="booking-feature-text">
+              <h4>Instant WhatsApp Confirmation</h4>
+              <p>Booking form sends your details directly to our team via WhatsApp for immediate response.</p>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="bookService">Service Type</label>
-            <select id="bookService" required> 
-              <option value="" disabled selected>Select a service</option>
-              <option>Custom African Furniture</option>
-              <option>Electrical Installation</option>
-              <option>Pop</option>
-              <option>General Contracting</option>
-              <option>Home Renovation</option>
-              <option>Office Fit-Out</option>
-              <option>Other / Consultation</option>
-            </select>
+          <div class="booking-feature">
+            <div class="booking-feature-icon"><i style="color: #1A60D4;" class="far fa-calendar-alt"></i></div>
+            <div class="booking-feature-text">
+              <h4>Flexible Scheduling</h4>
+              <p>We work around your calendar. Choose any date and we'll confirm availability within hours.</p>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="bookDate">Preferred Date</label>
-            <input type="date" id="bookDate" required/>
-          </div>
-          <div class="form-group">
-            <label for="bookDetails">Project Details (Optional)</label>
-            <textarea id="bookDetails" placeholder="Tell us a bit about your project…"></textarea>
-          </div>
-          <button type="submit" class="btn-submit">Send Booking via WhatsApp</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="section-pad">
-  <div class="container">
-    <div class="reveal" style="text-align:center">
-      <div class="section-tag" style="justify-content:center">Client Reviews</div>
-      <h2 class="section-title"><em>What Our Clients Say</em></h2>
-      <p class="section-subtitle" style="margin:0 auto">Don't take our word for it — hear from those who've experienced our craft firsthand.</p>
-    </div>
-    <div class="testimonials-grid" id="testimonialsGrid"></div>
-  </div>
-</section>
-
-<!-- FEEDBACK -->
-<section id="feedback" class="section-pad">
-  <div class="container">
-    <div class="feedback-wrap reveal">
-      <div class="form-title">Share Your Experience</div>
-      <p class="feedback-subtitle">Had a great experience? We'd love to hear from you.</p>
-      <div class="rating-input" id="ratingInput">
-        <span data-val="1">★</span><span data-val="2">★</span><span data-val="3">★</span><span data-val="4">★</span><span data-val="5">★</span>
-      </div>
-      <form id="feedbackForm">
-        <div class="form-group"><label>Your Name</label><input type="text" id="fbName" placeholder="Your name" required/></div>
-        <div class="form-group"><label>Your Review</label><textarea id="fbReview" placeholder="Tell us about your experience…" style="min-height:120px" required></textarea></div>
-        <button type="submit" class="btn-submit" style="background: var(--gold-dark);"><i style="color: black;" class="fas fa-pencil-alt"></i>Submit Review</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT — Web3Forms → norashprintintergratedservicesa@gmail.com -->
-<section id="contact" class="section-pad">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info reveal-left">
-        <div class="section-tag">Get In Touch</div>
-        <h2 class="section-title"><em>Let's Create<br/>Something Great</em></h2>
-        <div class="gold-sep"></div>
-        <div class="contact-detail">
-          <div class="contact-detail-icon"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="25px" height="25px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-viewBox="0 0 361.39 325.98"
- xmlns:xlink="http://www.w3.org/1999/xlink"
- xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
- <g id="Layer_x0020_1">
-  <metadata id="CorelCorpID_0Corel-Layer"/>
-  <path fill="#1A60D4" d="M122.95 96.41c10.48,-18.6 -14.68,-43.39 -32.31,-72.53 -38.67,-63.9 -90.64,16.36 -90.64,55.46 0,16.43 8.78,36.9 14.89,49.08l38.7 57.24 47.91 48.03c43.69,44.31 161.37,130.99 234.45,72.86 5.73,-4.56 25.44,-27.18 25.44,-35.32 0,-31.29 -3.59,-33.15 -38.82,-47.53 -10.21,-4.17 -41.63,-19.63 -50.73,-19.63 -23.65,0 -25.89,29.63 -46.04,33.94 -19.98,4.28 -126.66,-83.09 -126.66,-104.3 0,-10.62 17.98,-26.96 23.81,-37.3z"/>
- </g>
-</svg></div>
-          <div class="contact-detail-text">
-            <h4>Phone</h4>
-            <p><a href="tel:+2348012345678">+234 701 187 5583</a></p>
-            <p><a href="tel:+2348098765432">+234 813 277 0487</a></p>
+          <div class="booking-feature">
+            <div class="booking-feature-icon"><i style="color: #1A60D4;" class="fas fa-award"></i></div>
+            <div class="booking-feature-text">
+              <h4>Satisfaction Guaranteed</h4>
+              <p>Every project backed by our quality guarantee. Not satisfied? We fix it — free of charge.</p>
+            </div>
           </div>
         </div>
-        <div class="contact-detail">
-          <div class="contact-detail-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0055ff" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></div>
-          <div class="contact-detail-text">
-            <h4>Email</h4>
-            <p><a href="mailto:info@NorahsPrintandsons.ng">info@NorahsPrintandsons.ng</a></p>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-detail-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0055ff" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-house-icon lucide-map-pin-house"><path d="M15 22a1 1 0 0 1-1-1v-4a1 1 0 0 1 .445-.832l3-2a1 1 0 0 1 1.11 0l3 2A1 1 0 0 1 22 17v4a1 1 0 0 1-1 1z"/><path d="M18 10a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 .601.2"/><path d="M18 22v-3"/><circle cx="10" cy="10" r="3"/></svg></div>
-          <div class="contact-detail-text">
-            <h4>Location</h4>
-            <p>14 Aba Road, GRA Phase 2<br/>Port Harcourt, Rivers State, Nigeria</p>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-detail-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0055ff" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock3-icon lucide-clock-3"><circle cx="12" cy="12" r="10"/><path d="M12 6v6h4"/></svg></div>
-          <div class="contact-detail-text">
-            <h4>Business Hours</h4>
-            <p>Mon – Sat: 8:00 AM – 6:00 PM<br/>Sunday: By Appointment Only</p>
-          </div>
-        </div>
-        <div class="whatsapp-cta" onclick="window.open('https://wa.me/2348012345678?text=Hello%20NorahsPrintIntergratedservicee%20%26%20Ltd!','_blank')">
-          <div class="wa-icon"><i style="color: var(--gold-dark);" class="fab fa-whatsapp"></i></div>
-          <div class="whatsapp-cta-text"><h4>Chat on WhatsApp</h4><p>Usually responds within minutes</p></div>
-        </div>
-      </div>
-
-      <!-- Contact form powered by Web3Forms — delivers to godwinlucky2580@gmail.com -->
-      <div class="reveal-right">
-        <div class="booking-form-wrap">
-          <div class="form-title">Send a Message</div>
-          <form id="contactForm">
-            <!-- Web3Forms configuration -->
-            <input type="hidden" name="access_key" value="6365aff8-0a4b-48f4-97e5-38017885d33a"/>
-            <input type="hidden" name="subject" value="New Contact Message — NorahsPrint Integrated Service Limited Website"/>
-            <input type="hidden" name="from_name" value="NorahsPrint Integrated Service Limited Website"/>
-            <input type="hidden" name="redirect" value="false"/>
-            <!-- Honeypot spam filter -->
-            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off"/>
-
+        <div class="booking-form-wrap reveal-right">
+          <div class="form-title">Book a Consultation</div>
+          <form id="bookingForm">
             <div class="form-group">
-              <label>Full Name</label>
-              <input type="text" name="name" placeholder="Your name" required/>
+              <label for="bookName">Full Name</label>
+              <input type="text" id="bookName" placeholder="e.g. Chidi Okonkwo" required />
             </div>
             <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" name="email" placeholder="your@email.com" required/>
+              <label for="bookService">Service Type</label>
+              <select id="bookService" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Custom African Furniture</option>
+                <option>Electrical Installation</option>
+                <option>Pop</option>
+                <option>General Contracting</option>
+                <option>Home Renovation</option>
+                <option>Office Fit-Out</option>
+                <option>Other / Consultation</option>
+              </select>
             </div>
             <div class="form-group">
-              <label>Phone Number</label>
-              <input type="tel" name="phone" placeholder="+234 xxx xxx xxxx"/>
+              <label for="bookDate">Preferred Date</label>
+              <input type="date" id="bookDate" required />
             </div>
             <div class="form-group">
-              <label>Message</label>
-              <textarea name="message" placeholder="How can we help you?" style="min-height:130px" required></textarea>
+              <label for="bookDetails">Project Details (Optional)</label>
+              <textarea id="bookDetails" placeholder="Tell us a bit about your project…"></textarea>
             </div>
-
-            <button type="submit" class="btn-submit" id="contactSubmitBtn">Send Message <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#0055ff" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></button>
-
-            <div class="form-status success" id="contactSuccess">
-              ✅ Message sent successfully! We'll get back to you shortly.
-            </div>
-            <div class="form-status error" id="contactError">
-              ❌ Something went wrong. Please try again or reach us on WhatsApp.
-            </div>
+            <button type="submit" class="btn-submit">Send Booking via WhatsApp</button>
           </form>
         </div>
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">NorahsPrint Intergrated Services Limited</div>
-        <p class="footer-tagline">Premium furniture, electrical, and Pop solutions crafted with Nigerian excellence. Serving Port Harcourt and beyond.</p>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/p/DAagEfsKnJw/?utm_source=ig_web_copy_link" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/p/Norahsprint-integrated-services-100089261472446/" class="social-btn" aria-label="Facebook"><i class="fab fab fa-facebook-f"></i></a>
-          <a href="https://wa.me/2348012345678" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://www.tiktok.com/@norahsprint5" class="social-btn" aria-label="Twitter"><i class="fab fa-tiktok"></i></a>
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section-pad">
+    <div class="container">
+      <div class="reveal" style="text-align:center">
+        <div class="section-tag" style="justify-content:center">Client Reviews</div>
+        <h2 class="section-title"><em>What Our Clients Say</em></h2>
+        <p class="section-subtitle" style="margin:0 auto">Don't take our word for it — hear from those who've
+          experienced our craft firsthand.</p>
+      </div>
+      <div class="testimonials-grid" id="testimonialsGrid"></div>
+    </div>
+  </section>
+
+  <!-- FEEDBACK -->
+  <section id="feedback" class="section-pad">
+    <div class="container">
+      <div class="feedback-wrap reveal">
+        <div class="form-title">Share Your Experience</div>
+        <p class="feedback-subtitle">Had a great experience? We'd love to hear from you.</p>
+        <div class="rating-input" id="ratingInput">
+          <span data-val="1">★</span><span data-val="2">★</span><span data-val="3">★</span><span
+            data-val="4">★</span><span data-val="5">★</span>
+        </div>
+        <form id="feedbackForm">
+          <div class="form-group"><label>Your Name</label><input type="text" id="fbName" placeholder="Your name"
+              required /></div>
+          <div class="form-group"><label>Your Review</label><textarea id="fbReview"
+              placeholder="Tell us about your experience…" style="min-height:120px" required></textarea></div>
+          <button type="submit" class="btn-submit" style="background: var(--gold-dark);"><i style="color: black;"
+              class="fas fa-pencil-alt"></i>Submit Review</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT — Web3Forms → norashprintintergratedservicesa@gmail.com -->
+  <section id="contact" class="section-pad">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <div class="section-tag">Get In Touch</div>
+          <h2 class="section-title"><em>Let's Create<br />Something Great</em></h2>
+          <div class="gold-sep"></div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="25px"
+                height="25px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+                image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 361.39 325.98"
+                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+                <g id="Layer_x0020_1">
+                  <metadata id="CorelCorpID_0Corel-Layer" />
+                  <path fill="#1A60D4"
+                    d="M122.95 96.41c10.48,-18.6 -14.68,-43.39 -32.31,-72.53 -38.67,-63.9 -90.64,16.36 -90.64,55.46 0,16.43 8.78,36.9 14.89,49.08l38.7 57.24 47.91 48.03c43.69,44.31 161.37,130.99 234.45,72.86 5.73,-4.56 25.44,-27.18 25.44,-35.32 0,-31.29 -3.59,-33.15 -38.82,-47.53 -10.21,-4.17 -41.63,-19.63 -50.73,-19.63 -23.65,0 -25.89,29.63 -46.04,33.94 -19.98,4.28 -126.66,-83.09 -126.66,-104.3 0,-10.62 17.98,-26.96 23.81,-37.3z" />
+                </g>
+              </svg></div>
+            <div class="contact-detail-text">
+              <h4>Phone</h4>
+              <p><a href="tel:+2348012345678">+234 701 187 5583</a></p>
+              <p><a href="tel:+2348098765432">+234 813 277 0487</a></p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                viewBox="0 0 24 24" fill="none" stroke="#0055ff" stroke-width="1.25" stroke-linecap="round"
+                stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail">
+                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+              </svg></div>
+            <div class="contact-detail-text">
+              <h4>Email</h4>
+              <p><a href="mailto:info@NorahsPrintandsons.ng">info@NorahsPrintandsons.ng</a></p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                viewBox="0 0 24 24" fill="none" stroke="#0055ff" stroke-width="1.25" stroke-linecap="round"
+                stroke-linejoin="round" class="lucide lucide-map-pin-house-icon lucide-map-pin-house">
+                <path
+                  d="M15 22a1 1 0 0 1-1-1v-4a1 1 0 0 1 .445-.832l3-2a1 1 0 0 1 1.11 0l3 2A1 1 0 0 1 22 17v4a1 1 0 0 1-1 1z" />
+                <path d="M18 10a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 .601.2" />
+                <path d="M18 22v-3" />
+                <circle cx="10" cy="10" r="3" />
+              </svg></div>
+            <div class="contact-detail-text">
+              <h4>Location</h4>
+              <p>14 Aba Road, GRA Phase 2<br />Port Harcourt, Rivers State, Nigeria</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                viewBox="0 0 24 24" fill="none" stroke="#0055ff" stroke-width="1.25" stroke-linecap="round"
+                stroke-linejoin="round" class="lucide lucide-clock3-icon lucide-clock-3">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6h4" />
+              </svg></div>
+            <div class="contact-detail-text">
+              <h4>Business Hours</h4>
+              <p>Mon – Sat: 8:00 AM – 6:00 PM<br />Sunday: By Appointment Only</p>
+            </div>
+          </div>
+          <div class="whatsapp-cta"
+            onclick="window.open('https://wa.me/2348012345678?text=Hello%20NorahsPrintIntergratedservicee%20%26%20Ltd!','_blank')">
+            <div class="wa-icon"><i style="color: var(--gold-dark);" class="fab fa-whatsapp"></i></div>
+            <div class="whatsapp-cta-text">
+              <h4>Chat on WhatsApp</h4>
+              <p>Usually responds within minutes</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact form powered by Web3Forms — delivers to godwinlucky2580@gmail.com -->
+        <div class="reveal-right">
+          <div class="booking-form-wrap">
+            <div class="form-title">Send a Message</div>
+            <form id="contactForm">
+              <!-- Web3Forms configuration -->
+              <input type="hidden" name="access_key" value="6365aff8-0a4b-48f4-97e5-38017885d33a" />
+              <input type="hidden" name="subject"
+                value="New Contact Message — NorahsPrint Integrated Service Limited Website" />
+              <input type="hidden" name="from_name" value="NorahsPrint Integrated Service Limited Website" />
+              <input type="hidden" name="redirect" value="false" />
+              <!-- Honeypot spam filter -->
+              <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="your@email.com" required />
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" name="phone" placeholder="+234 xxx xxx xxxx" />
+              </div>
+              <div class="form-group">
+                <label>Message</label>
+                <textarea name="message" placeholder="How can we help you?" style="min-height:130px"
+                  required></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit" id="contactSubmitBtn">Send Message <svg
+                  xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none"
+                  stroke="#0055ff" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-mail-icon lucide-mail">
+                  <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                </svg></button>
+
+              <div class="form-status success" id="contactSuccess">
+                ✅ Message sent successfully! We'll get back to you shortly.
+              </div>
+              <div class="form-status error" id="contactError">
+                ❌ Something went wrong. Please try again or reach us on WhatsApp.
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">NorahsPrint Intergrated Services Limited</div>
+          <p class="footer-tagline">Premium furniture, electrical, and Pop solutions crafted with Nigerian excellence.
+            Serving Port Harcourt and beyond.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/p/DAagEfsKnJw/?utm_source=ig_web_copy_link" class="social-btn"
+              aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/p/Norahsprint-integrated-services-100089261472446/" class="social-btn"
+              aria-label="Facebook"><i class="fab fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/2348012345678" target="_blank" class="social-btn" aria-label="WhatsApp"><i
+                class="fab fa-whatsapp"></i></a>
+            <a href="https://www.tiktok.com/@norahsprint5" class="social-btn" aria-label="Twitter"><i
+                class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Custom Furniture</a></li>
+            <li><a href="#services">Electrical Works</a></li>
+            <li><a href="#services">Celling Pop</a></li>
+            <li><a href="#services">General Contracting</a></li>
+            <li><a href="#services">Home Renovation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#booking">Book Now</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+2348012345678">+234 701 187 5583</a></li>
+            <li><a href="mailto:info@NorahsPrintandsons.ng">info@NorahsPrintandsons.ng</a></li>
+            <li><a href="#">39 Douglas Rd, Rumueme, Port Harcourt 500102, Rivers</a></li>
+            <li><a href="#">Port Harcourt, Nigeria</a></li>
+          </ul>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#services">Custom Furniture</a></li>
-          <li><a href="#services">Electrical Works</a></li>
-          <li><a href="#services">Celling Pop</a></li>
-          <li><a href="#services">General Contracting</a></li>
-          <li><a href="#services">Home Renovation</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#products">Products</a></li>
-          <li><a href="#testimonials">Reviews</a></li>
-          <li><a href="#booking">Book Now</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+2348012345678">+234 701 187 5583</a></li>
-          <li><a href="mailto:info@NorahsPrintandsons.ng">info@NorahsPrintandsons.ng</a></li>
-          <li><a href="#">39 Douglas Rd, Rumueme, Port Harcourt 500102, Rivers</a></li>
-          <li><a href="#">Port Harcourt, Nigeria</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2024 <span>NorahsPrint intergrated services Ltd</span>. All rights reserved. Built with
+          pride by Dev. Lumogo 🇳🇬</p>
+        <p class="footer-copy" style="font-size:0.75rem">Premium Furniture • Electrical • POP • Contracting</p>
+        <a href="https://lordicon.com/">Icons by Lordicon.com</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2024 <span>NorahsPrint intergrated services Ltd</span>. All rights reserved. Built with pride by Dev. Lumogo 🇳🇬</p>
-      <p class="footer-copy" style="font-size:0.75rem">Premium Furniture • Electrical • POP • Contracting</p>
-      <a href="https://lordicon.com/">Icons by Lordicon.com</a>
-    </div>
-  </div>
-  
-</footer>
 
-<div class="wa-float" onclick="window.open('https://wa.me/2348012345678?text=Hello%20NorahsPrintIntergratedServices%20%26%20Ltd%2C%20I%20need%20your%20services!','_blank')" role="button" aria-label="Chat on WhatsApp">
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="200px" height="200px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-viewBox="0 0 6652.7 6652.87"
- xmlns:xlink="http://www.w3.org/1999/xlink"
- xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
- <g id="Layer_x0020_1">
-  <metadata id="CorelCorpID_0Corel-Layer"/>
-  <g id="_2534975432304">
-   <path fill="#FEFEFE" d="M2086.53 785.73c721.28,-400.41 1769.93,-367.33 2506.32,2.87l445.92 263.7c378.2,260.78 740.91,742.83 908.94,1160.79 425.28,1057.79 235.17,2270.61 -573.74,3072.34 -139.22,137.98 -217.98,220.16 -377.13,332.49 -1623.29,1145.79 -3017.4,118.35 -3193.22,118.35 -351.94,0 -812.68,259.18 -1123.56,266.11 2.32,-104.38 178.54,-603.29 232.17,-743.56 235.95,-617.1 -409.58,-688.59 -409.58,-1947.09 0,-404.38 121.81,-847.84 255.81,-1133.87 308.26,-658.01 683.85,-1034.52 1328.07,-1392.13zm-2000.93 1842.84c-35.43,179.12 -85.6,503.54 -85.6,712.72 0,270 81.02,677.16 147.47,916.96 254.26,917.53 430.86,424.02 158.98,1222.68l-289.99 865.29c-32.67,148.31 83.56,306.63 220.07,306.63 178.54,0 566.94,-141.83 751.99,-194.17 457.67,-129.47 634.85,-269.15 929.32,-127.03l512.85 196.76c1381.24,389.72 2873.55,-176.08 3595.54,-1241.21 549.85,-811.2 626.46,-1198.56 626.46,-2182.46 0,-874.28 -455.09,-1621.26 -1012.68,-2180.62 -995.08,-998.25 -2419.44,-1166.46 -3726.91,-607.52 -716.68,306.39 -1288.5,984.97 -1627.8,1683.78 -81.22,167.28 -160.02,427.46 -199.72,628.17z"/>
-   <path fill="#20BE5B" d="M4583.88 786.14c-736.39,-370.2 -1785.04,-403.28 -2506.32,-2.87 -644.22,357.61 -1019.8,734.12 -1328.07,1392.13 -134,286.02 -255.81,729.49 -255.81,1133.87 0,1258.5 645.53,1329.99 409.58,1947.09 -53.63,140.27 -229.85,639.18 -232.17,743.56 310.88,-6.93 771.62,-266.11 1123.56,-266.11 175.83,0 1569.93,1027.44 3193.22,-118.35 159.15,-112.33 237.91,-194.51 377.13,-332.49 808.91,-801.73 999.02,-2014.55 573.74,-3072.34 -168.04,-417.96 -530.74,-900.01 -908.94,-1160.79l-445.92 -263.7zm-2099.07 1241.61c163.02,269.36 395.57,498.6 298.7,670.52 -53.88,95.61 -220.11,246.67 -220.11,344.88 0,196.09 986.3,1003.88 1171.04,964.29 186.21,-39.91 206.94,-313.8 425.61,-313.8 84.07,0 374.61,142.98 469,181.5 325.74,132.92 358.9,150.17 358.9,439.42 0,75.25 -182.22,284.42 -235.21,326.58 -675.58,537.45 -1763.59,-263.94 -2167.53,-673.63l-442.97 -444.06 -357.79 -529.23c-56.47,-112.59 -137.64,-301.81 -137.64,-453.72 0,-361.55 480.47,-1103.52 838,-512.76z"/>
-   <path fill="#FEFEFE" d="M2792.49 2710.87c96.87,-171.92 -135.69,-401.16 -298.7,-670.52 -357.53,-590.76 -838,151.21 -838,512.76 0,151.91 81.17,341.13 137.64,453.72l357.79 529.23 442.97 444.06c403.94,409.68 1491.95,1211.08 2167.53,673.63 52.99,-42.16 235.21,-251.33 235.21,-326.58 0,-289.25 -33.16,-306.5 -358.9,-439.42 -94.39,-38.52 -384.92,-181.5 -469,-181.5 -218.67,0 -239.41,273.89 -425.61,313.8 -184.74,39.59 -1171.04,-768.2 -1171.04,-964.29 0,-98.21 166.24,-249.28 220.11,-344.88z"/>
-  </g>
- </g>
-</svg>
-  <div class="wa-tooltip">Chat with us!</div>
-</div>
+  </footer>
+
+  <div class="wa-float"
+    onclick="window.open('https://wa.me/2348012345678?text=Hello%20NorahsPrintIntergratedServices%20%26%20Ltd%2C%20I%20need%20your%20services!','_blank')"
+    role="button" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="200px" height="200px" version="1.1"
+      shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality"
+      fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 6652.7 6652.87" xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+      <g id="Layer_x0020_1">
+        <metadata id="CorelCorpID_0Corel-Layer" />
+        <g id="_2534975432304">
+          <path fill="#FEFEFE"
+            d="M2086.53 785.73c721.28,-400.41 1769.93,-367.33 2506.32,2.87l445.92 263.7c378.2,260.78 740.91,742.83 908.94,1160.79 425.28,1057.79 235.17,2270.61 -573.74,3072.34 -139.22,137.98 -217.98,220.16 -377.13,332.49 -1623.29,1145.79 -3017.4,118.35 -3193.22,118.35 -351.94,0 -812.68,259.18 -1123.56,266.11 2.32,-104.38 178.54,-603.29 232.17,-743.56 235.95,-617.1 -409.58,-688.59 -409.58,-1947.09 0,-404.38 121.81,-847.84 255.81,-1133.87 308.26,-658.01 683.85,-1034.52 1328.07,-1392.13zm-2000.93 1842.84c-35.43,179.12 -85.6,503.54 -85.6,712.72 0,270 81.02,677.16 147.47,916.96 254.26,917.53 430.86,424.02 158.98,1222.68l-289.99 865.29c-32.67,148.31 83.56,306.63 220.07,306.63 178.54,0 566.94,-141.83 751.99,-194.17 457.67,-129.47 634.85,-269.15 929.32,-127.03l512.85 196.76c1381.24,389.72 2873.55,-176.08 3595.54,-1241.21 549.85,-811.2 626.46,-1198.56 626.46,-2182.46 0,-874.28 -455.09,-1621.26 -1012.68,-2180.62 -995.08,-998.25 -2419.44,-1166.46 -3726.91,-607.52 -716.68,306.39 -1288.5,984.97 -1627.8,1683.78 -81.22,167.28 -160.02,427.46 -199.72,628.17z" />
+          <path fill="#20BE5B"
+            d="M4583.88 786.14c-736.39,-370.2 -1785.04,-403.28 -2506.32,-2.87 -644.22,357.61 -1019.8,734.12 -1328.07,1392.13 -134,286.02 -255.81,729.49 -255.81,1133.87 0,1258.5 645.53,1329.99 409.58,1947.09 -53.63,140.27 -229.85,639.18 -232.17,743.56 310.88,-6.93 771.62,-266.11 1123.56,-266.11 175.83,0 1569.93,1027.44 3193.22,-118.35 159.15,-112.33 237.91,-194.51 377.13,-332.49 808.91,-801.73 999.02,-2014.55 573.74,-3072.34 -168.04,-417.96 -530.74,-900.01 -908.94,-1160.79l-445.92 -263.7zm-2099.07 1241.61c163.02,269.36 395.57,498.6 298.7,670.52 -53.88,95.61 -220.11,246.67 -220.11,344.88 0,196.09 986.3,1003.88 1171.04,964.29 186.21,-39.91 206.94,-313.8 425.61,-313.8 84.07,0 374.61,142.98 469,181.5 325.74,132.92 358.9,150.17 358.9,439.42 0,75.25 -182.22,284.42 -235.21,326.58 -675.58,537.45 -1763.59,-263.94 -2167.53,-673.63l-442.97 -444.06 -357.79 -529.23c-56.47,-112.59 -137.64,-301.81 -137.64,-453.72 0,-361.55 480.47,-1103.52 838,-512.76z" />
+          <path fill="#FEFEFE"
+            d="M2792.49 2710.87c96.87,-171.92 -135.69,-401.16 -298.7,-670.52 -357.53,-590.76 -838,151.21 -838,512.76 0,151.91 81.17,341.13 137.64,453.72l357.79 529.23 442.97 444.06c403.94,409.68 1491.95,1211.08 2167.53,673.63 52.99,-42.16 235.21,-251.33 235.21,-326.58 0,-289.25 -33.16,-306.5 -358.9,-439.42 -94.39,-38.52 -384.92,-181.5 -469,-181.5 -218.67,0 -239.41,273.89 -425.61,313.8 -184.74,39.59 -1171.04,-768.2 -1171.04,-964.29 0,-98.21 166.24,-249.28 220.11,-344.88z" />
+        </g>
+      </g>
+    </svg>
+    <div class="wa-tooltip">Chat with us!</div>
+  </div>
 </body>
+
 </html>
