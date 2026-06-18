@@ -199,8 +199,10 @@ async function fetchCategories() {
 }
 
 function productRowHtml(p) {
-  const price = p.price == null ? '₦0' : (typeof p.price === 'string' ? p.price : `₦${Number(p.price).toLocaleString('en-NG')}`);
-  const img = p.image_url || '';
+    const numericPrice = p.price != null ? Number(p.price) : 0;
+    const formattedPrice = isNaN(numericPrice) ? '₦0' : `₦${numericPrice.toLocaleString('en-NG')}`;
+  
+    const img = p.image_url || '';
 
   return `
     <tr data-id="${p.id}">
