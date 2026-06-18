@@ -1,7 +1,6 @@
-# TODO
-
-- [ ] Add Supabase JS SDK script tag to `files/index.html`.
-- [ ] Update `initFeedbackRating()` submit handler in `files/script.js` to insert `{name, review, rating}` into Supabase table `public.feedback_ratings`.
-- [ ] Keep existing button text, reset timing, and star UI behavior unchanged.
-- [ ] Provide final SQL snippet (table schema) for `public.feedback_ratings`.
-      https://qlsamwfphiusocbddzdp.supabase.co/rest/v1/reviews
+- [x] Gather required Supabase config/assumptions for admin.auth + storage
+- [x] Create admin.html (layout + sidebar + forms + table)
+- [x] Create admin.css (responsive admin panel styling)
+- [x] Create admin.js (auth gate, product CRUD, search/filter, image upload to product-images bucket)
+- [ ] Add production-ready setup instructions to README.md
+- [ ] (Optional) Validate with local static server / quick smoke test in browser
