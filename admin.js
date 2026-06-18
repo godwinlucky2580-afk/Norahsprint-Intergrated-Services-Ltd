@@ -22,8 +22,8 @@ function escapeHtml(str) {
   return (str ?? '')
     .toString()
     .replaceAll('&', '&amp;')
-    .replaceAll('<', '<')
-    .replaceAll('>', '>')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
     .replaceAll('"', '"')
     .replaceAll("'", '&#039;');
 }
@@ -289,9 +289,22 @@ async function updateProduct(id, { name, description, price, category } = {}) {
 }
 
 async function deleteProduct(id) {
-  const { data, error } = await supabase.from(TABLE).delete().eq('id', id);
-  if (error) throw error;
-  return data;
+  // 1. Get the image URL before deleting the row
+  const { data: product } = await supabase
+    .from(TABLE)
+    .select('image_url')
+    .eq('id', id)
+    .maybeSingle();
+
+  // 2. Delete the row from the database
+  const { error: dbError } = await supabase.from(TABLE).delete().eq('id', id);
+  if (dbError) throw dbError;
+
+  // 3. Clean up the storage file if a URL exists
+  if (product?.image_url) {
+    const fileName = product.image_url.split('/').pop();
+    await supabase.storage.from(STORAGE_BUCKET).remove([`products/${fileName}`]);
+  }
 }
 
 async function uploadImageToStorage(file) {
@@ -460,15 +473,15 @@ async function main() {
         imageInput.disabled = true;
         qs('#submitProductBtn').innerHTML = `<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Uploading…`;
 
-        const { imageUrl } = await uploadImageToStorage(file);
+        const { imagePath, imageUrl } = await uploadImageToStorage(file);
 
         await createProduct({
-          name,
-          description,
-          price,
-          category,
-          imagePath: '',
-          imageUrl,
+        name,
+        description,
+        price,
+        category,
+        imagePath, // Fix: pass the path string variable
+        imageUrl,
         });
 
         toast({ type: 'success', title: 'Product added', message: 'The website will update automatically.' });
