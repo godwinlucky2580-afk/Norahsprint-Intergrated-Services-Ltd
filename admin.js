@@ -199,9 +199,12 @@ async function fetchCategories() {
 }
 
 function productRowHtml(p) {
-    const numericPrice = p.price != null ? Number(p.price) : 0;
-    const formattedPrice = isNaN(numericPrice) ? '₦0' : `₦${numericPrice.toLocaleString('en-NG')}`;
-  
+    const rawPrice = p.price !== null && p.price !== undefined ? String(p.price).replace(/[^0-9.]/g, '') : '0';
+    const numericPrice = parseFloat(rawPrice) || 0;
+    
+    // 2. Format with commas and Naira sign
+    const formattedPrice = `₦${numericPrice.toLocaleString('en-NG')}`;
+    
     const img = p.image_url || '';
 
   return `
@@ -216,7 +219,7 @@ function productRowHtml(p) {
         <div style="color:var(--muted);max-width:420px;">${escapeHtml(p.description || '')}</div>
       </td>
       <td>
-        <div style="font-weight:900">${escapeHtml(String(price))}</div>
+        <div style="font-weight:900">${escapeHtml(formattedPrice)}</div>
       </td>
       <td>
         <div>${escapeHtml(p.category || '')}</div>
