@@ -137,6 +137,7 @@ function setFilter(cat,btn){
   btn.classList.add('active');
   filterProducts();
 }
+
 function filterProducts(){
   const grid=document.getElementById('productsGrid');
   const filtered=products.filter(p=>(activeFilter==='All'||p.cat===activeFilter)&&(p.name.toLowerCase().includes(searchQuery)||p.desc.toLowerCase().includes(searchQuery)));
@@ -148,7 +149,7 @@ function filterProducts(){
         <div class="product-name">${p.name}</div>
         <p class="product-desc">${p.desc}</p>
         <div class="product-footer">
-          <div class="product-price">${p.price}<span> NGN</span></div>
+          <div class="product-price"><span>₦</span>${p.price}</div>
           <button class="btn-order" onclick="orderProduct('${p.name}','${p.price}')"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="20px" height="20px" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
 viewBox="0 0 6652.7 6652.87"
  xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -167,6 +168,7 @@ viewBox="0 0 6652.7 6652.87"
     </div>`).join('');
   initScrollAnimations();
 }
+
 function orderProduct(name,price){
   const msg=encodeURIComponent(`Hello, I want to order ${name} for ${price}. Please confirm availability and delivery details.`);
   window.open(`https://wa.me/${PHONE}?text=${msg}`,'_blank');

@@ -10,11 +10,27 @@ function escapeHtml(str) {
 }
 
 export function formatPrice(value) {
-  // Keep existing visual behavior: shows a string with span NGN.
-  // If backend uses numeric price, format it here.
-  // If backend already returns a formatted string, just return it.
+  // DB might store price as numeric OR as a numeric string.
   if (value == null) return '₦0';
-  if (typeof value === 'string') return value;
+
+  // If backend already provides a formatted string (e.g. "₦1,200,000"), keep it.
+  if (typeof value === 'string') {
+    const trimmed = value.trim();
+
+    // Detect already-formatted values (contains currency symbol or commas)
+    if (trimmed.includes('₦') || trimmed.includes(',')) return trimmed;
+
+    // If it's a plain numeric string ("2500000"), format it.
+    const digitsOnly = trimmed.replace(/\s+/g, '');
+    if (/^\d+(\.\d+)?$/.test(digitsOnly)) {
+      const n = Number(digitsOnly);
+      if (Number.isFinite(n)) return `₦${n.toLocaleString('en-NG')}`;
+    }
+
+    // Fallback: return as-is.
+    return trimmed;
+  }
+
   if (typeof value === 'number') return `₦${value.toLocaleString('en-NG')}`;
 
   // BigInt/other numeric
@@ -26,6 +42,7 @@ export function formatPrice(value) {
     return '₦0';
   }
 }
+
 
 export function renderProductGrid({ products, gridEl }) {
   if (!products.length) {
