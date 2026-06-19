@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-
+Disallow: /admin.html
 Sitemap: https://norahsprint.com/sitemap.xml
-sitemap: https://norahsprint.org//sitemap.xml
+Sitemap: https://norahsprint.org/sitemap.xml
