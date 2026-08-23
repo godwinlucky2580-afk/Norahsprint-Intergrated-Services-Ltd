@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Projects | NorahsPrint Integrated Services</title>
+    <meta
+      name="description"
+      content="Explore NorahsPrint Integrated Services' premium commercial, residential, interior, electrical, and infrastructure projects."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="projects.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script>
+      window.__SUPABASE_URL = "https://qlsamwfphiusocbddzdp.supabase.co";
+      window.__SUPABASE_ANON_KEY = "sb_publishable_CtwYB9-3gNMDG6dK6FcPuQ_2zKPW1Y4";
+    </script>
+
+    <script type="module" src="projects.js"></script>
+  </head>
+  <body>
+    <nav id="navbar" class="projects-nav">
+      <a class="nav-logo" href="index.html">
+        <div class="logo-mark"><img src="./images/me.jpg" alt="NorahsPrint logo" /></div>
+        NorahsPrint <span> Integrated Services</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="projects.html" class="is-active">Projects</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i id="themeIcon" class="fa-solid fa-moon" aria-hidden="true"></i></button>
+        <a href="index.html#booking" class="btn-book-nav">Book Now</a>
+      </div>
+    </nav>
+
+    <main class="projects-page">
+      <section class="projects-hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <p class="section-tag">Selected portfolio</p>
+            <h1>Our Projects</h1>
+            <p>
+              Explore our construction, interior finishing, furniture and building-services work.
+            </p>
+            <a class="btn btn-primary" href="#portfolio">Explore Portfolio</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects-showcase" id="portfolio">
+        <div class="container">
+          <div class="projects-intro">
+            <div>
+              <p class="section-tag">Portfolio highlights</p>
+              <h2 class="section-title">Signature work across the built environment</h2>
+            </div>
+            <p class="section-subtitle">
+              Our portfolio reflects practical workmanship, coordinated teams and attention to detail.
+            </p>
+          </div>
+
+          <div class="filter-bar" aria-label="All projects">
+            <button class="filter-btn is-active" type="button" data-filter="All">All</button>
+          </div>
+
+          <div class="projects-status" id="projectsStatus" aria-live="polite"></div>
+
+          <div class="portfolio-grid" id="portfolioGrid"></div>
+
+          <div class="load-more-wrap" id="loadMoreWrap" style="display: none;">
+            <button class="load-more-btn" type="button" id="loadMoreBtn">Load More Projects</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

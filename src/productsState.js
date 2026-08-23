@@ -33,7 +33,7 @@ export async function initProductsModule({ orderProductHandler }) {
 
   let state = {
     page: 1,
-    pageSize: 20,
+    pageSize: 6,
     category: 'All',
     search: '',
     sort: sortSelectEl?.value || 'newest',

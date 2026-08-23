@@ -3,9 +3,9 @@ import { setupLazyProductImages } from './productImages.js';
 function escapeHtml(str) {
   return (str ?? '').toString()
     .replaceAll('&', '&amp;')
-    .replaceAll('<', '<')
-    .replaceAll('>', '>')
-    .replaceAll('"', '"')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;');
 }
 

@@ -20,6 +20,9 @@
 
 <body>
   <div class="app-shell">
+    <button class="mobile-sidebar-toggle" type="button" aria-label="Open navigation">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
     <aside class="sidebar" aria-label="Admin sidebar">
       <div class="sidebar-brand">
         <div class="sidebar-logo">
@@ -36,6 +39,14 @@
           <i class="fa-solid fa-box" aria-hidden="true"></i>
           <span>Products</span>
         </button>
+        <button class="nav-link" type="button" data-route="projects">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+          <span>Projects</span>
+        </button>
+        <button class="nav-link" type="button" data-route="reviews">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <span>Reviews</span>
+        </button>
       </nav>
 
       <div class="sidebar-footer">
@@ -51,120 +62,400 @@
     </aside>
 
     <main class="main">
-      <header class="topbar">
-        <div class="topbar-left">
-          <h1 class="page-title">Product Management</h1>
-          <p class="page-subtitle">Create, edit, search and delete products (updates appear on your live site automatically).</p>
-        </div>
-        <div class="topbar-right">
-          <div class="stat-chip" id="productStatsChip" aria-live="polite">
-            <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
-            <span>—</span>
+      <!-- ===== PRODUCTS SECTION ===== -->
+      <div id="productsSection">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title">Product Management</h1>
+            <p class="page-subtitle">Create, edit, search and delete products (updates appear on your live site automatically).</p>
           </div>
-        </div>
-      </header>
-
-      <section class="grid-layout">
-        <section class="panel" aria-label="Add product">
-          <div class="panel-header">
-            <div>
-              <h2 class="panel-title">Add Product</h2>
-              <p class="panel-subtitle">Upload an image and save its public URL to Supabase.</p>
+          <div class="topbar-right">
+            <div class="stat-chip" id="productStatsChip" aria-live="polite">
+              <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+              <span>—</span>
             </div>
           </div>
+        </header>
 
-          <form id="addProductForm" class="form">
-            <div class="form-row">
-              <label for="pName">Product Name</label>
-              <input id="pName" name="name" type="text" autocomplete="off" required maxlength="200" />
-            </div>
-
-            <div class="form-row">
-              <label for="pDesc">Description</label>
-              <textarea id="pDesc" name="description" rows="4" required maxlength="2000"></textarea>
-            </div>
-
-            <div class="form-row">
-              <label for="pPrice">Price (NGN)</label>
-              <input id="pPrice" name="price" type="number" min="0" step="1" required />
-            </div>
-
-            <div class="form-row">
-              <label for="pCategory">Category</label>
-              <input id="pCategory" name="category" type="text" required maxlength="100" />
-              <div class="hint">Example: Furniture, Electrical, POP, etc.</div>
-            </div>
-
-            <div class="form-row">
-              <label for="pImage">Image Upload</label>
-              <input id="pImage" name="image" type="file" accept="image/*" required />
-              <div class="upload-preview" aria-live="polite">
-                <img id="imagePreview" alt="Image preview" />
-                <div class="preview-meta" id="imagePreviewMeta">Choose an image to preview.</div>
+        <section class="grid-layout">
+          <section class="panel" aria-label="Add product">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Add Product</h2>
+                <p class="panel-subtitle">Upload an image and save its public URL to Supabase.</p>
               </div>
             </div>
 
-            <div class="form-actions">
-              <button id="submitProductBtn" type="submit" class="btn btn-primary">
-                <i class="fa-solid fa-plus" aria-hidden="true"></i>
-                Submit Product
-              </button>
-            </div>
-          </form>
-        </section>
+            <form id="addProductForm" class="form">
+              <div class="form-row">
+                <label for="pName">Product Name</label>
+                <input id="pName" name="name" type="text" autocomplete="off" required maxlength="200" />
+              </div>
 
-        <section class="panel panel-wide" aria-label="Manage products">
+              <div class="form-row">
+                <label for="pDesc">Description</label>
+                <textarea id="pDesc" name="description" rows="4" required maxlength="2000"></textarea>
+              </div>
+
+              <div class="form-row">
+                <label for="pPrice">Price (NGN)</label>
+                <input id="pPrice" name="price" type="number" min="0" step="1" required />
+              </div>
+
+              <div class="form-row">
+                <label for="pCategory">Category</label>
+                <input id="pCategory" name="category" type="text" required maxlength="100" />
+                <div class="hint">Example: Furniture, Electrical, POP, etc.</div>
+              </div>
+
+              <div class="form-row">
+                <label for="pImage">Image Upload</label>
+                <input id="pImage" name="image" type="file" accept="image/*" required />
+                <div class="upload-preview" aria-live="polite">
+                  <img id="imagePreview" alt="Image preview" />
+                  <div class="preview-meta" id="imagePreviewMeta">Choose an image to preview.</div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button id="submitProductBtn" type="submit" class="btn btn-primary">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                  Submit Product
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <section class="panel panel-wide" aria-label="Manage products">
+            <div class="panel-header panel-header-row">
+              <div>
+                <h2 class="panel-title">Manage Products</h2>
+                <p class="panel-subtitle">Search, filter by category, edit and delete.</p>
+              </div>
+            </div>
+
+            <div class="toolbar">
+              <div class="toolbar-search">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input id="searchInput" type="text" placeholder="Search by name, category or description…" />
+              </div>
+
+              <div class="toolbar-filter">
+                <label class="sr-only" for="categoryFilter">Filter category</label>
+                <select id="categoryFilter">
+                  <option value="All">All categories</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="productsLoading" class="loading" role="status" aria-live="polite" style="display:none;">
+              <div class="spinner" aria-hidden="true"></div>
+              <div>Loading products…</div>
+            </div>
+
+            <div id="productsError" class="alert alert-error" style="display:none;"></div>
+            <div id="productsTableWrap" class="table-wrap" style="display:none;">
+              <table class="table" role="table" aria-label="Products table">
+                <colgroup>
+                  <col class="product-col-image" />
+                  <col class="product-col-name" />
+                  <col class="product-col-description" />
+                  <col class="product-col-price" />
+                  <col class="product-col-category" />
+                  <col class="product-col-actions" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="productsTbody"></tbody>
+              </table>
+            </div>
+
+            <div id="productsEmpty" class="empty" style="display:none;">
+              No products found.
+            </div>
+          </section>
+        </section>
+      </div>
+
+      <!-- ===== PROJECTS SECTION ===== -->
+      <div id="projectsSection" style="display:none;">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title">Projects Management</h1>
+            <p class="page-subtitle">Manage construction projects shown on the website.</p>
+          </div>
+          <div class="topbar-right">
+            <div class="stat-chip" id="projectStatsChip" aria-live="polite">
+              <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+              <span>—</span>
+            </div>
+          </div>
+        </header>
+
+        <section class="panel panel-wide" aria-label="Manage projects">
           <div class="panel-header panel-header-row">
             <div>
-              <h2 class="panel-title">Manage Products</h2>
-              <p class="panel-subtitle">Search, filter by category, edit and delete.</p>
+              <h2 class="panel-title">Manage Projects</h2>
+              <p class="panel-subtitle">Search and filter projects by category.</p>
+            </div>
+            <div>
+              <button id="addProjectBtn" class="btn btn-primary" type="button" style="width:auto;padding:10px 18px;">
+                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                Add New Project
+              </button>
             </div>
           </div>
 
           <div class="toolbar">
             <div class="toolbar-search">
               <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-              <input id="searchInput" type="text" placeholder="Search by name, category or description…" />
+              <input id="projectsSearchInput" type="text" placeholder="Search by title, location, client or category…" />
             </div>
 
             <div class="toolbar-filter">
-              <label class="sr-only" for="categoryFilter">Filter category</label>
-              <select id="categoryFilter">
+              <label class="sr-only" for="projectsCategoryFilter">Filter category</label>
+              <select id="projectsCategoryFilter">
                 <option value="All">All categories</option>
               </select>
             </div>
+
           </div>
 
-          <div id="productsLoading" class="loading" role="status" aria-live="polite" style="display:none;">
+          <div id="projectsLoading" class="loading" role="status" aria-live="polite" style="display:none;">
             <div class="spinner" aria-hidden="true"></div>
-            <div>Loading products…</div>
+            <div>Loading projects…</div>
           </div>
 
-          <div id="productsError" class="alert alert-error" style="display:none;"></div>
-          <div id="productsTableWrap" class="table-wrap" style="display:none;">
-            <table class="table" role="table" aria-label="Products table">
+          <div id="projectsError" class="alert alert-error" style="display:none;"></div>
+
+          <div id="projectsTableWrap" class="table-wrap" style="display:none;">
+            <table class="table" role="table" aria-label="Projects table">
               <thead>
                 <tr>
-                  <th style="width:80px;">Image</th>
-                  <th>Name</th>
-                  <th>Description</th>
-                  <th style="width:140px;">Price</th>
-                  <th style="width:180px;">Category</th>
+                  <th style="width:80px;">Cover Image</th>
+                  <th>Project Name</th>
+                  <th style="width:140px;">Category</th>
+                  <th style="width:160px;">Location</th>
+                  <th style="width:110px;">Duration</th>
+                  <th style="width:160px;">Created</th>
                   <th style="width:220px;">Actions</th>
                 </tr>
               </thead>
-              <tbody id="productsTbody"></tbody>
+              <tbody id="projectsTbody"></tbody>
             </table>
           </div>
 
-          <div id="productsEmpty" class="empty" style="display:none;">
-            No products found.
+          <div id="projectsEmpty" class="empty" style="display:none;">
+            <div style="text-align:center;padding:40px 20px;">
+              <i class="fa-solid fa-folder-open" style="font-size:3rem;color:var(--muted);margin-bottom:16px;display:block;"></i>
+              <div style="font-size:1.1rem;font-weight:700;margin-bottom:8px;">No Projects Found</div>
+              <p style="color:var(--muted);margin-bottom:16px;">Get started by adding your first construction project.</p>
+              <button class="icon-btn icon-btn-primary" type="button" disabled title="Coming in next phase">
+                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                Add Project
+              </button>
+            </div>
           </div>
         </section>
-      </section>
+      </div>
+
+      <!-- ===== REVIEWS SECTION ===== -->
+      <div id="reviewsSection" style="display:none;">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title">Review Management</h1>
+            <p class="page-subtitle">Moderate client reviews before they appear on the website.</p>
+          </div>
+        </header>
+
+        <section class="review-stats" aria-label="Review statistics">
+          <div class="review-stat-card"><span>Total Reviews</span><strong id="reviewsTotalCount">0</strong></div>
+          <div class="review-stat-card"><span>Pending Reviews</span><strong id="reviewsPendingCount">0</strong></div>
+          <div class="review-stat-card"><span>Approved Reviews</span><strong id="reviewsApprovedCount">0</strong></div>
+        </section>
+
+        <section class="panel panel-wide" aria-label="Manage reviews">
+          <div class="panel-header panel-header-row">
+            <div>
+              <h2 class="panel-title">Client Reviews</h2>
+              <p class="panel-subtitle">Approve reviews to publish them on the homepage.</p>
+            </div>
+          </div>
+
+          <div class="review-tabs" role="tablist" aria-label="Review status filter">
+            <button class="review-tab is-active" type="button" data-review-filter="all">All</button>
+            <button class="review-tab" type="button" data-review-filter="pending">Pending</button>
+            <button class="review-tab" type="button" data-review-filter="approved">Approved</button>
+          </div>
+
+          <div id="reviewsLoading" class="loading" role="status" aria-live="polite" style="display:none;">
+            <div class="spinner" aria-hidden="true"></div>
+            <div>Loading reviews…</div>
+          </div>
+          <div id="reviewsError" class="alert alert-error" style="display:none;"></div>
+          <div id="reviewsTableWrap" class="table-wrap" style="display:none;">
+            <table class="table reviews-table" aria-label="Reviews table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Rating</th>
+                  <th>Review</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reviewsTbody"></tbody>
+            </table>
+          </div>
+          <div id="reviewsEmpty" class="empty" style="display:none;">No reviews found for this filter.</div>
+        </section>
+      </div>
 
       <div class="toast-container" aria-live="polite" aria-relevant="additions removals" id="toastContainer">
         <!-- toasts injected by admin.js -->
+      </div>
+
+      <div class="modal-backdrop" id="projectModalBackdrop" hidden>
+        <div class="modal-shell" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+          <div class="modal-header">
+            <div>
+              <div class="modal-eyebrow" id="projectModalEyebrow">Project workspace</div>
+              <h3 class="modal-title" id="projectModalTitle">Add New Project</h3>
+            </div>
+            <button class="icon-btn" type="button" id="closeProjectModalBtn" aria-label="Close modal">
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="project-view-shell" id="projectModalViewContent" hidden></div>
+
+            <form id="projectForm" class="project-form">
+              <section class="modal-section">
+                <div class="modal-section-title">Project Information</div>
+                <div class="form-row">
+                  <label for="projectTitleInput">Project Title</label>
+                  <input id="projectTitleInput" name="title" type="text" required maxlength="200" />
+                </div>
+
+                <div class="form-row">
+                  <label for="projectClientNameInput">Client Name</label>
+                  <input id="projectClientNameInput" name="client_name" type="text" required maxlength="180" />
+                </div>
+
+                <div class="form-row">
+                  <label for="projectCategoryInput">Category</label>
+                  <input id="projectCategoryInput" name="category" type="text" required maxlength="120" />
+                </div>
+
+                <div class="form-row">
+                  <label for="projectLocationInput">Location</label>
+                  <input id="projectLocationInput" name="location" type="text" required maxlength="180" />
+                </div>
+
+                <div class="form-row">
+                  <label for="projectDurationInput">Duration</label>
+                  <input id="projectDurationInput" name="duration" type="text" maxlength="180" />
+                </div>
+
+                <div class="form-row">
+                  <label for="projectShortDescriptionInput">Overview</label>
+                  <textarea id="projectShortDescriptionInput" name="overview" rows="3" required maxlength="2200"></textarea>
+                </div>
+
+                <div class="form-row">
+                  <label for="projectFullDescriptionInput">Challenge</label>
+                  <textarea id="projectFullDescriptionInput" name="challenge" rows="5" required maxlength="5000"></textarea>
+                </div>
+              </section>
+
+              <section class="modal-section">
+                <div class="form-row">
+                  <label for="projectSolutionInput">Solution</label>
+                  <textarea id="projectSolutionInput" name="solution" rows="5" maxlength="5000"></textarea>
+                </div>
+                <div class="form-row">
+                  <label for="projectResultInput">Result</label>
+                  <textarea id="projectResultInput" name="result" rows="5" maxlength="5000"></textarea>
+                </div>
+              </section>
+
+              <section class="modal-section">
+                <div class="modal-section-title">Features</div>
+                <div id="projectFeaturesRows"></div>
+                <button class="icon-btn" type="button" id="addProjectFeaturesRowBtn">
+                  <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                  Add Feature
+                </button>
+              </section>
+
+              <section class="modal-section">
+                <div class="modal-section-title">Images</div>
+
+                <div class="upload-zone">
+                  <div class="upload-zone-title">Cover Image</div>
+                  <input id="projectCoverInput" type="file" accept="image/*" />
+                  <div class="upload-preview-grid" id="projectCoverPreview"></div>
+                  <div class="upload-progress" id="projectCoverUploadProgress" aria-live="polite">
+                    <div class="upload-progress-label" id="projectCoverUploadProgressLabel">No file selected</div>
+                    <div class="upload-progress-bar"><span id="projectCoverUploadProgressBar"></span></div>
+                  </div>
+                </div>
+
+                <div class="upload-zone">
+                  <div class="upload-zone-title">Before Images</div>
+                  <input id="projectBeforeInput" type="file" accept="image/*" multiple />
+                  <div class="upload-preview-grid" id="projectBeforePreview"></div>
+                  <div class="upload-progress" id="projectBeforeUploadProgress" aria-live="polite">
+                    <div class="upload-progress-label" id="projectBeforeUploadProgressLabel">No files selected</div>
+                    <div class="upload-progress-bar"><span id="projectBeforeUploadProgressBar"></span></div>
+                  </div>
+                </div>
+
+                <div class="upload-zone">
+                  <div class="upload-zone-title">Progress Images</div>
+                  <input id="projectProgressInput" type="file" accept="image/*" multiple />
+                  <div class="upload-preview-grid" id="projectProgressPreview"></div>
+                  <div class="upload-progress" id="projectProgressUploadProgress" aria-live="polite">
+                    <div class="upload-progress-label" id="projectProgressUploadProgressLabel">No files selected</div>
+                    <div class="upload-progress-bar"><span id="projectProgressUploadProgressBar"></span></div>
+                  </div>
+                </div>
+
+                <div class="upload-zone">
+                  <div class="upload-zone-title">After Images</div>
+                  <input id="projectAfterInput" type="file" accept="image/*" multiple />
+                  <div class="upload-preview-grid" id="projectAfterPreview"></div>
+                  <div class="upload-progress" id="projectAfterUploadProgress" aria-live="polite">
+                    <div class="upload-progress-label" id="projectAfterUploadProgressLabel">No files selected</div>
+                    <div class="upload-progress-bar"><span id="projectAfterUploadProgressBar"></span></div>
+                  </div>
+                </div>
+              </section>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button class="icon-btn" type="button" id="cancelProjectModalBtn">Cancel</button>
+            <button class="btn btn-primary" type="submit" form="projectForm" id="saveProjectBtn">
+              <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
+              Save Project
+            </button>
+          </div>
+          <div class="modal-inline-loading" id="projectModalLoading" role="status" aria-live="polite" hidden>
+            <div class="spinner" aria-hidden="true"></div>
+            <div>Saving project…</div>
+          </div>
+        </div>
       </div>
     </main>
   </div>
