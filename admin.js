@@ -1587,7 +1587,12 @@ async function main() {
       const btn = event.target.closest('button');
       if (!btn) return;
 
-      const tr = btn.closest('tr');
+      const clickedRow = btn.closest('tr');
+      if (!clickedRow) return;
+
+      const tr = clickedRow.classList.contains('product-edit-row')
+        ? clickedRow.previousElementSibling
+        : clickedRow;
       if (!tr) return;
 
       const id = tr.getAttribute('data-id');
