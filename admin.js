@@ -273,27 +273,30 @@ function productRowHtml(p) {
           <button class="icon-btn icon-btn-primary" type="button" data-action="edit">Edit</button>
           <button class="icon-btn icon-btn-danger" type="button" data-action="delete">Delete</button>
         </div>
-
+      </td>
+    </tr>
+    <tr class="product-edit-row" data-id="${p.id}">
+      <td colspan="6">
         <div class="inline-edit" aria-label="Edit form">
-          <div class="form-row" style="margin-top:10px;">
-            <label>Name</label>
-            <input type="text" class="edit-name" value="${escapeHtml(p.name || '')}" />
-          </div>
-          <div class="form-row">
-            <label>Description</label>
-            <textarea class="edit-description" rows="3">${escapeHtml(p.description || '')}</textarea>
-          </div>
-          <div class="form-row" style="flex-direction:row;gap:12px;">
-            <div style="flex:1">
+          <div class="edit-fields">
+            <div class="form-row">
+              <label>Name</label>
+              <input type="text" class="edit-name" value="${escapeHtml(p.name || '')}" />
+            </div>
+            <div class="form-row edit-description-field">
+              <label>Description</label>
+              <textarea class="edit-description" rows="3">${escapeHtml(p.description || '')}</textarea>
+            </div>
+            <div class="form-row">
               <label>Price (NGN)</label>
               <input type="number" class="edit-price" min="0" step="1" value="${escapeHtml(p.price ?? 0)}" />
             </div>
-            <div style="flex:1">
+            <div class="form-row">
               <label>Category</label>
               <input type="text" class="edit-category" value="${escapeHtml(p.category || '')}" />
             </div>
           </div>
-          <div class="actions" style="margin-top:10px;">
+          <div class="actions edit-actions">
             <button class="icon-btn" type="button" data-action="cancel">Cancel</button>
             <button class="icon-btn icon-btn-primary" type="button" data-action="save">Save</button>
           </div>
@@ -304,8 +307,9 @@ function productRowHtml(p) {
 }
 
 function setEditOpen(row, open) {
-  const edit = row.querySelector('.inline-edit');
+  const edit = row.nextElementSibling?.querySelector('.inline-edit');
   if (!edit) return;
+  row.nextElementSibling.classList.toggle('open', open);
   edit.classList.toggle('open', open);
 }
 
@@ -1450,7 +1454,12 @@ async function main() {
       const btn = event.target.closest('button');
       if (!btn) return;
 
-      const tr = btn.closest('tr');
+      const clickedRow = btn.closest('tr');
+      if (!clickedRow) return;
+
+      const tr = clickedRow.classList.contains('product-edit-row')
+        ? clickedRow.previousElementSibling
+        : clickedRow;
       if (!tr) return;
 
       const id = tr.getAttribute('data-id');
@@ -1599,10 +1608,10 @@ async function main() {
         try {
           setBusy(true);
 
-          const editName = tr.querySelector('.edit-name')?.value;
-          const editDescription = tr.querySelector('.edit-description')?.value;
-          const editPrice = Number(tr.querySelector('.edit-price')?.value);
-          const editCategory = tr.querySelector('.edit-category')?.value;
+          const editName = clickedRow.querySelector('.edit-name')?.value;
+          const editDescription = clickedRow.querySelector('.edit-description')?.value;
+          const editPrice = Number(clickedRow.querySelector('.edit-price')?.value);
+          const editCategory = clickedRow.querySelector('.edit-category')?.value;
 
           await updateProduct(id, {
             name: normalizeText(editName),
